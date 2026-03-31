@@ -507,7 +507,7 @@ export default function Home() {
                   <div className="w-full md:w-1/3 flex-shrink-0">
                     <div className="relative aspect-square overflow-hidden rounded-lg">
                       <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/shaun.jpeg`}
+                        src="/images/shaun.jpeg"
                         alt="Shaun Porwal"
                         className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
                       />
@@ -536,7 +536,7 @@ export default function Home() {
                   <div className="w-full md:w-1/3 flex-shrink-0">
                     <div className="relative aspect-square overflow-hidden rounded-lg">
                       <img
-                        src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/images/mikael.jpeg`}
+                        src="/images/mikael.jpeg"
                         alt="Mikael Moise"
                         className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
                       />
