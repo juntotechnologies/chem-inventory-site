@@ -548,14 +548,15 @@ export default function Home() {
                       Machine Learning Engineer
                     </p>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      Shaun Porwal is a Machine Learning Engineer at Memorial Sloan Kettering Cancer Center, author of
-                      <strong> dcurves</strong> ({dcurvesDownloads} downloads), and architect of <strong>RAIAT</strong>—an AI
-                      prototype that uses computer vision and large language models to aid radiologists; he also
-                      developed a secure, Llama 3.1–powered retrieval‑augmented generation text‑to‑SQL pipeline serving
-                      over 50 data scientists. Shaun holds a B.S. in Biomedical Engineering and Chinese (honors) from
-                      Rutgers University and an M.S. in Biomedical Data Science from the Icahn School of Medicine at
-                      Mount Sinai. He contributes to open‑source projects, performs on the violin, studies Mandarin,
-                      Japanese, and Spanish, and trains for marathons.
+                      Shaun Porwal has built biomedical AI systems spanning agentic workflows, survival modeling
+                      pipelines, and foundation-model research for biology, including recent work as a Founding Engineer
+                      at a biotech startup. Previously, he worked at Memorial Sloan Kettering Cancer Center, where he
+                      developed clinical machine learning tools and created <strong>dcurves</strong> ({dcurvesDownloads}
+                      downloads), an open-source Python library for decision curve analysis. His background also
+                      includes hands-on chemistry experience in labs and manufacturing environments in the United
+                      States, Taiwan, and Japan, which informs the way he thinks about chemical workflows in practice.
+                      Shaun holds a B.S. in Biomedical Engineering and Chinese from Rutgers University and an M.S. in
+                      Biomedical Data Science from the Icahn School of Medicine at Mount Sinai.
                     </p>
                   </div>
                 </div>
