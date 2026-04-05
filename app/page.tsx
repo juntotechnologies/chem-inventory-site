@@ -13,7 +13,6 @@ import {
   Shield,
   BarChart3,
   Check,
-  Github,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -614,53 +613,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mx-auto grid max-w-5xl items-start gap-6 sm:gap-8 py-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-              {/* Open Source Plan */}
-              <div className="flex flex-col h-full rounded-xl border bg-card p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20">
-                <div className="mb-5">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Open Source</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mt-2">For individual contributors</p>
+            <div className="mx-auto grid max-w-4xl items-start gap-6 sm:gap-8 py-8 grid-cols-1 md:grid-cols-2">
+              <div className="flex flex-col h-full rounded-xl border bg-card p-6 sm:p-8 shadow-lg relative before:absolute before:inset-0 before:-z-10 before:rounded-xl before:bg-gradient-to-b before:from-primary/20 before:to-[#2DD4BF]/20 before:blur-xl before:opacity-50">
+                <div className="absolute -top-4 left-0 right-0 mx-auto w-fit px-3 py-1 rounded-full bg-[#2DD4BF] text-white text-xs font-medium">
+                  Standard
                 </div>
                 <div className="mb-5">
-                  <div className="flex items-baseline">
-                    <span className="text-3xl sm:text-4xl font-bold text-[#1E3A8A]">Free</span>
-                  </div>
-                </div>
-                <ul className="mb-8 space-y-3 flex-1">
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-gray-500 mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Basic features</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-gray-500 mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Self-hosted solution</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-gray-500 mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">1 user account</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-gray-500 mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Community support</span>
-                  </li>
-                </ul>
-                <Button className="w-full bg-gray-700 hover:bg-gray-800 text-xs sm:text-sm" asChild>
-                  <a
-                    href="https://github.com/juntotechnologies/chem-inventory"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github className="h-4 w-4 mr-2" />
-                    View on GitHub
-                  </a>
-                </Button>
-              </div>
-
-              {/* Basic Plan */}
-              <div className="flex flex-col h-full rounded-xl border bg-card p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20">
-                <div className="mb-5">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Basic</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mt-2">Perfect for small labs and startups</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">$30/month</h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-2">For labs and teams with up to 10 people</p>
                 </div>
                 <div className="mb-5">
                   <div className="flex items-baseline">
@@ -671,115 +631,70 @@ export default function Home() {
                 <ul className="mb-8 space-y-3 flex-1">
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Up to 500 chemical entries</span>
+                    <span className="text-xs sm:text-sm">Up to 10 users</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">2 user accounts</span>
+                    <span className="text-xs sm:text-sm">Cloud-hosted chemical inventory management</span>
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm">Automatic updates</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
                     <span className="text-xs sm:text-sm">Email support</span>
                   </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Cloud hosting included</span>
-                  </li>
                 </ul>
                 <Button className="w-full bg-primary hover:bg-primary/90 text-xs sm:text-sm" asChild>
-                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Interest%20in%20Basic%20Plan">Get Started</a>
+                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Interest%20in%20CIMS%20Standard%20Plan">Get Started</a>
                 </Button>
               </div>
 
-              {/* Advanced Plan */}
-              <div className="flex flex-col h-full rounded-xl border bg-card p-6 sm:p-8 shadow-lg relative before:absolute before:inset-0 before:-z-10 before:rounded-xl before:bg-gradient-to-b before:from-primary/20 before:to-[#2DD4BF]/20 before:blur-xl before:opacity-50">
-                <div className="absolute -top-4 left-0 right-0 mx-auto w-fit px-3 py-1 rounded-full bg-[#2DD4BF] text-white text-xs font-medium">
-                  Most Popular
-                </div>
-                <div className="mb-5">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Advanced</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mt-2">Ideal for growing research facilities</p>
-                </div>
-                <div className="mb-5">
-                  <div className="flex items-baseline">
-                    <span className="text-3xl sm:text-4xl font-bold text-[#1E3A8A]">$100</span>
-                    <span className="text-sm text-muted-foreground ml-1">/month</span>
-                  </div>
-                </div>
-                <ul className="mb-8 space-y-3 flex-1">
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Unlimited chemical entries</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">10 user accounts</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Priority email support</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Advanced analytics</span>
-                  </li>
-                </ul>
-                <Button className="w-full bg-[#2DD4BF] hover:bg-[#2DD4BF]/90 text-xs sm:text-sm" asChild>
-                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Interest%20in%20Advanced%20Plan">
-                    Get Started
-                  </a>
-                </Button>
-              </div>
-
-              {/* Premium Plan (formerly Lifetime) */}
               <div className="flex flex-col h-full rounded-xl border bg-card p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20">
                 <div className="mb-5">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Premium</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Enterprise</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground mt-2">
-                    Best value for established organizations
+                    For organizations with more than 10 people
                   </p>
                 </div>
                 <div className="mb-5">
                   <div className="flex items-baseline">
-                    <span className="text-xl sm:text-2xl font-bold text-[#1E3A8A]">Request a quote</span>
+                    <span className="text-xl sm:text-2xl font-bold text-[#1E3A8A]">Contact for pricing</span>
                   </div>
                 </div>
                 <ul className="mb-8 space-y-3 flex-1">
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#FB923C] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Everything in Advanced</span>
+                    <span className="text-xs sm:text-sm">For teams above 10 users</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#FB923C] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Unlimited user accounts</span>
+                    <span className="text-xs sm:text-sm">Custom onboarding and rollout support</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#FB923C] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Phone & email support</span>
+                    <span className="text-xs sm:text-sm">Enterprise support options</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#FB923C] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Custom integrations</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-[#FB923C] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Dedicated account manager</span>
+                    <span className="text-xs sm:text-sm">Pricing tailored to organization size</span>
                   </li>
                 </ul>
                 <Button className="w-full bg-[#FB923C] hover:bg-[#FB923C]/90 text-xs sm:text-sm" asChild>
-                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Interest%20in%20Premium%20Plan">Get Started</a>
+                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Enterprise%20Pricing%20Inquiry">Contact Us</a>
                 </Button>
               </div>
             </div>
 
             <div className="mt-8 text-center">
               <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto">
-                All plans include automatic updates and basic technical support. For custom enterprise solutions, please{" "}
+                All plans include automatic updates and support. For organizations with more than 10 users, please{" "}
                 <a
                   href="mailto:juntotechnologiesllc@gmail.com?subject=Enterprise%20Inquiry"
                   className="text-primary hover:underline"
                 >
-                  contact our sales team
+                  reach out for enterprise pricing
                 </a>
                 .
               </p>
