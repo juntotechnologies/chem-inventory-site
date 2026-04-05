@@ -119,7 +119,7 @@ export default function Home() {
 
     const loadDcurvesDownloads = async () => {
       try {
-        const response = await fetch("/api/dcurves-downloads")
+        const response = await fetch("./dcurves-downloads.json")
 
         if (!response.ok) {
           return

@@ -1,25 +1,20 @@
+import { mkdir, writeFile } from "node:fs/promises"
+import { join } from "node:path"
+
 const PEPY_PROJECT_URL = "https://pepy.tech/projects/dcurves"
 const SHIELDS_BADGE_URL = "https://img.shields.io/pepy/dt/dcurves"
 const FALLBACK_ROUNDED_DOWNLOADS = "58k"
+const OUTPUT_DIRECTORY = "public"
+const OUTPUT_FILENAME = "dcurves-downloads.json"
 
-export const DCURVES_DOWNLOADS_REVALIDATE_SECONDS = 21600
-
-type DownloadsSource = "pepy" | "shields" | "fallback"
-
-export type DcurvesDownloads = {
-  source: DownloadsSource
-  totalDownloads: number | null
-  roundedDownloads: string
-}
-
-function formatRoundedDownloads(totalDownloads: number) {
+function formatRoundedDownloads(totalDownloads) {
   return new Intl.NumberFormat("en-US", {
     notation: "compact",
     maximumSignificantDigits: 2,
   }).format(totalDownloads)
 }
 
-function extractPepyTotalDownloads(html: string) {
+function extractPepyTotalDownloads(html) {
   const totalDownloadsMatch = html.match(/"totalDownloads":(\d+)/)
 
   if (!totalDownloadsMatch) {
@@ -29,7 +24,7 @@ function extractPepyTotalDownloads(html: string) {
   return Number(totalDownloadsMatch[1])
 }
 
-function extractBadgeValue(svg: string) {
+function extractBadgeValue(svg) {
   const badgeValueMatch = svg.match(/aria-label="downloads:\s*([^"]+)"/i)
 
   if (!badgeValueMatch) {
@@ -40,9 +35,7 @@ function extractBadgeValue(svg: string) {
 }
 
 async function fetchPepyDownloads() {
-  const response = await fetch(PEPY_PROJECT_URL, {
-    next: { revalidate: DCURVES_DOWNLOADS_REVALIDATE_SECONDS },
-  })
+  const response = await fetch(PEPY_PROJECT_URL)
 
   if (!response.ok) {
     return null
@@ -56,16 +49,14 @@ async function fetchPepyDownloads() {
   }
 
   return {
-    source: "pepy" as const,
+    source: "pepy",
     totalDownloads,
     roundedDownloads: formatRoundedDownloads(totalDownloads),
   }
 }
 
 async function fetchShieldsDownloads() {
-  const response = await fetch(SHIELDS_BADGE_URL, {
-    next: { revalidate: DCURVES_DOWNLOADS_REVALIDATE_SECONDS },
-  })
+  const response = await fetch(SHIELDS_BADGE_URL)
 
   if (!response.ok) {
     return null
@@ -79,13 +70,13 @@ async function fetchShieldsDownloads() {
   }
 
   return {
-    source: "shields" as const,
+    source: "shields",
     totalDownloads: null,
     roundedDownloads,
   }
 }
 
-export async function getDcurvesDownloads(): Promise<DcurvesDownloads> {
+async function getDcurvesDownloads() {
   try {
     const pepyDownloads = await fetchPepyDownloads()
 
@@ -108,3 +99,20 @@ export async function getDcurvesDownloads(): Promise<DcurvesDownloads> {
     roundedDownloads: FALLBACK_ROUNDED_DOWNLOADS,
   }
 }
+
+const downloads = await getDcurvesDownloads()
+const outputPath = join(process.cwd(), OUTPUT_DIRECTORY, OUTPUT_FILENAME)
+
+await mkdir(join(process.cwd(), OUTPUT_DIRECTORY), { recursive: true })
+await writeFile(
+  outputPath,
+  JSON.stringify(
+    {
+      ...downloads,
+      generatedAt: new Date().toISOString(),
+    },
+    null,
+    2,
+  ),
+)
+
