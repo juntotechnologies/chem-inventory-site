@@ -525,8 +525,8 @@ export default function Home() {
                   Meet the Expert Behind CIMS
                 </h2>
                 <p className="max-w-[900px] text-xs sm:text-sm text-muted-foreground md:text-base px-2">
-                  Our team combines expertise in data science, machine learning, and chemical management to deliver the
-                  best inventory solution.
+                  Shaun combines expertise in data science, machine learning, and chemical management to build a
+                  focused inventory solution grounded in real lab experience.
                 </p>
               </div>
             </div>
