@@ -66,6 +66,7 @@ export default function Home() {
   const [chemicals, setChemicals] = useState<ChemicalRecord[]>(initialChemicals)
   const [searchQuery, setSearchQuery] = useState("")
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
+  const [dcurvesDownloads, setDcurvesDownloads] = useState("58k")
   const [newChemical, setNewChemical] = useState<Omit<ChemicalRecord, "id" | "lastModified">>({
     productNumber: "",
     name: "",
@@ -111,6 +112,34 @@ export default function Home() {
   useEffect(() => {
     setChemicals(initialChemicals)
     setSearchQuery("")
+  }, [])
+
+  useEffect(() => {
+    let isMounted = true
+
+    const loadDcurvesDownloads = async () => {
+      try {
+        const response = await fetch("/api/dcurves-downloads")
+
+        if (!response.ok) {
+          return
+        }
+
+        const data = (await response.json()) as { roundedDownloads?: string }
+
+        if (isMounted && data.roundedDownloads) {
+          setDcurvesDownloads(data.roundedDownloads)
+        }
+      } catch {
+        // Keep the fallback count if the fetch fails.
+      }
+    }
+
+    void loadDcurvesDownloads()
+
+    return () => {
+      isMounted = false
+    }
   }, [])
 
   // Add shadow to navbar on scroll
@@ -493,7 +522,7 @@ export default function Home() {
                   Our Team
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">
-                  Meet the Experts Behind CIMS
+                  Meet the Expert Behind CIMS
                 </h2>
                 <p className="max-w-[900px] text-xs sm:text-sm text-muted-foreground md:text-base px-2">
                   Our team combines expertise in data science, machine learning, and chemical management to deliver the
@@ -501,7 +530,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="mx-auto grid max-w-6xl gap-4 sm:gap-6 py-4 sm:py-6 grid-cols-1 lg:grid-cols-2">
+            <div className="mx-auto grid max-w-3xl gap-4 sm:gap-6 py-4 sm:py-6 grid-cols-1">
               <div className="flex flex-col space-y-3 sm:space-y-4 rounded-xl border bg-white p-4 sm:p-6 shadow-sm overflow-hidden">
                 <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
                   <div className="w-full md:w-1/3 flex-shrink-0">
@@ -520,7 +549,7 @@ export default function Home() {
                     </p>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       Shaun Porwal is a Machine Learning Engineer at Memorial Sloan Kettering Cancer Center, author of
-                      <strong> dcurves</strong> (31,000+ downloads), and architect of <strong>RAIAT</strong>—an AI
+                      <strong> dcurves</strong> ({dcurvesDownloads} downloads), and architect of <strong>RAIAT</strong>—an AI
                       prototype that uses computer vision and large language models to aid radiologists; he also
                       developed a secure, Llama 3.1–powered retrieval‑augmented generation text‑to‑SQL pipeline serving
                       over 50 data scientists. Shaun holds a B.S. in Biomedical Engineering and Chinese (honors) from
@@ -531,7 +560,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col space-y-3 sm:space-y-4 rounded-xl border bg-white p-4 sm:p-6 shadow-sm overflow-hidden">
+              <div className="hidden flex-col space-y-3 sm:space-y-4 rounded-xl border bg-white p-4 sm:p-6 shadow-sm overflow-hidden">
                 <div className="flex flex-col md:flex-row gap-4 sm:gap-6">
                   <div className="w-full md:w-1/3 flex-shrink-0">
                     <div className="relative aspect-square overflow-hidden rounded-lg">
