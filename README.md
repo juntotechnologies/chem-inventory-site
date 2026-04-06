@@ -1,6 +1,6 @@
 # CIMS - Chemical Inventory Management System
 
-A modern chemical inventory management web application built with Next.js 15, React 19, and shadcn/ui. CIMS provides an interactive dashboard for tracking chemicals, transactions, suppliers, purchasers, and audit logs — designed for labs, research facilities, and organizations.
+A static marketing site for CIMS built with Vite, React 19, and Tailwind CSS. It showcases the product, pricing, team, and an interactive inventory demo while backend and payment functionality can live separately.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ npm install --legacy-peer-deps
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open the local Vite URL shown in the terminal, typically [http://localhost:5173](http://localhost:5173).
 
 ## Available Scripts
 
@@ -25,5 +25,4 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 |---|---|
 | `npm run dev` | Start development server |
 | `npm run build` | Build for production |
-| `npm run start` | Start production server |
-| `npm run lint` | Run Next.js linter |
+| `npm run preview` | Preview the production build locally |

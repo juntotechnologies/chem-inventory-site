@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
 import {
   ArrowRight,
   Beaker,
@@ -169,18 +168,18 @@ export default function Home() {
             <span className="text-lg sm:text-xl font-bold text-[#1E3A8A]">CIMS</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link href="#features" className="text-sm font-medium hover:text-primary transition-colors">
+            <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
               Features
-            </Link>
-            <Link href="#benefits" className="text-sm font-medium hover:text-primary transition-colors">
+            </a>
+            <a href="#benefits" className="text-sm font-medium hover:text-primary transition-colors">
               Benefits
-            </Link>
-            <Link href="#team" className="text-sm font-medium hover:text-primary transition-colors">
+            </a>
+            <a href="#team" className="text-sm font-medium hover:text-primary transition-colors">
               Team
-            </Link>
-            <Link href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
+            </a>
+            <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
               Pricing
-            </Link>
+            </a>
           </nav>
           <div className="flex items-center">
             <Button size="sm" className="text-xs sm:text-sm" asChild>
@@ -615,11 +614,8 @@ export default function Home() {
 
             <div className="mx-auto grid max-w-4xl items-start gap-6 sm:gap-8 py-8 grid-cols-1 md:grid-cols-2">
               <div className="flex flex-col h-full rounded-xl border bg-card p-6 sm:p-8 shadow-lg relative before:absolute before:inset-0 before:-z-10 before:rounded-xl before:bg-gradient-to-b before:from-primary/20 before:to-[#2DD4BF]/20 before:blur-xl before:opacity-50">
-                <div className="absolute -top-4 left-0 right-0 mx-auto w-fit px-3 py-1 rounded-full bg-[#2DD4BF] text-white text-xs font-medium">
-                  Standard
-                </div>
                 <div className="mb-5">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">$30/month</h3>
+                  <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Basic</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground mt-2">For labs and teams with up to 10 people</p>
                 </div>
                 <div className="mb-5">
@@ -647,7 +643,7 @@ export default function Home() {
                   </li>
                 </ul>
                 <Button className="w-full bg-primary hover:bg-primary/90 text-xs sm:text-sm" asChild>
-                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Interest%20in%20CIMS%20Standard%20Plan">Get Started</a>
+                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Interest%20in%20CIMS%20Basic%20Plan">Get Started</a>
                 </Button>
               </div>
 
@@ -711,7 +707,7 @@ export default function Home() {
             <span className="text-base sm:text-lg font-bold">CIMS</span>
           </div>
           <p className="text-center text-xs sm:text-sm text-white/70">
-            &copy; {new Date().getFullYear()} Chemical Inventory Management System. All rights reserved.
+            &copy; 2025 Chemical Inventory Management System. All rights reserved.
           </p>
         </div>
       </footer>
