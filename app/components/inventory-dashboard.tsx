@@ -662,7 +662,7 @@ export function InventoryDashboard() {
               </Button>
             </div>
             <div className="border rounded-md overflow-hidden">
-              <div className="max-h-[250px] overflow-y-auto">
+              <div className="max-h-[250px] overflow-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50 sticky top-0 z-10">
                     <tr>
@@ -749,7 +749,7 @@ export function InventoryDashboard() {
               </div>
             </div>
             <div className="border rounded-md overflow-hidden">
-              <div className="max-h-[250px] overflow-y-auto">
+              <div className="max-h-[250px] overflow-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50 sticky top-0 z-10">
                     <tr>
@@ -823,7 +823,7 @@ export function InventoryDashboard() {
               </Button>
             </div>
             <div className="border rounded-md overflow-hidden">
-              <div className="max-h-[250px] overflow-y-auto">
+              <div className="max-h-[250px] overflow-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50 sticky top-0 z-10">
                     <tr>
@@ -907,7 +907,7 @@ export function InventoryDashboard() {
               </Button>
             </div>
             <div className="border rounded-md overflow-hidden">
-              <div className="max-h-[250px] overflow-y-auto">
+              <div className="max-h-[250px] overflow-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50 sticky top-0 z-10">
                     <tr>
@@ -987,7 +987,7 @@ export function InventoryDashboard() {
               </div>
             </div>
             <div className="border rounded-md overflow-hidden">
-              <div className="max-h-[250px] overflow-y-auto">
+              <div className="max-h-[250px] overflow-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50 sticky top-0 z-10">
                     <tr>
@@ -1054,7 +1054,7 @@ export function InventoryDashboard() {
               </Button>
             </div>
             <div className="border rounded-md overflow-hidden">
-              <div className="max-h-[250px] overflow-y-auto">
+              <div className="max-h-[250px] overflow-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50 sticky top-0 z-10">
                     <tr>
@@ -1117,15 +1117,19 @@ export function InventoryDashboard() {
         <button onClick={() => setIsSidebarOpen(true)} className="mr-2 text-gray-600 hover:text-gray-900">
           <Menu className="h-5 w-5" />
         </button>
-        <div className="flex h-2 w-2 rounded-full bg-accent mr-2"></div>
-        <div className="flex h-2 w-2 rounded-full bg-[#2DD4BF] mr-2"></div>
-        <div className="flex h-2 w-2 rounded-full bg-primary mr-2"></div>
+        <div className="signal-blink flex h-2 w-2 rounded-full bg-accent mr-2"></div>
+        <div className="signal-blink signal-blink-delay-1 flex h-2 w-2 rounded-full bg-[#2DD4BF] mr-2"></div>
+        <div className="signal-blink signal-blink-delay-2 flex h-2 w-2 rounded-full bg-primary mr-2"></div>
         <div className="text-sm text-muted-foreground">Chemical Inventory Dashboard</div>
       </div>
 
       {/* Sidebar - contained within the dashboard */}
-      {isSidebarOpen && (
-        <div className="absolute top-0 left-0 h-full bg-white border-r-2 z-30 w-64 shadow-lg flex flex-col">
+      <div
+        className={cn(
+          "absolute top-0 left-0 h-full w-64 border-r-2 bg-white shadow-lg z-30 flex flex-col transition-all duration-300 ease-out",
+          isSidebarOpen ? "translate-x-0 opacity-100" : "-translate-x-6 opacity-0 pointer-events-none",
+        )}
+      >
           <div className="flex items-center justify-between p-4 border-b-2 h-10">
             <div className="flex items-center gap-2">
               <Beaker className="h-5 w-5 text-primary" />
@@ -1136,7 +1140,7 @@ export function InventoryDashboard() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto py-2">
+          <div className="flex-1 overflow-hidden py-2">
             {sidebarItems.map((item) => (
               <button
                 key={item.id}
@@ -1172,10 +1176,9 @@ export function InventoryDashboard() {
             </div>
           </div>
         </div>
-      )}
 
       {/* Main content - with consistent padding */}
-      <div className="h-[calc(100%-10px)] overflow-auto">
+      <div className="h-[calc(100%-10px)] overflow-hidden">
         <div className="p-4 h-full flex flex-col">
           <div className="flex-1">{renderContent()}</div>
           <div className="h-4"></div> {/* Bottom spacing */}
@@ -1183,13 +1186,14 @@ export function InventoryDashboard() {
       </div>
 
       {/* Overlay to close sidebar on mobile */}
-      {isSidebarOpen && (
-        <div
-          className="absolute inset-0 bg-black/20 z-20"
-          onClick={() => setIsSidebarOpen(false)}
-          style={{ position: "absolute" }}
-        />
-      )}
+      <div
+        className={cn(
+          "absolute inset-0 z-20 bg-black/20 transition-opacity duration-300 ease-out",
+          isSidebarOpen ? "opacity-100" : "pointer-events-none opacity-0",
+        )}
+        onClick={() => setIsSidebarOpen(false)}
+        style={{ position: "absolute" }}
+      />
 
       {/* Add Chemical Dialog */}
       <Dialog open={isAddChemicalOpen} onOpenChange={setIsAddChemicalOpen}>

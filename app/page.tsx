@@ -192,18 +192,21 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1 w-full overflow-x-hidden pt-16">
-        <section className="w-full py-6 md:py-12 lg:py-16 xl:py-24 bg-gradient-to-b from-background to-[#F1F5F9] overflow-x-hidden">
-          <div className="container px-2 sm:px-4 md:px-6 mx-auto">
-            <div className="max-w-7xl mx-auto grid gap-8 lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_800px] items-start">
+        <section className="relative w-full overflow-hidden bg-gradient-to-b from-background to-[#F1F5F9] py-6 md:min-h-[calc(100vh-4rem)] md:max-h-[calc(100vh-4rem)] md:py-8 lg:py-10">
+          <div className="ambient-bloom pointer-events-none absolute left-[-6rem] top-6 h-72 w-72 rounded-full bg-primary/20 blur-3xl"></div>
+          <div className="ambient-bloom pointer-events-none absolute right-[-4rem] top-20 h-80 w-80 rounded-full bg-[#2DD4BF]/20 blur-3xl [animation-delay:1.8s]"></div>
+          <div className="ambient-bloom pointer-events-none absolute left-[22%] bottom-[-2rem] h-60 w-60 rounded-full bg-[#FB923C]/16 blur-3xl [animation-delay:0.9s]"></div>
+          <div className="container relative z-10 px-2 sm:px-4 md:px-6 mx-auto">
+            <div className="max-w-7xl mx-auto grid gap-8 md:min-h-[calc(100vh-8rem)] md:items-center lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_800px]">
               <div className="flex flex-col justify-center space-y-4 sm:space-y-6 text-center lg:text-left">
                 <div className="space-y-2 sm:space-y-3 mx-auto lg:mx-0 max-w-full">
-                  <div className="inline-block rounded-full bg-[#2DD4BF]/20 px-2 py-1 text-[11px] sm:text-xs lg:text-sm text-[#2DD4BF] font-medium whitespace-nowrap">
+                  <div className="soft-pulse inline-block rounded-full border border-[#2DD4BF]/25 bg-[#2DD4BF]/20 px-2 py-1 text-[11px] sm:text-xs lg:text-sm text-[#2DD4BF] font-medium whitespace-nowrap">
                     Tailored Inventory Software for Chemical Workflows
                   </div>
                   <h1 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl lg:text-5xl text-[#1E3A8A] break-words">
                     <span className="block">Software Designed</span>
                     <span className="block">Directly With</span>
-                    <span className="block text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight text-[#FB923C]">
+                    <span className="accent-glow block text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight text-[#FB923C]">
                       Your Team
                     </span>
                   </h1>
@@ -216,7 +219,7 @@ export default function Home() {
                 <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
                   <Button
                     size="sm"
-                    className="transition-all hover:scale-105 bg-primary text-white text-xs sm:text-sm"
+                    className="soft-pulse ring-1 ring-primary/20 transition-all hover:scale-105 bg-primary text-white text-xs sm:text-sm"
                     asChild
                   >
                     <a href="mailto:juntotechnologiesllc@gmail.com?subject=Custom%20Software%20Inquiry">
@@ -226,7 +229,7 @@ export default function Home() {
                   </Button>
                 </div>
               </div>
-              <div className="flex items-start justify-center w-full pt-4 overflow-hidden">
+              <div className="flex items-center justify-center w-full overflow-hidden">
                 {/* Replace the old dashboard with our new interactive one */}
                 <InventoryDashboard />
               </div>
@@ -263,8 +266,8 @@ export default function Home() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-3 sm:gap-4 py-4 sm:py-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-              <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10">
+              <div className="ambient-panel card-breathe flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
+                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10">
                   <ClipboardList className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Comprehensive Tracking</h3>
@@ -273,8 +276,8 @@ export default function Home() {
                   batch details, and custom operational metadata.
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#2DD4BF]/10">
+              <div className="ambient-panel card-breathe [animation-delay:0.6s] flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
+                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#2DD4BF]/10">
                   <History className="h-5 w-5 sm:h-6 sm:w-6 text-[#2DD4BF]" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Detailed Audit Logs</h3>
@@ -283,8 +286,8 @@ export default function Home() {
                   accountability aligned to your internal standards.
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#FB923C]/10">
+              <div className="ambient-panel card-breathe [animation-delay:1.2s] flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
+                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#FB923C]/10">
                   <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-[#FB923C]" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Supplier Management</h3>
@@ -293,8 +296,8 @@ export default function Home() {
                   evaluates and sources chemicals.
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#FB923C]/10">
+              <div className="ambient-panel card-breathe [animation-delay:1.8s] flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
+                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#FB923C]/10">
                   <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6 text-[#FB923C]" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Purchaser Tracking</h3>
@@ -303,8 +306,8 @@ export default function Home() {
                   authorization and handoff process.
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10">
+              <div className="ambient-panel card-breathe [animation-delay:2.4s] flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
+                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10">
                   <Users className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">User Management</h3>
@@ -313,8 +316,8 @@ export default function Home() {
                   your organization.
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#2DD4BF]/10">
+              <div className="ambient-panel card-breathe [animation-delay:3s] flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
+                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-[#2DD4BF]/10">
                   <BarChart3 className="h-5 w-5 sm:h-6 sm:w-6 text-[#2DD4BF]" />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Inventory Analytics</h3>
@@ -475,7 +478,7 @@ export default function Home() {
                 </ul>
               </div>
               <div className="relative">
-                <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-primary/20 to-[#2DD4BF]/20 blur-xl opacity-50"></div>
+                <div className="ambient-panel absolute -inset-4 rounded-xl bg-gradient-to-r from-primary/20 to-[#2DD4BF]/20 blur-xl opacity-50"></div>
                 <div className="relative bg-white rounded-xl border shadow-lg p-4 sm:p-6">
                   <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div className="flex items-center gap-2">
