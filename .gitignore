@@ -9,7 +9,9 @@ node_modules/
 # Next.js
 .next/
 out/
+dist/
 public/dcurves-downloads.json
+bun.lock
 
 # Environment
 .env
