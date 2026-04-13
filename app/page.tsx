@@ -197,26 +197,30 @@ export default function Home() {
             <div className="max-w-7xl mx-auto grid gap-8 lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_800px] items-start">
               <div className="flex flex-col justify-center space-y-4 sm:space-y-6 text-center lg:text-left">
                 <div className="space-y-2 sm:space-y-3 mx-auto lg:mx-0 max-w-full">
-                  <div className="inline-block rounded-full bg-[#2DD4BF]/20 px-2 py-1 text-xs sm:text-sm text-[#2DD4BF] font-medium">
-                    Just Inventory. Nothing More. Nothing Less.
+                  <div className="inline-block rounded-full bg-[#2DD4BF]/20 px-2 py-1 text-[11px] sm:text-xs lg:text-sm text-[#2DD4BF] font-medium whitespace-nowrap">
+                    Tailored Inventory Software for Chemical Workflows
                   </div>
                   <h1 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl lg:text-5xl text-[#1E3A8A] break-words">
-                    Chemical Inventory Management System
+                    <span className="block">Software Designed</span>
+                    <span className="block">Directly With</span>
+                    <span className="block text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight text-[#FB923C]">
+                      Your Team
+                    </span>
                   </h1>
                   <p className="text-sm sm:text-base text-muted-foreground md:text-lg">
-                    For those who want to do inventory <span className="font-bold text-[#1E3A8A]">just right</span>. No
-                    QuickBooks complexity. No unnecessary features. Just powerful chemical inventory tracking that
-                    works.
+                    I work directly with companies to design chemical inventory software around their actual workflows,
+                    compliance needs, and operating constraints. This is not a generic app. It is a focused system
+                    shaped to fit the way your team really works.
                   </p>
                 </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center lg:justify-start">
+                <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
                   <Button
                     size="sm"
                     className="transition-all hover:scale-105 bg-primary text-white text-xs sm:text-sm"
                     asChild
                   >
-                    <a href="mailto:juntotechnologiesllc@gmail.com?subject=Demo%20Request">
-                      Request Demo
+                    <a href="mailto:juntotechnologiesllc@gmail.com?subject=Custom%20Software%20Inquiry">
+                      Discuss Your Workflow
                       <ArrowRight className="ml-1 h-3 w-3 sm:ml-2 sm:h-4 sm:w-4" />
                     </a>
                   </Button>
@@ -232,14 +236,16 @@ export default function Home() {
 
         <div className="section-divider"></div>
 
-        <VideoSection title="See CIMS in Action" embedUrl="https://www.youtube.com/embed/v251ll_f4AY" autoplay={true} />
+        <VideoSection
+          title="See a Tailored CIMS Workflow in Action"
+          embedUrl="https://www.youtube.com/embed/v251ll_f4AY"
+          autoplay={true}
+        />
 
+        <div id="features" className="relative -top-6"></div>
         <div className="section-divider"></div>
 
-        <section
-          id="features"
-          className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-br from-[#F1F5F9] via-background to-[#F1F5F9] relative overflow-hidden"
-        >
+        <section className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-br from-[#F1F5F9] via-background to-[#F1F5F9] relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
           <div className="container px-2 sm:px-4 md:px-6 relative z-10 content-container">
             <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center">
@@ -248,11 +254,11 @@ export default function Home() {
                   Key Features
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">
-                  Focused Solely on Chemical Inventory Excellence
+                  Built Around the Work Your Team Actually Does
                 </h2>
                 <p className="text-sm sm:text-base text-muted-foreground md:text-lg px-2">
-                  While other systems try to do everything, CIMS masters just one thing: chemical inventory management.
-                  No bloat, no complexity—just the features you actually need.
+                  Every implementation starts with your process, not a generic template. The result is software shaped
+                  around chemical inventory workflows, approvals, reporting, and controls that matter to your company.
                 </p>
               </div>
             </div>
@@ -263,8 +269,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Comprehensive Tracking</h3>
                 <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Track product numbers, chemical names, CAS numbers, batch numbers, and locations in one centralized
-                  system.
+                  Track the fields your organization needs, from product numbers and CAS numbers to internal locations,
+                  batch details, and custom operational metadata.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
@@ -273,8 +279,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Detailed Audit Logs</h3>
                 <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Complete history of all inventory changes with timestamps and user information for compliance and
-                  accountability.
+                  Capture the audit trail your compliance process requires, with change history, timestamps, and user
+                  accountability aligned to your internal standards.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
@@ -283,7 +289,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Supplier Management</h3>
                 <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Maintain detailed supplier records with contact information and purchase history for each chemical.
+                  Maintain supplier records, contacts, and purchasing context in a way that matches how your team
+                  evaluates and sources chemicals.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
@@ -292,8 +299,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Purchaser Tracking</h3>
                 <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Record and manage all purchaser information with complete transaction history and authorization
-                  details.
+                  Record purchaser details, approvals, and transaction history in workflows tailored to your
+                  authorization and handoff process.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
@@ -302,8 +309,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">User Management</h3>
                 <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Secure role-based access control with customizable permissions for different user types and
-                  departments.
+                  Configure role-based access, permissions, and team structures around the people and departments in
+                  your organization.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
@@ -312,19 +319,18 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Inventory Analytics</h3>
                 <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Powerful reporting tools to analyze inventory levels, usage patterns, and forecast future needs.
+                  Surface the reports, dashboards, and forecasting views your company needs instead of forcing you into
+                  canned analytics.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
+        <div id="benefits" className="relative -top-6"></div>
         <div className="section-divider"></div>
 
-        <section
-          id="benefits"
-          className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-tr from-background via-[#F1F5F9]/30 to-background relative"
-        >
+        <section className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-tr from-background via-[#F1F5F9]/30 to-background relative">
           <div className="absolute inset-0 bg-dot-pattern opacity-5"></div>
           <div className="container px-2 sm:px-4 md:px-6 content-container">
             <div className="grid gap-6 sm:gap-10 px-2 sm:px-6 md:gap-16 lg:grid-cols-2">
@@ -333,11 +339,11 @@ export default function Home() {
                   Benefits
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">
-                  Streamline Your Chemical Management
+                  A Better Fit Than Off-the-Shelf Software
                 </h2>
                 <p className="max-w-[600px] text-xs sm:text-sm text-muted-foreground md:text-base">
-                  CIMS eliminates the complexity of chemical inventory management, helping you maintain compliance and
-                  improve operational efficiency.
+                  Working directly with your company means the software can support your exact chemical operations
+                  instead of making your team adapt to a generic product.
                 </p>
               </div>
               <div className="grid gap-4 sm:gap-6">
@@ -350,8 +356,8 @@ export default function Home() {
                       Enhanced Safety & Compliance
                     </h3>
                     <p className="text-xs sm:text-sm text-muted-foreground">
-                      Maintain accurate records for regulatory compliance and safety audits with detailed tracking of
-                      all chemical information.
+                      Maintain accurate records for regulatory compliance and safety audits with controls and data
+                      structures designed around your environment.
                     </p>
                   </div>
                 </div>
@@ -362,8 +368,8 @@ export default function Home() {
                   <div>
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#1E3A8A]">Reduced Waste & Costs</h3>
                     <p className="text-xs sm:text-sm text-muted-foreground">
-                      Optimize inventory levels to minimize excess stock and reduce waste of expensive or time-sensitive
-                      chemicals.
+                      Optimize inventory levels with workflows tuned to your purchasing patterns, storage constraints,
+                      and waste-reduction goals.
                     </p>
                   </div>
                 </div>
@@ -374,8 +380,8 @@ export default function Home() {
                   <div>
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#1E3A8A]">Simplified Auditing</h3>
                     <p className="text-xs sm:text-sm text-muted-foreground">
-                      Generate comprehensive audit reports with complete history of all inventory changes, transactions,
-                      and user actions.
+                      Generate audit-ready reporting with the exact change history, transaction visibility, and user
+                      actions your stakeholders need.
                     </p>
                   </div>
                 </div>
@@ -391,14 +397,14 @@ export default function Home() {
             <div className="grid gap-6 sm:gap-10 lg:grid-cols-2 items-center">
               <div className="space-y-2 sm:space-y-3">
                 <div className="inline-block rounded-full bg-[#FB923C]/20 px-2 py-1 text-xs sm:text-sm text-[#FB923C] font-medium">
-                  Simplicity by Design
+                  Built With You
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">
-                  We Focused on One Thing So You Can Focus on Your Work
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tighter text-[#1E3A8A] whitespace-nowrap">
+                  Custom Software Without Generic Software Bloat
                 </h2>
                 <p className="text-xs sm:text-sm text-muted-foreground md:text-base max-w-[600px]">
-                  Unlike bloated enterprise systems that try to do everything, CIMS was built with a singular focus:
-                  making chemical inventory management as efficient and painless as possible.
+                  I partner directly with companies to define the right scope, workflows, and reporting from the start
+                  so the final system feels purpose-built rather than retrofitted.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
@@ -420,7 +426,7 @@ export default function Home() {
                         />
                       </svg>
                     </div>
-                    <span className="text-xs sm:text-sm">No QuickBooks complexity or steep learning curve</span>
+                    <span className="text-xs sm:text-sm">Designed around your workflows instead of forcing a generic process</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="rounded-full bg-[#FB923C]/10 p-1 mt-1">
@@ -441,7 +447,7 @@ export default function Home() {
                         />
                       </svg>
                     </div>
-                    <span className="text-xs sm:text-sm">No unnecessary modules you'll never use</span>
+                    <span className="text-xs sm:text-sm">No unnecessary modules or generic features your team will ignore</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="rounded-full bg-[#FB923C]/10 p-1 mt-1">
@@ -463,7 +469,7 @@ export default function Home() {
                       </svg>
                     </div>
                     <span className="text-xs sm:text-sm">
-                      Just the features you need, perfected through years of feedback
+                      Direct collaboration, thoughtful implementation, and software tailored to your needs
                     </span>
                   </li>
                 </ul>
@@ -476,7 +482,7 @@ export default function Home() {
                       <Beaker className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                       <span className="text-base sm:text-lg font-bold text-[#1E3A8A]">Chemical Inventory</span>
                     </div>
-                    <div className="text-xs sm:text-sm text-muted-foreground">Focused. Efficient. Simple.</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">Focused. Tailored. Practical.</div>
                   </div>
                   <div className="space-y-3 sm:space-y-4">
                     <div className="h-2 w-full bg-[#F1F5F9] rounded-full overflow-hidden">
@@ -497,7 +503,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="text-xs sm:text-sm text-muted-foreground text-center italic">
-                      "Just the features you need, nothing you don't."
+                      "Built around your workflow, not a generic template."
                     </div>
                   </div>
                 </div>
@@ -506,12 +512,10 @@ export default function Home() {
           </div>
         </section>
 
+        <div id="team" className="relative -top-6"></div>
         <div className="section-divider"></div>
 
-        <section
-          id="team"
-          className="w-full py-4 sm:py-6 md:py-8 lg:py-10 bg-gradient-to-br from-background via-[#F1F5F9]/30 to-background relative"
-        >
+        <section className="w-full py-4 sm:py-6 md:py-8 lg:py-10 bg-gradient-to-br from-background via-[#F1F5F9]/30 to-background relative">
           <div className="absolute inset-0 bg-dot-pattern opacity-5"></div>
           <div className="container px-2 sm:px-4 md:px-6 relative z-10 content-container">
             <div className="flex flex-col items-center justify-center space-y-2 text-center">
@@ -520,11 +524,11 @@ export default function Home() {
                   Our Team
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">
-                  Meet the Expert Behind CIMS
+                  Work Directly With the Builder
                 </h2>
                 <p className="max-w-[900px] text-xs sm:text-sm text-muted-foreground md:text-base px-2">
-                  Shaun combines expertise in data science, machine learning, and chemical management to build a
-                  focused inventory solution grounded in real lab experience.
+                  Shaun works directly with companies to understand their operations and design software that reflects
+                  how their teams actually handle chemical inventory, compliance, and reporting.
                 </p>
               </div>
             </div>
@@ -553,7 +557,9 @@ export default function Home() {
                       downloads), an open-source Python library for decision curve analysis. His background also
                       includes hands-on chemistry experience in labs and manufacturing environments in the United
                       States, Taiwan, and Japan, which informs the way he thinks about chemical workflows in practice.
-                      Shaun holds a B.S. in Biomedical Engineering and Chinese from Rutgers University and an M.S. in
+                      That mix of technical depth and operational context helps him partner closely with companies to
+                      design software tailored to their needs rather than shipping a one-size-fits-all product. Shaun
+                      holds a B.S. in Biomedical Engineering and Chinese from Rutgers University and an M.S. in
                       Biomedical Data Science from the Icahn School of Medicine at Mount Sinai.
                     </p>
                   </div>
@@ -589,13 +595,11 @@ export default function Home() {
           </div>
         </section>
 
+        <div id="pricing" className="relative -top-6"></div>
         <div className="section-divider"></div>
 
         {/* Pricing Section */}
-        <section
-          id="pricing"
-          className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-b from-[#F1F5F9] to-background relative"
-        >
+        <section className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-b from-[#F1F5F9] to-background relative">
           <div className="absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
           <div className="container px-2 sm:px-4 md:px-6 relative z-10 content-container">
             <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center">
@@ -604,93 +608,56 @@ export default function Home() {
                   Pricing
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">
-                  Simple, Transparent Pricing
+                  Pricing Built Around Your Organization
                 </h2>
                 <p className="text-sm sm:text-base text-muted-foreground md:text-lg px-2">
-                  Choose the plan that fits your needs. No hidden fees, no complicated pricing structures.
+                  Flexible pricing for companies that want tailored chemical inventory software and direct collaboration
+                  throughout implementation.
                 </p>
               </div>
             </div>
 
-            <div className="mx-auto grid max-w-4xl items-start gap-6 sm:gap-8 py-8 grid-cols-1 md:grid-cols-2">
-              <div className="flex flex-col h-full rounded-xl border bg-card p-6 sm:p-8 shadow-lg relative before:absolute before:inset-0 before:-z-10 before:rounded-xl before:bg-gradient-to-b before:from-primary/20 before:to-[#2DD4BF]/20 before:blur-xl before:opacity-50">
-                <div className="mb-5">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Basic</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground mt-2">For labs and teams with up to 10 people</p>
-                </div>
-                <div className="mb-5">
-                  <div className="flex items-baseline">
-                    <span className="text-3xl sm:text-4xl font-bold text-[#1E3A8A]">$30</span>
-                    <span className="text-sm text-muted-foreground ml-1">/month</span>
-                  </div>
-                </div>
-                <ul className="mb-8 space-y-3 flex-1">
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Up to 10 users</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Cloud-hosted chemical inventory management</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Automatic updates</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-[#2DD4BF] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Email support</span>
-                  </li>
-                </ul>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-xs sm:text-sm" asChild>
-                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Interest%20in%20CIMS%20Basic%20Plan">Get Started</a>
-                </Button>
-              </div>
-
-              <div className="flex flex-col h-full rounded-xl border bg-card p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20">
-                <div className="mb-5">
-                  <h3 className="text-lg sm:text-xl font-bold text-[#1E3A8A]">Enterprise</h3>
+            <div className="mx-auto grid max-w-lg items-start gap-6 py-8 grid-cols-1">
+              <div className="mx-auto flex w-full max-w-md flex-col h-full rounded-xl border bg-card p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20">
+                <div className="mb-5 text-center">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#1E3A8A]">Enterprise</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground mt-2">
-                    For organizations with more than 10 people
+                    For organizations that need tailored rollout, white glove service, and pricing built around their
+                    needs
                   </p>
                 </div>
-                <div className="mb-5">
-                  <div className="flex items-baseline">
-                    <span className="text-xl sm:text-2xl font-bold text-[#1E3A8A]">Contact for pricing</span>
-                  </div>
-                </div>
                 <ul className="mb-8 space-y-3 flex-1">
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#FB923C] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">For teams above 10 users</span>
+                    <span className="text-[11px] sm:text-xs whitespace-nowrap">Tailored for your team size and operating model</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#FB923C] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Custom onboarding and rollout support</span>
+                    <span className="text-[11px] sm:text-xs whitespace-nowrap">White glove onboarding and rollout support</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#FB923C] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Enterprise support options</span>
+                    <span className="text-[11px] sm:text-xs whitespace-nowrap">Direct collaboration to shape workflows and reporting</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="h-4 w-4 text-[#FB923C] mr-2 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm">Pricing tailored to organization size</span>
+                    <span className="text-[11px] sm:text-xs whitespace-nowrap">Software tailored to your company instead of a generic app</span>
                   </li>
                 </ul>
                 <Button className="w-full bg-[#FB923C] hover:bg-[#FB923C]/90 text-xs sm:text-sm" asChild>
-                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Enterprise%20Pricing%20Inquiry">Contact Us</a>
+                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Enterprise%20Pricing%20Inquiry">Start the Conversation</a>
                 </Button>
               </div>
             </div>
 
             <div className="mt-8 text-center">
               <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto">
-                All plans include automatic updates and support. For organizations with more than 10 users, please{" "}
+                Need software designed around your company&apos;s workflow and support expectations?{" "}
                 <a
                   href="mailto:juntotechnologiesllc@gmail.com?subject=Enterprise%20Inquiry"
                   className="text-primary hover:underline"
                 >
-                  reach out for enterprise pricing
+                  Reach out to discuss pricing and fit
                 </a>
                 .
               </p>

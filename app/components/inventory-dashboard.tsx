@@ -1111,9 +1111,9 @@ export function InventoryDashboard() {
   }
 
   return (
-    <div className="relative w-full max-w-[800px] h-[420px] border rounded-lg bg-white shadow-lg overflow-hidden">
+    <div className="relative w-full max-w-[800px] h-[420px] border-2 rounded-lg bg-white shadow-lg overflow-hidden">
       {/* Header with menu button */}
-      <div className="flex items-center border-b bg-muted/50 px-4 py-2 h-10">
+      <div className="flex items-center border-b-2 bg-muted/50 px-4 py-2 h-10">
         <button onClick={() => setIsSidebarOpen(true)} className="mr-2 text-gray-600 hover:text-gray-900">
           <Menu className="h-5 w-5" />
         </button>
@@ -1125,8 +1125,8 @@ export function InventoryDashboard() {
 
       {/* Sidebar - contained within the dashboard */}
       {isSidebarOpen && (
-        <div className="absolute top-0 left-0 h-full bg-white border-r z-30 w-64 shadow-lg flex flex-col">
-          <div className="flex items-center justify-between p-4 border-b h-10">
+        <div className="absolute top-0 left-0 h-full bg-white border-r-2 z-30 w-64 shadow-lg flex flex-col">
+          <div className="flex items-center justify-between p-4 border-b-2 h-10">
             <div className="flex items-center gap-2">
               <Beaker className="h-5 w-5 text-primary" />
               <span className="text-lg font-bold text-primary">Chemical Inventory</span>
