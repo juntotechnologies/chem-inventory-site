@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import {
   ArrowRight,
   Beaker,
+  Menu,
+  X,
   ClipboardList,
   History,
   Users,
@@ -64,6 +66,7 @@ export default function Home() {
   const [chemicals, setChemicals] = useState<ChemicalRecord[]>(initialChemicals)
   const [searchQuery, setSearchQuery] = useState("")
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
   const [dcurvesDownloads, setDcurvesDownloads] = useState("58k")
   const [newChemical, setNewChemical] = useState<Omit<ChemicalRecord, "id" | "lastModified">>({
     productNumber: "",
@@ -162,45 +165,105 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
       <header className="fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm transition-shadow duration-300">
-        <div className="container flex h-16 items-center justify-between px-2 sm:px-4 mx-auto max-w-full overflow-x-hidden">
-          <div className="flex items-center gap-2">
-            <Beaker className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
-            <span className="text-lg sm:text-xl font-bold text-[#1E3A8A]">CIMS</span>
-          </div>
-          <nav className="hidden md:flex gap-6">
-            <a href="#features" className="text-sm font-medium hover:text-primary transition-colors">
-              Features
-            </a>
-            <a href="#benefits" className="text-sm font-medium hover:text-primary transition-colors">
-              Benefits
-            </a>
-            <a href="#team" className="text-sm font-medium hover:text-primary transition-colors">
-              Team
-            </a>
-            <a href="#pricing" className="text-sm font-medium hover:text-primary transition-colors">
-              Pricing
-            </a>
-          </nav>
-          <div className="flex items-center">
-            <Button size="sm" className="text-xs sm:text-sm" asChild>
-              <a href="mailto:juntotechnologiesllc@gmail.com?subject=CIMS%20Query">
-                Contact Us
-                <ArrowRight className="ml-1 h-3 w-3 sm:ml-2 sm:h-4 sm:w-4" />
+        <div className="container mx-auto max-w-full overflow-x-hidden px-2 sm:px-4">
+          <div className="flex h-16 items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Beaker className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
+              <span className="text-lg sm:text-xl font-bold text-[#1E3A8A]">CIMS</span>
+            </div>
+            <nav className="hidden items-center gap-5 md:flex lg:gap-6">
+              <a href="#features" className="whitespace-nowrap text-sm font-medium hover:text-primary transition-colors">
+                Features
               </a>
-            </Button>
+              <a href="#benefits" className="whitespace-nowrap text-sm font-medium hover:text-primary transition-colors">
+                Benefits
+              </a>
+              <a href="#team" className="whitespace-nowrap text-sm font-medium hover:text-primary transition-colors">
+                Team
+              </a>
+              <a href="#pricing" className="whitespace-nowrap text-sm font-medium hover:text-primary transition-colors">
+                Pricing
+              </a>
+            </nav>
+            <div className="flex items-center gap-2">
+              <Button size="sm" className="hidden text-xs sm:text-sm md:inline-flex" asChild>
+                <a href="mailto:juntotechnologiesllc@gmail.com?subject=CIMS%20Query">
+                  Contact Us
+                  <ArrowRight className="ml-1 h-3 w-3 sm:ml-2 sm:h-4 sm:w-4" />
+                </a>
+              </Button>
+              <button
+                type="button"
+                className="flex h-9 w-9 items-center justify-center rounded-md text-primary transition-colors hover:bg-primary/10 md:hidden"
+                onClick={() => setIsMobileNavOpen((open) => !open)}
+                aria-label={isMobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={isMobileNavOpen}
+              >
+                {isMobileNavOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+            </div>
           </div>
         </div>
+        {isMobileNavOpen && (
+          <>
+            <div className="absolute inset-x-0 top-full h-screen bg-black/10 backdrop-blur-[1px] md:hidden" onClick={() => setIsMobileNavOpen(false)} />
+            <div className="absolute inset-x-0 top-full flex justify-center px-3 pt-3 md:hidden">
+              <nav className="w-full max-w-sm rounded-2xl border bg-background/95 p-2 shadow-2xl ring-1 ring-primary/10 backdrop-blur">
+                <div className="mb-1 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  Navigate
+                </div>
+                <div className="flex flex-col gap-1 text-left">
+                  <a
+                    href="#features"
+                    className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
+                    onClick={() => setIsMobileNavOpen(false)}
+                  >
+                    Features
+                  </a>
+                  <a
+                    href="#benefits"
+                    className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
+                    onClick={() => setIsMobileNavOpen(false)}
+                  >
+                    Benefits
+                  </a>
+                  <a
+                    href="#team"
+                    className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
+                    onClick={() => setIsMobileNavOpen(false)}
+                  >
+                    Team
+                  </a>
+                  <a
+                    href="#pricing"
+                    className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
+                    onClick={() => setIsMobileNavOpen(false)}
+                  >
+                    Pricing
+                  </a>
+                  <a
+                    href="mailto:juntotechnologiesllc@gmail.com?subject=CIMS%20Query"
+                    className="mt-1 rounded-xl bg-primary px-3 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
+                    onClick={() => setIsMobileNavOpen(false)}
+                  >
+                    Contact Us
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </>
+        )}
       </header>
       <main className="flex-1 w-full overflow-x-hidden pt-16">
-        <section className="relative w-full overflow-hidden bg-gradient-to-b from-background to-[#F1F5F9] py-6 md:min-h-[calc(100vh-4rem)] md:max-h-[calc(100vh-4rem)] md:py-8 lg:py-10">
+        <section className="relative w-full overflow-hidden bg-gradient-to-b from-background to-[#F1F5F9] py-4 md:min-h-[calc(100vh-4rem)] md:max-h-[calc(100vh-4rem)] md:py-6 lg:py-7">
           <div className="ambient-bloom pointer-events-none absolute left-[-6rem] top-6 h-72 w-72 rounded-full bg-primary/20 blur-3xl"></div>
           <div className="ambient-bloom pointer-events-none absolute right-[-4rem] top-20 h-80 w-80 rounded-full bg-[#2DD4BF]/20 blur-3xl [animation-delay:1.8s]"></div>
           <div className="ambient-bloom pointer-events-none absolute left-[22%] bottom-[-2rem] h-60 w-60 rounded-full bg-[#FB923C]/16 blur-3xl [animation-delay:0.9s]"></div>
           <div className="container relative z-10 px-2 sm:px-4 md:px-6 mx-auto">
-            <div className="max-w-7xl mx-auto grid gap-8 md:min-h-[calc(100vh-8rem)] md:items-center lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_800px]">
+            <div className="max-w-7xl mx-auto grid gap-6 md:min-h-[calc(100vh-9rem)] md:items-center lg:grid-cols-[1fr_600px] lg:gap-10 xl:grid-cols-[1fr_800px]">
               <div className="flex flex-col justify-center space-y-4 sm:space-y-6 text-center lg:text-left">
                 <div className="space-y-2 sm:space-y-3 mx-auto lg:mx-0 max-w-full">
-                  <div className="soft-pulse inline-block rounded-full border border-[#2DD4BF]/25 bg-[#2DD4BF]/20 px-2 py-1 text-[11px] sm:text-xs lg:text-sm text-[#2DD4BF] font-medium whitespace-nowrap">
+                  <div className="section-chip section-chip-secondary-soft text-[11px] whitespace-nowrap sm:text-xs lg:mx-0 lg:text-sm">
                     Tailored Inventory Software for Chemical Workflows
                   </div>
                   <h1 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl lg:text-5xl text-[#1E3A8A] break-words">
@@ -249,11 +312,11 @@ export default function Home() {
         <div className="section-divider"></div>
 
         <section className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-br from-[#F1F5F9] via-background to-[#F1F5F9] relative overflow-hidden">
-          <div className="absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+          <div className="pointer-events-none absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
           <div className="container px-2 sm:px-4 md:px-6 relative z-10 content-container">
             <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center">
               <div className="space-y-2 sm:space-y-3 max-w-[900px]">
-                <div className="inline-block rounded-full bg-primary px-2 py-1 text-xs sm:text-sm text-white font-medium">
+                <div className="section-chip section-chip-primary-soft sm:text-sm">
                   Key Features
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">
@@ -334,11 +397,11 @@ export default function Home() {
         <div className="section-divider"></div>
 
         <section className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-tr from-background via-[#F1F5F9]/30 to-background relative">
-          <div className="absolute inset-0 bg-dot-pattern opacity-5"></div>
+          <div className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-5"></div>
           <div className="container px-2 sm:px-4 md:px-6 content-container">
             <div className="grid gap-6 sm:gap-10 px-2 sm:px-6 md:gap-16 lg:grid-cols-2">
               <div className="space-y-2 sm:space-y-3">
-                <div className="inline-block rounded-lg bg-[#2DD4BF] px-2 py-1 text-xs sm:text-sm text-white font-medium">
+                <div className="section-chip section-chip-secondary sm:text-sm lg:mx-0">
                   Benefits
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">
@@ -399,7 +462,7 @@ export default function Home() {
           <div className="container px-2 sm:px-4 md:px-6 content-container">
             <div className="grid gap-6 sm:gap-10 lg:grid-cols-2 items-center">
               <div className="space-y-2 sm:space-y-3">
-                <div className="inline-block rounded-full bg-[#FB923C]/20 px-2 py-1 text-xs sm:text-sm text-[#FB923C] font-medium">
+                <div className="section-chip section-chip-accent-soft sm:text-sm lg:mx-0">
                   Built With You
                 </div>
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tighter text-[#1E3A8A] whitespace-nowrap">
@@ -519,11 +582,11 @@ export default function Home() {
         <div className="section-divider"></div>
 
         <section className="w-full py-4 sm:py-6 md:py-8 lg:py-10 bg-gradient-to-br from-background via-[#F1F5F9]/30 to-background relative">
-          <div className="absolute inset-0 bg-dot-pattern opacity-5"></div>
+          <div className="pointer-events-none absolute inset-0 bg-dot-pattern opacity-5"></div>
           <div className="container px-2 sm:px-4 md:px-6 relative z-10 content-container">
             <div className="flex flex-col items-center justify-center space-y-2 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-[#FB923C] px-2 py-1 text-xs sm:text-sm text-white font-medium">
+                <div className="section-chip section-chip-accent sm:text-sm">
                   Our Team
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">
@@ -548,8 +611,10 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="w-full md:w-2/3">
-                    <h3 className="text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-[#1E3A8A]">Shaun Porwal</h3>
-                    <p className="text-xs sm:text-sm text-primary font-medium mb-2 sm:mb-3">
+                    <h3 className="text-center md:text-left text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-[#1E3A8A]">
+                      Shaun Porwal
+                    </h3>
+                    <p className="text-center md:text-left text-xs sm:text-sm text-primary font-medium mb-2 sm:mb-3">
                       Machine Learning Engineer
                     </p>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
@@ -603,11 +668,11 @@ export default function Home() {
 
         {/* Pricing Section */}
         <section className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-b from-[#F1F5F9] to-background relative">
-          <div className="absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+          <div className="pointer-events-none absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
           <div className="container px-2 sm:px-4 md:px-6 relative z-10 content-container">
             <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center">
               <div className="space-y-2 sm:space-y-3 max-w-[900px]">
-                <div className="inline-block rounded-full bg-primary px-2 py-1 text-xs sm:text-sm text-white font-medium">
+                <div className="section-chip section-chip-primary sm:text-sm">
                   Pricing
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">

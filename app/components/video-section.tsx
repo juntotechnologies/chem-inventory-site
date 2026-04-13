@@ -75,7 +75,7 @@ export default function VideoSection({ embedUrl, videoUrl, title, autoplay = fal
     <section className="w-full py-4 md:py-6 lg:py-10 bg-gradient-to-b from-[#F1F5F9] to-background">
       <div className="container px-2 sm:px-4 md:px-6 content-container">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-6">
-          <div className="inline-block rounded-full bg-primary px-2 py-1 text-xs sm:text-sm text-white font-medium">
+          <div className="section-chip section-chip-primary sm:text-sm">
             See It In Action
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">{title}</h2>

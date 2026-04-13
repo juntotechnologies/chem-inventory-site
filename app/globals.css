@@ -102,6 +102,22 @@ html {
   width: 100%;
 }
 
+@keyframes section-chip-unified-pulse {
+  0%,
+  100% {
+    opacity: 0.94;
+    filter: brightness(1);
+    box-shadow: 0 0 0 rgba(59, 130, 246, 0), 0 0 0 rgba(251, 146, 60, 0);
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.08);
+    box-shadow: 0 0 18px rgba(59, 130, 246, 0.16), 0 6px 22px rgba(30, 58, 138, 0.12);
+    transform: translateY(-2px);
+  }
+}
+
 @keyframes soft-pulse {
   0%,
   100% {
@@ -211,6 +227,55 @@ html {
   animation: soft-pulse 6s ease-in-out infinite;
 }
 
+.section-chip {
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  animation: section-chip-unified-pulse 2s ease-in-out infinite;
+  will-change: transform, box-shadow, filter, opacity;
+}
+
+.section-chip-primary {
+  border-radius: 9999px;
+  background: rgb(59 130 246);
+  color: white;
+}
+
+.section-chip-primary-soft {
+  border-radius: 9999px;
+  border: 1px solid rgb(59 130 246 / 0.2);
+  background: rgb(59 130 246 / 0.12);
+  color: rgb(30 58 138);
+}
+
+.section-chip-secondary {
+  border-radius: 0.5rem;
+  background: rgb(45 212 191);
+  color: white;
+}
+
+.section-chip-accent {
+  border-radius: 0.5rem;
+  background: rgb(251 146 60);
+  color: white;
+}
+
+.section-chip-accent-soft {
+  border-radius: 9999px;
+  background: rgb(251 146 60 / 0.2);
+  color: rgb(251 146 60);
+}
+
+.section-chip-secondary-soft {
+  border-radius: 9999px;
+  border: 1px solid rgb(45 212 191 / 0.25);
+  background: rgb(45 212 191 / 0.2);
+  color: rgb(45 212 191);
+}
+
 .ambient-bloom {
   animation: color-bloom 12s ease-in-out infinite;
 }
@@ -243,6 +308,7 @@ html {
   .section-divider,
   .ambient-panel,
   .soft-pulse,
+  .section-chip,
   .ambient-bloom,
   .card-breathe,
   .accent-glow,
