@@ -618,17 +618,30 @@ export default function Home() {
                       Machine Learning Engineer
                     </p>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      Shaun Porwal has built biomedical AI systems spanning agentic workflows, survival modeling
-                      pipelines, and foundation-model research for biology, including recent work as a Founding Engineer
-                      at a biotech startup. Previously, he worked at Memorial Sloan Kettering Cancer Center, where he
-                      developed clinical machine learning tools and created <strong>dcurves</strong> ({dcurvesDownloads}
-                      downloads), an open-source Python library for decision curve analysis. His background also
-                      includes hands-on chemistry experience in labs and manufacturing environments in the United
-                      States, Taiwan, and Japan, which informs the way he thinks about chemical workflows in practice.
-                      That mix of technical depth and operational context helps him partner closely with companies to
-                      design software tailored to their needs rather than shipping a one-size-fits-all product. Shaun
-                      holds a B.S. in Biomedical Engineering and Chinese from Rutgers University and an M.S. in
-                      Biomedical Data Science from the Icahn School of Medicine at Mount Sinai.
+                      Shaun Porwal has built <strong>biomedical AI systems</strong> spanning agentic workflows,
+                      survival modeling pipelines, and foundation-model research for biology, including recent work as
+                      a <strong>Founding Engineer at a biotech startup</strong>. Previously, he worked at{" "}
+                      <strong>Memorial Sloan Kettering Cancer Center</strong>, where he developed clinical machine
+                      learning tools and created{" "}
+                      <a
+                        href="https://github.com/MSKCC-Epi-Bio/dcurves"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-semibold text-primary hover:underline"
+                      >
+                        dcurves
+                      </a>
+                      , an open-source Python library for decision curve analysis with{" "}
+                      <strong>
+                        <em>{dcurvesDownloads}</em>
+                      </strong>{" "}
+                      downloads. His
+                      background also includes <strong>hands-on chemistry experience</strong> in labs and manufacturing
+                      environments in the United States, Taiwan, and Japan, which informs the way he thinks about
+                      chemical workflows in practice. That mix of technical depth and operational context helps him
+                      partner closely with companies to design software tailored to their needs rather than shipping a
+                      one-size-fits-all product. Shaun holds a <strong>B.S. in Biomedical Engineering</strong> and an{" "}
+                      <strong>M.S. in Biomedical Data Science</strong>.
                     </p>
                   </div>
                 </div>
