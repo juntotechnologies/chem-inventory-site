@@ -642,9 +642,9 @@ export function InventoryDashboard() {
         return (
           <>
             <h2 className="text-xl font-bold mb-4">Chemical Inventory</h2>
-            <div className="flex justify-between mb-4">
-              <div className="relative w-64">
-                <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+            <div className="flex items-stretch gap-3 mb-4">
+              <div className="relative flex-1 min-w-0 sm:flex-none sm:w-64">
+                <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
                   placeholder="Search inventory..."
                   className="pl-8"
@@ -654,7 +654,7 @@ export function InventoryDashboard() {
               </div>
               <Button
                 size="sm"
-                className="bg-[#2DD4BF] hover:bg-[#2DD4BF]/90"
+                className="h-10 shrink-0 bg-[#2DD4BF] hover:bg-[#2DD4BF]/90"
                 onClick={() => setIsAddChemicalOpen(true)}
               >
                 <Plus className="h-4 w-4 mr-1" />
@@ -662,8 +662,8 @@ export function InventoryDashboard() {
               </Button>
             </div>
             <div className="border rounded-md overflow-hidden">
-              <div className="max-h-[250px] overflow-hidden">
-                <table className="min-w-full divide-y divide-gray-200">
+              <div className="max-h-[250px] overflow-x-auto overflow-y-hidden touch-pan-x">
+                <table className="min-w-[520px] w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50 sticky top-0 z-10">
                     <tr>
                       <th

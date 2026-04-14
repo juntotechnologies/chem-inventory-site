@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import {
   ArrowRight,
   Beaker,
@@ -68,6 +68,8 @@ export default function Home() {
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
   const [dcurvesDownloads, setDcurvesDownloads] = useState("58k")
+  const mobileNavButtonRef = useRef<HTMLButtonElement | null>(null)
+  const mobileNavPanelRef = useRef<HTMLElement | null>(null)
   const [newChemical, setNewChemical] = useState<Omit<ChemicalRecord, "id" | "lastModified">>({
     productNumber: "",
     name: "",
@@ -114,6 +116,30 @@ export default function Home() {
     setChemicals(initialChemicals)
     setSearchQuery("")
   }, [])
+
+  useEffect(() => {
+    if (!isMobileNavOpen) return
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node | null
+      if (!target) return
+
+      if (mobileNavPanelRef.current?.contains(target)) return
+      if (mobileNavButtonRef.current?.contains(target)) return
+      setIsMobileNavOpen(false)
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMobileNavOpen(false)
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown)
+    document.addEventListener("keydown", handleKeyDown)
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown)
+      document.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [isMobileNavOpen])
 
   useEffect(() => {
     let isMounted = true
@@ -164,7 +190,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
-      <header className="fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm transition-shadow duration-300">
+      <header className="fixed top-0 left-0 right-0 z-50 w-full border-b bg-background shadow-sm transition-shadow duration-300">
         <div className="container mx-auto max-w-full overflow-x-hidden px-2 sm:px-4">
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-2">
@@ -198,63 +224,72 @@ export default function Home() {
                 onClick={() => setIsMobileNavOpen((open) => !open)}
                 aria-label={isMobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
                 aria-expanded={isMobileNavOpen}
+                ref={mobileNavButtonRef}
               >
                 {isMobileNavOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </button>
             </div>
           </div>
         </div>
-        {isMobileNavOpen && (
-          <>
-            <div className="absolute inset-x-0 top-full h-screen bg-black/10 backdrop-blur-[1px] md:hidden" onClick={() => setIsMobileNavOpen(false)} />
-            <div className="absolute inset-x-0 top-full flex justify-center px-3 pt-3 md:hidden">
-              <nav className="w-full max-w-sm rounded-2xl border bg-background/95 p-2 shadow-2xl ring-1 ring-primary/10 backdrop-blur">
-                <div className="mb-1 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  Navigate
-                </div>
-                <div className="flex flex-col gap-1 text-left">
-                  <a
-                    href="#features"
-                    className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
-                    onClick={() => setIsMobileNavOpen(false)}
-                  >
-                    Features
-                  </a>
-                  <a
-                    href="#benefits"
-                    className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
-                    onClick={() => setIsMobileNavOpen(false)}
-                  >
-                    Benefits
-                  </a>
-                  <a
-                    href="#team"
-                    className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
-                    onClick={() => setIsMobileNavOpen(false)}
-                  >
-                    Team
-                  </a>
-                  <a
-                    href="#pricing"
-                    className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
-                    onClick={() => setIsMobileNavOpen(false)}
-                  >
-                    Pricing
-                  </a>
-                  <a
-                    href="mailto:juntotechnologiesllc@gmail.com?subject=CIMS%20Query"
-                    className="mt-1 rounded-xl bg-primary px-3 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
-                    onClick={() => setIsMobileNavOpen(false)}
-                  >
-                    Contact Us
-                  </a>
-                </div>
-              </nav>
-            </div>
-          </>
-        )}
+        <div className={`md:hidden ${isMobileNavOpen ? "" : "pointer-events-none"}`} aria-hidden={!isMobileNavOpen}>
+          <div
+            className={`absolute inset-x-0 top-full h-screen bg-black/10 backdrop-blur-[1px] transition-opacity duration-150 ease-out motion-reduce:transition-none ${
+              isMobileNavOpen ? "opacity-100" : "opacity-0"
+            }`}
+            onClick={() => setIsMobileNavOpen(false)}
+          />
+          <div className="absolute inset-x-0 top-full flex justify-center px-3 pt-3">
+            <nav
+              ref={mobileNavPanelRef}
+              className={`w-full max-w-sm rounded-2xl border bg-background/95 p-2 shadow-2xl ring-1 ring-primary/10 backdrop-blur will-change-transform transition-[opacity,transform] duration-150 ease-out origin-top motion-reduce:transition-none motion-reduce:transform-none ${
+                isMobileNavOpen ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-2 scale-95"
+              }`}
+            >
+              <div className="mb-1 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Navigate
+              </div>
+              <div className="flex flex-col gap-1 text-left">
+                <a
+                  href="#features"
+                  className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
+                  onClick={() => setIsMobileNavOpen(false)}
+                >
+                  Features
+                </a>
+                <a
+                  href="#benefits"
+                  className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
+                  onClick={() => setIsMobileNavOpen(false)}
+                >
+                  Benefits
+                </a>
+                <a
+                  href="#team"
+                  className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
+                  onClick={() => setIsMobileNavOpen(false)}
+                >
+                  Team
+                </a>
+                <a
+                  href="#pricing"
+                  className="rounded-xl px-3 py-3 text-sm font-medium text-[#1E3A8A] transition-colors hover:bg-primary/10 hover:text-primary"
+                  onClick={() => setIsMobileNavOpen(false)}
+                >
+                  Pricing
+                </a>
+                <a
+                  href="mailto:juntotechnologiesllc@gmail.com?subject=CIMS%20Query"
+                  className="mt-1 rounded-xl bg-primary px-3 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
+                  onClick={() => setIsMobileNavOpen(false)}
+                >
+                  Contact Us
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
       </header>
-      <main className="flex-1 w-full overflow-x-hidden pt-16">
+      <main className="site-grid flex-1 w-full overflow-x-hidden pt-16">
         <section className="relative w-full overflow-hidden bg-gradient-to-b from-background to-[#F1F5F9] py-4 md:min-h-[calc(100vh-4rem)] md:max-h-[calc(100vh-4rem)] md:py-6 lg:py-7">
           <div className="ambient-bloom pointer-events-none absolute left-[-6rem] top-6 h-72 w-72 rounded-full bg-primary/20 blur-3xl"></div>
           <div className="ambient-bloom pointer-events-none absolute right-[-4rem] top-20 h-80 w-80 rounded-full bg-[#2DD4BF]/20 blur-3xl [animation-delay:1.8s]"></div>
@@ -312,7 +347,6 @@ export default function Home() {
         <div className="section-divider"></div>
 
         <section className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-br from-[#F1F5F9] via-background to-[#F1F5F9] relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
           <div className="container px-2 sm:px-4 md:px-6 relative z-10 content-container">
             <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center">
               <div className="space-y-2 sm:space-y-3 max-w-[900px]">
@@ -465,7 +499,7 @@ export default function Home() {
                 <div className="section-chip section-chip-accent-soft sm:text-sm lg:mx-0">
                   Built With You
                 </div>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tighter text-[#1E3A8A] whitespace-nowrap">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tighter text-[#1E3A8A] leading-tight max-w-[28ch] sm:max-w-none">
                   Custom Software Without Generic Software Bloat
                 </h2>
                 <p className="text-xs sm:text-sm text-muted-foreground md:text-base max-w-[600px]">
@@ -681,7 +715,6 @@ export default function Home() {
 
         {/* Pricing Section */}
         <section className="w-full py-6 md:py-10 lg:py-14 bg-gradient-to-b from-[#F1F5F9] to-background relative">
-          <div className="pointer-events-none absolute inset-0 bg-grid-primary/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
           <div className="container px-2 sm:px-4 md:px-6 relative z-10 content-container">
             <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center">
               <div className="space-y-2 sm:space-y-3 max-w-[900px]">

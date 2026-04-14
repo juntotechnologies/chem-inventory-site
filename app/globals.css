@@ -87,6 +87,23 @@ html {
   background-size: 24px 24px;
 }
 
+.site-grid section {
+  position: relative;
+}
+
+.site-grid section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  animation: grid-pan 16s linear infinite;
+  -webkit-mask-image: radial-gradient(ellipse at center, transparent 20%, black);
+  mask-image: radial-gradient(ellipse at center, transparent 20%, black);
+}
+
 .section-divider {
   height: 4px;
   background: linear-gradient(to right, #93c5fd, #3b82f6, #1e3a8a);
