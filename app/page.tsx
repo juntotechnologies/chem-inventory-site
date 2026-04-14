@@ -438,10 +438,10 @@ export default function Home() {
                 <div className="section-chip section-chip-secondary sm:text-sm lg:mx-0">
                   Benefits
                 </div>
-                <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A]">
+                <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-[#1E3A8A] text-center sm:text-left">
                   A Better Fit Than Off-the-Shelf Software
                 </h2>
-                <p className="max-w-[600px] text-xs sm:text-sm text-muted-foreground md:text-base">
+                <p className="max-w-[600px] text-xs sm:text-sm text-muted-foreground md:text-base text-center sm:text-left mx-auto sm:mx-0">
                   Working directly with your company means the software can support your exact chemical operations
                   instead of making your team adapt to a generic product.
                 </p>
@@ -499,10 +499,10 @@ export default function Home() {
                 <div className="section-chip section-chip-accent-soft sm:text-sm lg:mx-0">
                   Built With You
                 </div>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tighter text-[#1E3A8A] leading-tight max-w-[28ch] sm:max-w-none">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tighter text-[#1E3A8A] leading-tight max-w-[28ch] sm:max-w-none text-center sm:text-left mx-auto sm:mx-0">
                   Custom Software Without Generic Software Bloat
                 </h2>
-                <p className="text-xs sm:text-sm text-muted-foreground md:text-base max-w-[600px]">
+                <p className="text-xs sm:text-sm text-muted-foreground md:text-base max-w-[600px] text-center sm:text-left mx-auto sm:mx-0">
                   I partner directly with companies to define the right scope, workflows, and reporting from the start
                   so the final system feels purpose-built rather than retrofitted.
                 </p>
