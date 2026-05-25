@@ -67,7 +67,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
-  const [dcurvesDownloads, setDcurvesDownloads] = useState("58k")
+  const [dcurvesDownloads, setDcurvesDownloads] = useState("63k")
   const mobileNavButtonRef = useRef<HTMLButtonElement | null>(null)
   const mobileNavPanelRef = useRef<HTMLElement | null>(null)
   const [newChemical, setNewChemical] = useState<Omit<ChemicalRecord, "id" | "lastModified">>({
@@ -652,10 +652,10 @@ export default function Home() {
                       Machine Learning Engineer
                     </p>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      Shaun Porwal builds <strong>biomedical AI systems</strong>, including agentic workflows,
-                      survival modeling pipelines, and foundation-model research for biology. He recently worked as a{" "}
-                      <strong>Founding Engineer at a biotech startup</strong> and previously built clinical machine
-                      learning tools at <strong>Memorial Sloan Kettering Cancer Center</strong>, where he created{" "}
+                      Shaun Porwal builds <strong>biomedical AI systems</strong> across agentic workflows,
+                      survival modeling, and biology models. He recently worked as a{" "}
+                      <strong>Founding Engineer at a biotech startup</strong> and previously built clinical ML tools at{" "}
+                      <strong>Memorial Sloan Kettering Cancer Center</strong>, where he created{" "}
                       <a
                         href="https://github.com/MSKCC-Epi-Bio/dcurves"
                         target="_blank"
@@ -664,12 +664,12 @@ export default function Home() {
                       >
                         dcurves
                       </a>
-                      , an open-source Python library for decision curve analysis with{" "}
+                      , an open-source Python library with{" "}
                       <strong>
                         <em>{dcurvesDownloads}</em>
                       </strong>{" "}
-                      downloads. His background includes <strong>hands-on chemistry experience</strong> in labs and
-                      manufacturing environments across the United States, Taiwan, and Japan. He holds a{" "}
+                      downloads. He has <strong>hands-on chemistry experience</strong> in labs and manufacturing across
+                      the U.S., Taiwan, and Japan. He holds a{" "}
                       <strong>B.S. in Biomedical Engineering</strong> and an{" "}
                       <strong>M.S. in Biomedical Data Science</strong>.
                     </p>

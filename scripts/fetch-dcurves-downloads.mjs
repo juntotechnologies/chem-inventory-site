@@ -1,103 +1,33 @@
 import { mkdir, writeFile } from "node:fs/promises"
 import { join } from "node:path"
 
-const PEPY_PROJECT_URL = "https://pepy.tech/projects/dcurves"
-const SHIELDS_BADGE_URL = "https://img.shields.io/pepy/dt/dcurves"
-const FALLBACK_ROUNDED_DOWNLOADS = "58k"
+const SHIELDS_BADGE_JSON_URL = "https://img.shields.io/pepy/dt/dcurves.json"
 const OUTPUT_DIRECTORY = "public"
 const OUTPUT_FILENAME = "dcurves-downloads.json"
 
-function formatRoundedDownloads(totalDownloads) {
-  return new Intl.NumberFormat("en-US", {
-    notation: "compact",
-    maximumSignificantDigits: 2,
-  }).format(totalDownloads)
-}
-
-function extractPepyTotalDownloads(html) {
-  const totalDownloadsMatch = html.match(/"totalDownloads":(\d+)/)
-
-  if (!totalDownloadsMatch) {
-    return null
-  }
-
-  return Number(totalDownloadsMatch[1])
-}
-
-function extractBadgeValue(svg) {
-  const badgeValueMatch = svg.match(/aria-label="downloads:\s*([^"]+)"/i)
-
-  if (!badgeValueMatch) {
-    return null
-  }
-
-  return badgeValueMatch[1]
-}
-
-async function fetchPepyDownloads() {
-  const response = await fetch(PEPY_PROJECT_URL)
-
-  if (!response.ok) {
-    return null
-  }
-
-  const html = await response.text()
-  const totalDownloads = extractPepyTotalDownloads(html)
-
-  if (typeof totalDownloads !== "number" || !Number.isFinite(totalDownloads)) {
-    return null
-  }
-
-  return {
-    source: "pepy",
-    totalDownloads,
-    roundedDownloads: formatRoundedDownloads(totalDownloads),
-  }
-}
-
 async function fetchShieldsDownloads() {
-  const response = await fetch(SHIELDS_BADGE_URL)
+  const response = await fetch(SHIELDS_BADGE_JSON_URL)
 
   if (!response.ok) {
-    return null
+    throw new Error(`Failed to fetch dcurves downloads: ${response.status} ${response.statusText}`)
   }
 
-  const svg = await response.text()
-  const roundedDownloads = extractBadgeValue(svg)
+  const badge = await response.json()
+  const roundedDownloads = badge.message
 
-  if (!roundedDownloads) {
-    return null
+  if (typeof roundedDownloads !== "string" || !roundedDownloads.trim()) {
+    throw new Error("Shields response did not include a download count")
   }
 
   return {
     source: "shields",
     totalDownloads: null,
-    roundedDownloads,
+    roundedDownloads: roundedDownloads.trim(),
   }
 }
 
 async function getDcurvesDownloads() {
-  try {
-    const pepyDownloads = await fetchPepyDownloads()
-
-    if (pepyDownloads) {
-      return pepyDownloads
-    }
-
-    const shieldsDownloads = await fetchShieldsDownloads()
-
-    if (shieldsDownloads) {
-      return shieldsDownloads
-    }
-  } catch {
-    // Fall through to the static fallback.
-  }
-
-  return {
-    source: "fallback",
-    totalDownloads: null,
-    roundedDownloads: FALLBACK_ROUNDED_DOWNLOADS,
-  }
+  return fetchShieldsDownloads()
 }
 
 const downloads = await getDcurvesDownloads()
@@ -115,4 +45,3 @@ await writeFile(
     2,
   ),
 )
-
