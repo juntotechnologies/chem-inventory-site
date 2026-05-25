@@ -10,7 +10,7 @@
 - Shaun bio is shorter, then lightly trimmed twice to fit the card better.
 - `dcurves` downloads now use the Shields JSON endpoint directly.
 - If the download count cannot be fetched, bio says `widely used` instead.
-- Unit tests cover download parsing, missing-count fallback, and bio copy selection.
+- Root `tests/` unit tests cover download parsing, missing-count fallback, and bio copy selection.
 - CI runs tests before build on PRs and deploy runs.
 
 ## Checklist

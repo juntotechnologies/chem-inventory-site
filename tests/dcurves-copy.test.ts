@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { getDcurvesLibraryDescription } from "./dcurves-copy"
+import { getDcurvesLibraryDescription } from "../lib/dcurves-copy"
 
 describe("getDcurvesLibraryDescription", () => {
   it("uses the download count when present", () => {

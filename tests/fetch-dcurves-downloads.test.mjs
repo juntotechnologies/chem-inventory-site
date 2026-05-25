@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest"
 
-import { fetchShieldsDownloads, getDcurvesDownloads } from "./fetch-dcurves-downloads.mjs"
+import { fetchShieldsDownloads, getDcurvesDownloads } from "../scripts/fetch-dcurves-downloads.mjs"
 
 function createJsonResponse(body, ok = true) {
   return {
