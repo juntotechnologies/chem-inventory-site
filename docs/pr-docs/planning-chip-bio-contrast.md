@@ -9,7 +9,9 @@
 - Low-contrast soft chips are darker with matching borders.
 - Shaun bio is shorter, then lightly trimmed twice to fit the card better.
 - `dcurves` downloads now use the Shields JSON endpoint directly.
-- Build fails loudly if the download count cannot be fetched.
+- If the download count cannot be fetched, bio says `widely used` instead.
+- Unit tests cover download parsing, missing-count fallback, and bio copy selection.
+- CI runs tests before build on PRs and deploy runs.
 
 ## Checklist
 
@@ -24,4 +26,8 @@
 - [x] Download count shows `63k`.
 - [x] Pepy scrape removed.
 - [x] Shields JSON is the download source.
+- [x] Missing download count falls back to `widely used` bio copy.
+- [x] Unit tests added.
+- [x] CI runs `npm test`.
+- [x] PRs run test/build without deploying.
 - [x] Build passes.

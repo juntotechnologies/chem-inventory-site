@@ -22,6 +22,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Label } from "@/components/ui/label"
 import VideoSection from "@/app/components/video-section"
 import { InventoryDashboard } from "@/app/components/inventory-dashboard"
+import { getDcurvesLibraryDescription } from "@/lib/dcurves-copy"
 
 // Define the type for a chemical record
 type ChemicalRecord = {
@@ -67,7 +68,8 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
-  const [dcurvesDownloads, setDcurvesDownloads] = useState("63k")
+  const [dcurvesDownloads, setDcurvesDownloads] = useState<string | null>(null)
+  const dcurvesLibraryDescription = getDcurvesLibraryDescription(dcurvesDownloads)
   const mobileNavButtonRef = useRef<HTMLButtonElement | null>(null)
   const mobileNavPanelRef = useRef<HTMLElement | null>(null)
   const [newChemical, setNewChemical] = useState<Omit<ChemicalRecord, "id" | "lastModified">>({
@@ -152,7 +154,7 @@ export default function Home() {
           return
         }
 
-        const data = (await response.json()) as { roundedDownloads?: string }
+        const data = (await response.json()) as { roundedDownloads?: string | null }
 
         if (isMounted && data.roundedDownloads) {
           setDcurvesDownloads(data.roundedDownloads)
@@ -664,12 +666,19 @@ export default function Home() {
                       >
                         dcurves
                       </a>
-                      , an open-source Python library with{" "}
-                      <strong>
-                        <em>{dcurvesDownloads}</em>
-                      </strong>{" "}
-                      downloads. He has <strong>hands-on chemistry experience</strong> in labs and manufacturing across
-                      the U.S., Taiwan, and Japan. He holds a{" "}
+                      {dcurvesLibraryDescription.hasDownloadCount ? (
+                        <>
+                          , an open-source Python library with{" "}
+                          <strong>
+                            <em>{dcurvesLibraryDescription.downloads}</em>
+                          </strong>{" "}
+                          downloads.
+                        </>
+                      ) : (
+                        <>, {dcurvesLibraryDescription.fallbackDescription}.</>
+                      )}{" "}
+                      He has <strong>hands-on chemistry experience</strong> in labs and manufacturing across the U.S.,
+                      Taiwan, and Japan. He holds a{" "}
                       <strong>B.S. in Biomedical Engineering</strong> and an{" "}
                       <strong>M.S. in Biomedical Data Science</strong>.
                     </p>
