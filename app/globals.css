@@ -282,15 +282,16 @@ html {
 
 .section-chip-accent-soft {
   border-radius: 9999px;
+  border: 1px solid rgb(210 106 29 / 0.28);
   background: rgb(251 146 60 / 0.2);
-  color: rgb(251 146 60);
+  color: rgb(210 106 29);
 }
 
 .section-chip-secondary-soft {
   border-radius: 9999px;
-  border: 1px solid rgb(45 212 191 / 0.25);
+  border: 1px solid rgb(27 163 154 / 0.32);
   background: rgb(45 212 191 / 0.2);
-  color: rgb(45 212 191);
+  color: rgb(27 163 154);
 }
 
 .ambient-bloom {
