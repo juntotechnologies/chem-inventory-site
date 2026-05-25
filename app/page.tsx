@@ -22,6 +22,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Label } from "@/components/ui/label"
 import VideoSection from "@/app/components/video-section"
 import { InventoryDashboard } from "@/app/components/inventory-dashboard"
+import { getDcurvesLibraryDescription } from "@/lib/dcurves-copy"
 
 // Define the type for a chemical record
 type ChemicalRecord = {
@@ -67,7 +68,8 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("")
   const [isAddDialogOpen, setIsAddDialogOpen] = useState(false)
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false)
-  const [dcurvesDownloads, setDcurvesDownloads] = useState("58k")
+  const [dcurvesDownloads, setDcurvesDownloads] = useState<string | null>(null)
+  const dcurvesLibraryDescription = getDcurvesLibraryDescription(dcurvesDownloads)
   const mobileNavButtonRef = useRef<HTMLButtonElement | null>(null)
   const mobileNavPanelRef = useRef<HTMLElement | null>(null)
   const [newChemical, setNewChemical] = useState<Omit<ChemicalRecord, "id" | "lastModified">>({
@@ -152,7 +154,7 @@ export default function Home() {
           return
         }
 
-        const data = (await response.json()) as { roundedDownloads?: string }
+        const data = (await response.json()) as { roundedDownloads?: string | null }
 
         if (isMounted && data.roundedDownloads) {
           setDcurvesDownloads(data.roundedDownloads)
@@ -299,7 +301,7 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4 sm:space-y-6 text-center lg:text-left">
                 <div className="space-y-2 sm:space-y-3 mx-auto lg:mx-0 max-w-full">
                   <div className="section-chip section-chip-secondary-soft text-[11px] whitespace-nowrap sm:text-xs lg:mx-0 lg:text-sm">
-                    Tailored Inventory Software for Chemical Workflows
+                    Built Inside Real Chemistry Lab Workflows
                   </div>
                   <h1 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl lg:text-5xl text-[#1E3A8A] break-words">
                     <span className="block">Software Designed</span>
@@ -309,9 +311,9 @@ export default function Home() {
                     </span>
                   </h1>
                   <p className="text-sm sm:text-base text-muted-foreground md:text-lg">
-                    I work directly with companies to design chemical inventory software around their actual workflows,
-                    compliance needs, and operating constraints. This is not a generic app. It is a focused system
-                    shaped to fit the way your team really works.
+                    Built from direct work inside a commercial chemistry lab, CIMS replaces brittle spreadsheets and
+                    one-size-fits-all inventory tools with software shaped around real chemical workflows. The result:
+                    fewer administrative errors, fewer delays, and more room for growing labs to scale.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
@@ -652,11 +654,10 @@ export default function Home() {
                       Machine Learning Engineer
                     </p>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                      Shaun Porwal has built <strong>biomedical AI systems</strong> spanning agentic workflows,
-                      survival modeling pipelines, and foundation-model research for biology, including recent work as
-                      a <strong>Founding Engineer at a biotech startup</strong>. Previously, he worked at{" "}
-                      <strong>Memorial Sloan Kettering Cancer Center</strong>, where he developed clinical machine
-                      learning tools and created{" "}
+                      Shaun Porwal builds <strong>biomedical AI systems</strong> across agentic workflows,
+                      survival modeling, and biology models. He recently worked as a{" "}
+                      <strong>Founding Engineer at a biotech startup</strong> and previously built clinical ML tools at{" "}
+                      <strong>Memorial Sloan Kettering Cancer Center</strong>, where he created{" "}
                       <a
                         href="https://github.com/MSKCC-Epi-Bio/dcurves"
                         target="_blank"
@@ -665,16 +666,20 @@ export default function Home() {
                       >
                         dcurves
                       </a>
-                      , an open-source Python library for decision curve analysis with{" "}
-                      <strong>
-                        <em>{dcurvesDownloads}</em>
-                      </strong>{" "}
-                      downloads. His
-                      background also includes <strong>hands-on chemistry experience</strong> in labs and manufacturing
-                      environments in the United States, Taiwan, and Japan, which informs the way he thinks about
-                      chemical workflows in practice. That mix of technical depth and operational context helps him
-                      partner closely with companies to design software tailored to their needs rather than shipping a
-                      one-size-fits-all product. Shaun holds a <strong>B.S. in Biomedical Engineering</strong> and an{" "}
+                      {dcurvesLibraryDescription.hasDownloadCount ? (
+                        <>
+                          , an open-source Python library with{" "}
+                          <strong>
+                            <em>{dcurvesLibraryDescription.downloads}</em>
+                          </strong>{" "}
+                          downloads.
+                        </>
+                      ) : (
+                        <>, {dcurvesLibraryDescription.fallbackDescription}.</>
+                      )}{" "}
+                      He has <strong>hands-on chemistry experience</strong> in labs and manufacturing across the U.S.,
+                      Taiwan, and Japan. He holds a{" "}
+                      <strong>B.S. in Biomedical Engineering</strong> and an{" "}
                       <strong>M.S. in Biomedical Data Science</strong>.
                     </p>
                   </div>
