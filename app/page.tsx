@@ -199,6 +199,9 @@ export default function Home() {
             <div className="flex items-center gap-2">
               <Beaker className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
               <span className="text-lg sm:text-xl font-bold text-dark-blue">CIMS</span>
+              <span className="max-w-[7.25rem] border-l border-primary/20 pl-2 text-[9px] font-medium leading-tight text-muted-foreground sm:max-w-[9rem] sm:text-[10px] md:hidden lg:block">
+                Chemical Inventory Management System
+              </span>
             </div>
             <nav className="hidden items-center gap-5 md:flex lg:gap-6">
               <a href="#features" className="whitespace-nowrap text-sm font-medium hover:text-primary transition-colors">
