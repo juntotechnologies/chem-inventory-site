@@ -654,7 +654,7 @@ export function InventoryDashboard() {
               </div>
               <Button
                 size="sm"
-                className="h-10 shrink-0 bg-[#2DD4BF] hover:bg-[#2DD4BF]/90"
+                className="h-10 shrink-0 bg-teal hover:bg-teal/90"
                 onClick={() => setIsAddChemicalOpen(true)}
               >
                 <Plus className="h-4 w-4 mr-1" />
@@ -1118,7 +1118,7 @@ export function InventoryDashboard() {
           <Menu className="h-5 w-5" />
         </button>
         <div className="signal-blink flex h-2 w-2 rounded-full bg-accent mr-2"></div>
-        <div className="signal-blink signal-blink-delay-1 flex h-2 w-2 rounded-full bg-[#2DD4BF] mr-2"></div>
+        <div className="signal-blink signal-blink-delay-1 flex h-2 w-2 rounded-full bg-teal mr-2"></div>
         <div className="signal-blink signal-blink-delay-2 flex h-2 w-2 rounded-full bg-primary mr-2"></div>
         <div className="text-sm text-muted-foreground">Chemical Inventory Dashboard</div>
       </div>
@@ -1254,7 +1254,7 @@ export function InventoryDashboard() {
             <Button
               onClick={handleAddChemical}
               disabled={!newChemical.productNumber || !newChemical.name || !newChemical.location || !newChemical.amount}
-              className="bg-[#2DD4BF] hover:bg-[#2DD4BF]/90"
+              className="bg-teal hover:bg-teal/90"
             >
               Add Chemical
             </Button>
@@ -1575,7 +1575,7 @@ export function InventoryDashboard() {
                 !editingChemical?.location ||
                 !editingChemical?.amount
               }
-              className="bg-[#2DD4BF] hover:bg-[#2DD4BF]/90"
+              className="bg-teal hover:bg-teal/90"
             >
               Update Chemical
             </Button>

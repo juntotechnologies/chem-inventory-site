@@ -1,0 +1,75 @@
+/*
+ * CIMS color palette — the single source of truth for site colors.
+ * Values are stored as RGB channels so Tailwind opacity modifiers work.
+ */
+:root {
+  --palette-white: 255 255 255;
+  --palette-black: 0 0 0;
+  --palette-navy: 30 58 138;
+  --palette-blue: 59 130 246;
+  --palette-light-blue: 147 197 253;
+  --palette-teal: 45 212 191;
+  --palette-teal-deep: 27 163 154;
+  --palette-coral: 251 146 60;
+  --palette-coral-deep: 210 106 29;
+  --palette-coral-dark: 194 65 12;
+  --palette-coral-darker: 154 52 18;
+  --palette-coral-soft: 255 247 237;
+  --palette-coral-soft-hover: 255 237 213;
+  --palette-soft-gray: 241 245 249;
+  --palette-slate: 100 116 139;
+  --palette-slate-light: 226 232 240;
+  --palette-gray-50: 249 250 251;
+  --palette-gray-100: 243 244 246;
+  --palette-gray-400: 156 163 175;
+  --palette-gray-500: 107 114 128;
+  --palette-gray-600: 75 85 99;
+  --palette-gray-700: 55 65 81;
+  --palette-gray-900: 17 24 39;
+  --palette-blue-50: 239 246 255;
+  --palette-blue-100: 219 234 254;
+  --palette-red: 239 68 68;
+
+  /* Semantic light-theme colors. */
+  --background: var(--palette-white);
+  --foreground: var(--palette-navy);
+  --card: var(--palette-soft-gray);
+  --card-foreground: var(--palette-navy);
+  --popover: var(--palette-white);
+  --popover-foreground: var(--palette-navy);
+  --primary: var(--palette-blue);
+  --primary-foreground: var(--palette-white);
+  --secondary: var(--palette-teal);
+  --secondary-foreground: var(--palette-navy);
+  --muted: var(--palette-soft-gray);
+  --muted-foreground: var(--palette-slate);
+  --accent: var(--palette-coral);
+  --accent-foreground: var(--palette-navy);
+  --destructive: var(--palette-red);
+  --destructive-foreground: var(--palette-white);
+  --border: var(--palette-slate-light);
+  --input: var(--palette-slate-light);
+  --ring: var(--palette-blue);
+}
+
+.dark {
+  --background: var(--palette-navy);
+  --foreground: 248 250 252;
+  --card: 15 23 42;
+  --card-foreground: 248 250 252;
+  --popover: var(--palette-navy);
+  --popover-foreground: 248 250 252;
+  --primary: var(--palette-blue);
+  --primary-foreground: 15 23 42;
+  --secondary: var(--palette-teal);
+  --secondary-foreground: 248 250 252;
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184;
+  --accent: var(--palette-coral);
+  --accent-foreground: 248 250 252;
+  --destructive: 127 29 29;
+  --destructive-foreground: 248 250 252;
+  --border: 30 41 59;
+  --input: 30 41 59;
+  --ring: 29 78 216;
+}
