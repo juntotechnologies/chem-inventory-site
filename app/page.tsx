@@ -5,6 +5,7 @@ import {
   ArrowRight,
   Beaker,
   CalendarDays,
+  ExternalLink,
   Menu,
   X,
   ClipboardList,
@@ -221,6 +222,17 @@ export default function Home() {
               <Button
                 size="sm"
                 variant="outline"
+                className="hidden text-xs sm:text-sm md:inline-flex"
+                asChild
+              >
+                <a href="https://demo.cheminventory.co" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
+                  Static Demo
+                </a>
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
                 className="hidden border-coral text-xs text-coral-dark hover:bg-coral hover:text-white sm:text-sm md:inline-flex"
                 asChild
               >
@@ -293,6 +305,15 @@ export default function Home() {
                   onClick={() => setIsMobileNavOpen(false)}
                 >
                   Pricing
+                </a>
+                <a
+                  href="https://demo.cheminventory.co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl px-3 py-3 text-sm font-medium text-dark-blue transition-colors hover:bg-primary/10 hover:text-primary"
+                  onClick={() => setIsMobileNavOpen(false)}
+                >
+                  Static Demo
                 </a>
                 <a
                   href="https://cal.com/shaun-porwal-junto/30min"
