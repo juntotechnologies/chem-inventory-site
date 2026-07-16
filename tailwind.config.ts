@@ -85,6 +85,10 @@ const config = {
         "coral-darker": "rgb(var(--palette-coral-darker) / <alpha-value>)",
         "coral-soft": "rgb(var(--palette-coral-soft) / <alpha-value>)",
         "coral-soft-hover": "rgb(var(--palette-coral-soft-hover) / <alpha-value>)",
+        purple: "rgb(var(--palette-purple) / <alpha-value>)",
+        "purple-deep": "rgb(var(--palette-purple-deep) / <alpha-value>)",
+        "purple-dark": "rgb(var(--palette-purple-dark) / <alpha-value>)",
+        "purple-soft": "rgb(var(--palette-purple-soft) / <alpha-value>)",
         "soft-gray": "rgb(var(--palette-soft-gray) / <alpha-value>)",
       },
       borderRadius: {

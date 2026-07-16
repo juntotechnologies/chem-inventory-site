@@ -222,7 +222,7 @@ export default function Home() {
               <Button
                 size="sm"
                 variant="outline"
-                className="hidden text-xs sm:text-sm md:inline-flex"
+                className="hidden border-purple text-xs text-purple-dark hover:bg-purple hover:text-white sm:text-sm md:inline-flex"
                 asChild
               >
                 <a href="https://demo.cheminventory.co" target="_blank" rel="noopener noreferrer">
@@ -310,9 +310,10 @@ export default function Home() {
                   href="https://demo.cheminventory.co"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-xl px-3 py-3 text-sm font-medium text-dark-blue transition-colors hover:bg-primary/10 hover:text-primary"
+                  className="mt-1 flex items-center gap-2 rounded-xl border border-purple bg-purple-soft px-3 py-3 text-sm font-medium text-purple-dark transition-colors hover:bg-purple hover:text-white"
                   onClick={() => setIsMobileNavOpen(false)}
                 >
+                  <ExternalLink className="h-4 w-4" />
                   Static Demo
                 </a>
                 <a
