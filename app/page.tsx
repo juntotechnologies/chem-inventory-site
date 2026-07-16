@@ -225,7 +225,7 @@ export default function Home() {
                 className="hidden border-purple text-xs text-purple-dark hover:bg-purple hover:text-white sm:text-sm md:inline-flex"
                 asChild
               >
-                <a href="https://demo.cheminventory.co" target="_blank" rel="noopener noreferrer">
+                <a href="https://demo.cheminventory.co">
                   <ExternalLink className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
                   Static Demo
                 </a>
@@ -308,8 +308,6 @@ export default function Home() {
                 </a>
                 <a
                   href="https://demo.cheminventory.co"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="mt-1 flex items-center gap-2 rounded-xl border border-purple bg-purple-soft px-3 py-3 text-sm font-medium text-purple-dark transition-colors hover:bg-purple hover:text-white"
                   onClick={() => setIsMobileNavOpen(false)}
                 >
