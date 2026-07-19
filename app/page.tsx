@@ -16,6 +16,7 @@ import {
   Shield,
   BarChart3,
   Check,
+  type LucideIcon,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -24,6 +25,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Label } from "@/components/ui/label"
 import VideoSection from "@/app/components/video-section"
 import { InventoryDashboard } from "@/app/components/inventory-dashboard"
+import { UI_LABELS } from "@/app/ui-labels"
 import { getDcurvesLibraryDescription } from "@/lib/dcurves-copy"
 
 // Define the type for a chemical record
@@ -34,6 +36,16 @@ type ChemicalRecord = {
   location: string
   amount: string
   lastModified: string
+}
+
+const SECTION_ICONS: Record<string, LucideIcon> = {
+  BarChart3,
+  Building2,
+  ClipboardList,
+  History,
+  Shield,
+  ShoppingCart,
+  Users,
 }
 
 export default function Home() {
@@ -199,24 +211,21 @@ export default function Home() {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center gap-2">
               <Beaker className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
-              <span className="text-lg sm:text-xl font-bold text-dark-blue">CIMS</span>
+              <span className="text-lg sm:text-xl font-bold text-dark-blue">{UI_LABELS.brand.shortName}</span>
               <span className="max-w-[7.25rem] border-l border-primary/20 pl-2 text-[9px] font-medium leading-tight text-muted-foreground sm:max-w-[9rem] sm:text-[10px] md:hidden lg:block">
-                Chemical Inventory Management System
+                {UI_LABELS.brand.fullName}
               </span>
             </div>
             <nav className="hidden items-center gap-5 md:flex lg:gap-6">
-              <a href="#features" className="whitespace-nowrap text-sm font-medium hover:text-primary transition-colors">
-                Features
-              </a>
-              <a href="#benefits" className="whitespace-nowrap text-sm font-medium hover:text-primary transition-colors">
-                Benefits
-              </a>
-              <a href="#team" className="whitespace-nowrap text-sm font-medium hover:text-primary transition-colors">
-                Team
-              </a>
-              <a href="#pricing" className="whitespace-nowrap text-sm font-medium hover:text-primary transition-colors">
-                Pricing
-              </a>
+              {UI_LABELS.nav.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="whitespace-nowrap text-sm font-medium hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
             </nav>
             <div className="flex items-center gap-2">
               <Button
@@ -225,9 +234,9 @@ export default function Home() {
                 className="hidden border-purple text-xs text-purple-dark hover:bg-purple hover:text-white sm:text-sm md:inline-flex"
                 asChild
               >
-                <a href="https://demo.cheminventory.co">
+                <a href={UI_LABELS.links.staticDemo}>
                   <ExternalLink className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
-                  Static Demo
+                  {UI_LABELS.actions.staticDemo}
                 </a>
               </Button>
               <Button
@@ -236,14 +245,14 @@ export default function Home() {
                 className="hidden border-coral text-xs text-coral-dark hover:bg-coral hover:text-white sm:text-sm md:inline-flex"
                 asChild
               >
-                <a href="https://cal.com/shaun-porwal-junto/30min" target="_blank" rel="noopener noreferrer">
+                <a href={UI_LABELS.links.booking} target="_blank" rel="noopener noreferrer">
                   <CalendarDays className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
-                  Book a Meeting
+                  {UI_LABELS.actions.bookMeeting}
                 </a>
               </Button>
               <Button size="sm" className="hidden text-xs sm:text-sm md:inline-flex" asChild>
-                <a href="mailto:juntotechnologiesllc@gmail.com?subject=CIMS%20Query">
-                  Contact Us
+                <a href={UI_LABELS.mailto.cimsQuery}>
+                  {UI_LABELS.actions.contactUs}
                   <ArrowRight className="ml-1 h-3 w-3 sm:ml-2 sm:h-4 sm:w-4" />
                 </a>
               </Button>
@@ -251,7 +260,7 @@ export default function Home() {
                 type="button"
                 className="flex h-9 w-9 items-center justify-center rounded-md text-primary transition-colors hover:bg-primary/10 md:hidden"
                 onClick={() => setIsMobileNavOpen((open) => !open)}
-                aria-label={isMobileNavOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-label={isMobileNavOpen ? UI_LABELS.mobileNav.closeAriaLabel : UI_LABELS.mobileNav.openAriaLabel}
                 aria-expanded={isMobileNavOpen}
                 ref={mobileNavButtonRef}
               >
@@ -275,61 +284,43 @@ export default function Home() {
               }`}
             >
               <div className="mb-1 px-3 py-2 text-left text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Navigate
+                {UI_LABELS.mobileNav.label}
               </div>
               <div className="flex flex-col gap-1 text-left">
+                {UI_LABELS.nav.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="rounded-xl px-3 py-3 text-sm font-medium text-dark-blue transition-colors hover:bg-primary/10 hover:text-primary"
+                    onClick={() => setIsMobileNavOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ))}
                 <a
-                  href="#features"
-                  className="rounded-xl px-3 py-3 text-sm font-medium text-dark-blue transition-colors hover:bg-primary/10 hover:text-primary"
-                  onClick={() => setIsMobileNavOpen(false)}
-                >
-                  Features
-                </a>
-                <a
-                  href="#benefits"
-                  className="rounded-xl px-3 py-3 text-sm font-medium text-dark-blue transition-colors hover:bg-primary/10 hover:text-primary"
-                  onClick={() => setIsMobileNavOpen(false)}
-                >
-                  Benefits
-                </a>
-                <a
-                  href="#team"
-                  className="rounded-xl px-3 py-3 text-sm font-medium text-dark-blue transition-colors hover:bg-primary/10 hover:text-primary"
-                  onClick={() => setIsMobileNavOpen(false)}
-                >
-                  Team
-                </a>
-                <a
-                  href="#pricing"
-                  className="rounded-xl px-3 py-3 text-sm font-medium text-dark-blue transition-colors hover:bg-primary/10 hover:text-primary"
-                  onClick={() => setIsMobileNavOpen(false)}
-                >
-                  Pricing
-                </a>
-                <a
-                  href="https://demo.cheminventory.co"
+                  href={UI_LABELS.links.staticDemo}
                   className="mt-1 flex items-center gap-2 rounded-xl border border-purple bg-purple-soft px-3 py-3 text-sm font-medium text-purple-dark transition-colors hover:bg-purple hover:text-white"
                   onClick={() => setIsMobileNavOpen(false)}
                 >
                   <ExternalLink className="h-4 w-4" />
-                  Static Demo
+                  {UI_LABELS.actions.staticDemo}
                 </a>
                 <a
-                  href="https://cal.com/shaun-porwal-junto/30min"
+                  href={UI_LABELS.links.booking}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-1 flex items-center gap-2 rounded-xl border border-coral bg-coral-soft px-3 py-3 text-sm font-medium text-coral-dark transition-colors hover:bg-coral hover:text-white"
                   onClick={() => setIsMobileNavOpen(false)}
                 >
                   <CalendarDays className="h-4 w-4" />
-                  Book a Meeting
+                  {UI_LABELS.actions.bookMeeting}
                 </a>
                 <a
-                  href="mailto:juntotechnologiesllc@gmail.com?subject=CIMS%20Query"
+                  href={UI_LABELS.mailto.cimsQuery}
                   className="mt-1 rounded-xl bg-primary px-3 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90"
                   onClick={() => setIsMobileNavOpen(false)}
                 >
-                  Contact Us
+                  {UI_LABELS.actions.contactUs}
                 </a>
               </div>
             </nav>
@@ -346,19 +337,20 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4 sm:space-y-6 text-center lg:text-left">
                 <div className="space-y-2 sm:space-y-3 mx-auto lg:mx-0 max-w-full">
                   <div className="section-chip section-chip-secondary-soft text-[11px] whitespace-nowrap sm:text-xs lg:mx-0 lg:text-sm">
-                    Built Inside Real Chemistry Lab Workflows
+                    {UI_LABELS.hero.eyebrow}
                   </div>
                   <h1 className="text-2xl sm:text-3xl font-bold tracking-tighter sm:text-4xl lg:text-5xl text-dark-blue break-words">
-                    <span className="block">Software Designed</span>
-                    <span className="block">Directly With</span>
+                    {UI_LABELS.hero.titleLines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
                     <span className="accent-glow block text-3xl sm:text-4xl lg:text-6xl font-extrabold tracking-tight text-coral">
-                      Your Team
+                      {UI_LABELS.hero.titleAccent}
                     </span>
                   </h1>
                   <p className="text-sm sm:text-base text-muted-foreground md:text-lg">
-                    Built from direct work inside a commercial chemistry lab, CIMS replaces brittle spreadsheets and
-                    one-size-fits-all inventory tools with software shaped around real chemical workflows. The result:
-                    fewer administrative errors, fewer delays, and more room for growing labs to scale.
+                    {UI_LABELS.hero.body}
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
@@ -367,8 +359,8 @@ export default function Home() {
                     className="soft-pulse ring-1 ring-primary/20 transition-all hover:scale-105 bg-primary text-white text-xs sm:text-sm"
                     asChild
                   >
-                    <a href="mailto:juntotechnologiesllc@gmail.com?subject=Custom%20Software%20Inquiry">
-                      Discuss Your Workflow
+                    <a href={UI_LABELS.mailto.customSoftwareInquiry}>
+                      {UI_LABELS.actions.discussWorkflow}
                       <ArrowRight className="ml-1 h-3 w-3 sm:ml-2 sm:h-4 sm:w-4" />
                     </a>
                   </Button>
@@ -385,8 +377,8 @@ export default function Home() {
         <div className="section-divider"></div>
 
         <VideoSection
-          title="See a Tailored CIMS Workflow in Action"
-          embedUrl="https://www.youtube.com/embed/v251ll_f4AY"
+          title={UI_LABELS.video.title}
+          embedUrl={UI_LABELS.video.embedUrl}
           autoplay={true}
         />
 
@@ -398,78 +390,35 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center">
               <div className="space-y-2 sm:space-y-3 max-w-[900px]">
                 <div className="section-chip section-chip-primary-soft sm:text-sm">
-                  Key Features
+                  {UI_LABELS.features.eyebrow}
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-dark-blue">
-                  Built Around the Work Your Team Actually Does
+                  {UI_LABELS.features.title}
                 </h2>
                 <p className="text-sm sm:text-base text-muted-foreground md:text-lg px-2">
-                  Every implementation starts with your process, not a generic template. The result is software shaped
-                  around chemical inventory workflows, approvals, reporting, and controls that matter to your company.
+                  {UI_LABELS.features.body}
                 </p>
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-3 sm:gap-4 py-4 sm:py-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-              <div className="ambient-panel card-breathe flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10">
-                  <ClipboardList className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-dark-blue">Comprehensive Tracking</h3>
-                <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Track the fields your organization needs, from product numbers and CAS numbers to internal locations,
-                  batch details, and custom operational metadata.
-                </p>
-              </div>
-              <div className="ambient-panel card-breathe [animation-delay:0.6s] flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-teal/10">
-                  <History className="h-5 w-5 sm:h-6 sm:w-6 text-teal" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-dark-blue">Detailed Audit Logs</h3>
-                <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Capture the audit trail your compliance process requires, with change history, timestamps, and user
-                  accountability aligned to your internal standards.
-                </p>
-              </div>
-              <div className="ambient-panel card-breathe [animation-delay:1.2s] flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-coral/10">
-                  <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-coral" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-dark-blue">Supplier Management</h3>
-                <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Maintain supplier records, contacts, and purchasing context in a way that matches how your team
-                  evaluates and sources chemicals.
-                </p>
-              </div>
-              <div className="ambient-panel card-breathe [animation-delay:1.8s] flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-coral/10">
-                  <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6 text-coral" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-dark-blue">Purchaser Tracking</h3>
-                <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Record purchaser details, approvals, and transaction history in workflows tailored to your
-                  authorization and handoff process.
-                </p>
-              </div>
-              <div className="ambient-panel card-breathe [animation-delay:2.4s] flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-primary/10">
-                  <Users className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-dark-blue">User Management</h3>
-                <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Configure role-based access, permissions, and team structures around the people and departments in
-                  your organization.
-                </p>
-              </div>
-              <div className="ambient-panel card-breathe [animation-delay:3s] flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20">
-                <div className="icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-teal/10">
-                  <BarChart3 className="h-5 w-5 sm:h-6 sm:w-6 text-teal" />
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-dark-blue">Inventory Analytics</h3>
-                <p className="text-center text-xs sm:text-sm text-muted-foreground">
-                  Surface the reports, dashboards, and forecasting views your company needs instead of forcing you into
-                  canned analytics.
-                </p>
-              </div>
+              {UI_LABELS.features.items.map((item) => {
+                const Icon = SECTION_ICONS[item.icon]
+
+                return (
+                  <div
+                    key={item.title}
+                    className={`ambient-panel card-breathe ${item.animationDelayClass} flex flex-col items-center space-y-3 sm:space-y-4 rounded-lg border bg-card p-4 sm:p-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-[1.02] hover:border-primary/20`}
+                  >
+                    <div
+                      className={`icon-beat flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full ${item.iconWrapClass}`}
+                    >
+                      <Icon className={`h-5 w-5 sm:h-6 sm:w-6 ${item.iconClass}`} />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-dark-blue">{item.title}</h3>
+                    <p className="text-center text-xs sm:text-sm text-muted-foreground">{item.body}</p>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -483,55 +432,33 @@ export default function Home() {
             <div className="grid gap-6 sm:gap-10 px-2 sm:px-6 md:gap-16 lg:grid-cols-2">
               <div className="space-y-2 sm:space-y-3">
                 <div className="section-chip section-chip-secondary sm:text-sm lg:mx-0">
-                  Benefits
+                  {UI_LABELS.benefits.eyebrow}
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-dark-blue text-center sm:text-left">
-                  A Better Fit Than Off-the-Shelf Software
+                  {UI_LABELS.benefits.title}
                 </h2>
                 <p className="max-w-[600px] text-xs sm:text-sm text-muted-foreground md:text-base text-center sm:text-left mx-auto sm:mx-0">
-                  Working directly with your company means the software can support your exact chemical operations
-                  instead of making your team adapt to a generic product.
+                  {UI_LABELS.benefits.body}
                 </p>
               </div>
               <div className="grid gap-4 sm:gap-6">
-                <div className="flex gap-3 sm:gap-4 items-start">
-                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-primary/10 shrink-0">
-                    <Shield className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-dark-blue">
-                      Enhanced Safety & Compliance
-                    </h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground">
-                      Maintain accurate records for regulatory compliance and safety audits with controls and data
-                      structures designed around your environment.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-3 sm:gap-4 items-start">
-                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-teal/10 shrink-0">
-                    <BarChart3 className="h-4 w-4 sm:h-5 sm:w-5 text-teal" />
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-dark-blue">Reduced Waste & Costs</h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground">
-                      Optimize inventory levels with workflows tuned to your purchasing patterns, storage constraints,
-                      and waste-reduction goals.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-3 sm:gap-4 items-start">
-                  <div className="flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-coral/10 shrink-0">
-                    <ClipboardList className="h-4 w-4 sm:h-5 sm:w-5 text-coral" />
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-dark-blue">Simplified Auditing</h3>
-                    <p className="text-xs sm:text-sm text-muted-foreground">
-                      Generate audit-ready reporting with the exact change history, transaction visibility, and user
-                      actions your stakeholders need.
-                    </p>
-                  </div>
-                </div>
+                {UI_LABELS.benefits.items.map((item) => {
+                  const Icon = SECTION_ICONS[item.icon]
+
+                  return (
+                    <div key={item.title} className="flex gap-3 sm:gap-4 items-start">
+                      <div
+                        className={`flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full ${item.iconWrapClass} shrink-0`}
+                      >
+                        <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${item.iconClass}`} />
+                      </div>
+                      <div>
+                        <h3 className="text-base sm:text-lg md:text-xl font-bold text-dark-blue">{item.title}</h3>
+                        <p className="text-xs sm:text-sm text-muted-foreground">{item.body}</p>
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             </div>
           </div>
@@ -544,81 +471,38 @@ export default function Home() {
             <div className="grid gap-6 sm:gap-10 lg:grid-cols-2 items-center">
               <div className="space-y-2 sm:space-y-3">
                 <div className="section-chip section-chip-accent-soft sm:text-sm lg:mx-0">
-                  Built With You
+                  {UI_LABELS.builtWithYou.eyebrow}
                 </div>
                 <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tighter text-dark-blue leading-tight max-w-[28ch] sm:max-w-none text-center sm:text-left mx-auto sm:mx-0">
-                  Custom Software Without Generic Software Bloat
+                  {UI_LABELS.builtWithYou.title}
                 </h2>
                 <p className="text-xs sm:text-sm text-muted-foreground md:text-base max-w-[600px] text-center sm:text-left mx-auto sm:mx-0">
-                  I partner directly with companies to define the right scope, workflows, and reporting from the start
-                  so the final system feels purpose-built rather than retrofitted.
+                  {UI_LABELS.builtWithYou.body}
                 </p>
                 <ul className="space-y-2">
-                  <li className="flex items-start gap-2">
-                    <div className="rounded-full bg-coral/10 p-1 mt-1">
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="text-coral"
-                      >
-                        <path
-                          d="M10 3L4.5 8.5L2 6"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-xs sm:text-sm">Designed around your workflows instead of forcing a generic process</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="rounded-full bg-coral/10 p-1 mt-1">
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="text-coral"
-                      >
-                        <path
-                          d="M10 3L4.5 8.5L2 6"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-xs sm:text-sm">No unnecessary modules or generic features your team will ignore</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="rounded-full bg-coral/10 p-1 mt-1">
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 12 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="text-coral"
-                      >
-                        <path
-                          d="M10 3L4.5 8.5L2 6"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-xs sm:text-sm">
-                      Direct collaboration, thoughtful implementation, and software tailored to your needs
-                    </span>
-                  </li>
+                  {UI_LABELS.builtWithYou.bullets.map((bullet) => (
+                    <li key={bullet} className="flex items-start gap-2">
+                      <div className="rounded-full bg-coral/10 p-1 mt-1">
+                        <svg
+                          width="10"
+                          height="10"
+                          viewBox="0 0 12 12"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="text-coral"
+                        >
+                          <path
+                            d="M10 3L4.5 8.5L2 6"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <span className="text-xs sm:text-sm">{bullet}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <div className="relative">
@@ -627,30 +511,28 @@ export default function Home() {
                   <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div className="flex items-center gap-2">
                       <Beaker className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                      <span className="text-base sm:text-lg font-bold text-dark-blue">Chemical Inventory</span>
+                      <span className="text-base sm:text-lg font-bold text-dark-blue">
+                        {UI_LABELS.builtWithYou.dashboardTitle}
+                      </span>
                     </div>
-                    <div className="text-xs sm:text-sm text-muted-foreground">Focused. Tailored. Practical.</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">
+                      {UI_LABELS.builtWithYou.dashboardKicker}
+                    </div>
                   </div>
                   <div className="space-y-3 sm:space-y-4">
                     <div className="h-2 w-full bg-soft-gray rounded-full overflow-hidden">
                       <div className="h-full w-3/4 bg-primary rounded-full"></div>
                     </div>
                     <div className="grid grid-cols-3 gap-2 sm:gap-4">
-                      <div className="rounded-lg border p-2 sm:p-3 text-center bg-white">
-                        <div className="text-xl sm:text-2xl font-bold text-primary">1738</div>
-                        <div className="text-[10px] sm:text-xs text-muted-foreground">Chemicals</div>
-                      </div>
-                      <div className="rounded-lg border p-2 sm:p-3 text-center bg-white">
-                        <div className="text-xl sm:text-2xl font-bold text-teal">24</div>
-                        <div className="text-[10px] sm:text-xs text-muted-foreground">Suppliers</div>
-                      </div>
-                      <div className="rounded-lg border p-2 sm:p-3 text-center bg-white">
-                        <div className="text-xl sm:text-2xl font-bold text-coral">12</div>
-                        <div className="text-[10px] sm:text-xs text-muted-foreground">Locations</div>
-                      </div>
+                      {UI_LABELS.builtWithYou.stats.map((stat) => (
+                        <div key={stat.label} className="rounded-lg border p-2 sm:p-3 text-center bg-white">
+                          <div className={`text-xl sm:text-2xl font-bold ${stat.className}`}>{stat.value}</div>
+                          <div className="text-[10px] sm:text-xs text-muted-foreground">{stat.label}</div>
+                        </div>
+                      ))}
                     </div>
                     <div className="text-xs sm:text-sm text-muted-foreground text-center italic">
-                      "Built around your workflow, not a generic template."
+                      {UI_LABELS.builtWithYou.quote}
                     </div>
                   </div>
                 </div>
@@ -668,14 +550,13 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-2 text-center">
               <div className="space-y-2">
                 <div className="section-chip section-chip-accent sm:text-sm">
-                  Our Team
+                  {UI_LABELS.team.eyebrow}
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-dark-blue">
-                  Work Directly With the Builder
+                  {UI_LABELS.team.title}
                 </h2>
                 <p className="max-w-[900px] text-xs sm:text-sm text-muted-foreground md:text-base px-2">
-                  Shaun works directly with companies to understand their operations and design software that reflects
-                  how their teams actually handle chemical inventory, compliance, and reporting.
+                  {UI_LABELS.team.body}
                 </p>
               </div>
             </div>
@@ -685,18 +566,18 @@ export default function Home() {
                   <div className="w-full md:w-1/3 flex-shrink-0">
                     <div className="relative aspect-square overflow-hidden rounded-lg">
                       <img
-                        src="/images/shaun.jpeg"
-                        alt="Shaun Porwal"
+                        src={UI_LABELS.team.primaryMember.image}
+                        alt={UI_LABELS.team.primaryMember.name}
                         className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
                       />
                     </div>
                   </div>
                   <div className="w-full md:w-2/3">
                     <h3 className="text-center md:text-left text-lg sm:text-xl font-bold mb-1 sm:mb-2 text-dark-blue">
-                      Shaun Porwal
+                      {UI_LABELS.team.primaryMember.name}
                     </h3>
                     <p className="text-center md:text-left text-xs sm:text-sm text-primary font-medium mb-2 sm:mb-3">
-                      Machine Learning Engineer
+                      {UI_LABELS.team.primaryMember.title}
                     </p>
                     <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                       Shaun Porwal builds <strong>biomedical AI systems</strong> across agentic workflows,
@@ -704,7 +585,7 @@ export default function Home() {
                       <strong>Founding Engineer at a biotech startup</strong> and previously built clinical ML tools at{" "}
                       <strong>Memorial Sloan Kettering Cancer Center</strong>, where he created{" "}
                       <a
-                        href="https://github.com/MSKCC-Epi-Bio/dcurves"
+                        href={UI_LABELS.links.dcurves}
                         target="_blank"
                         rel="noreferrer"
                         className="font-semibold text-primary hover:underline"
@@ -769,14 +650,13 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-2 sm:space-y-3 text-center">
               <div className="space-y-2 sm:space-y-3 max-w-[900px]">
                 <div className="section-chip section-chip-primary sm:text-sm">
-                  Pricing
+                  {UI_LABELS.pricing.eyebrow}
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold tracking-tighter md:text-4xl/tight text-dark-blue">
-                  Pricing Built Around Your Organization
+                  {UI_LABELS.pricing.title}
                 </h2>
                 <p className="text-sm sm:text-base text-muted-foreground md:text-lg px-2">
-                  Flexible pricing for companies that want tailored chemical inventory software and direct collaboration
-                  throughout implementation.
+                  {UI_LABELS.pricing.body}
                 </p>
               </div>
             </div>
@@ -784,44 +664,33 @@ export default function Home() {
             <div className="mx-auto grid max-w-lg items-start gap-6 py-8 grid-cols-1">
               <div className="mx-auto flex w-full max-w-md flex-col h-full rounded-xl border bg-card p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20">
                 <div className="mb-5 text-center">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-dark-blue">Enterprise</h3>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-dark-blue">{UI_LABELS.pricing.planName}</h3>
                   <p className="text-xs sm:text-sm text-muted-foreground mt-2">
-                    For organizations that need tailored rollout, white glove service, and pricing built around their
-                    needs
+                    {UI_LABELS.pricing.planBody}
                   </p>
                 </div>
                 <ul className="mb-8 space-y-3 flex-1">
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-coral mr-2 flex-shrink-0" />
-                    <span className="text-[11px] sm:text-xs whitespace-nowrap">Tailored for your team size and operating model</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-coral mr-2 flex-shrink-0" />
-                    <span className="text-[11px] sm:text-xs whitespace-nowrap">White glove onboarding and rollout support</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-coral mr-2 flex-shrink-0" />
-                    <span className="text-[11px] sm:text-xs whitespace-nowrap">Direct collaboration to shape workflows and reporting</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="h-4 w-4 text-coral mr-2 flex-shrink-0" />
-                    <span className="text-[11px] sm:text-xs whitespace-nowrap">Software tailored to your company instead of a generic app</span>
-                  </li>
+                  {UI_LABELS.pricing.bullets.map((bullet) => (
+                    <li key={bullet} className="flex items-center">
+                      <Check className="h-4 w-4 text-coral mr-2 flex-shrink-0" />
+                      <span className="text-[11px] sm:text-xs whitespace-nowrap">{bullet}</span>
+                    </li>
+                  ))}
                 </ul>
                 <Button className="w-full bg-coral hover:bg-coral/90 text-xs sm:text-sm" asChild>
-                  <a href="mailto:juntotechnologiesllc@gmail.com?subject=Enterprise%20Pricing%20Inquiry">Start the Conversation</a>
+                  <a href={UI_LABELS.mailto.enterprisePricingInquiry}>{UI_LABELS.actions.startConversation}</a>
                 </Button>
               </div>
             </div>
 
             <div className="mt-8 text-center">
               <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto">
-                Need software designed around your company&apos;s workflow and support expectations?{" "}
+                {UI_LABELS.pricing.footerLead}{" "}
                 <a
-                  href="mailto:juntotechnologiesllc@gmail.com?subject=Enterprise%20Inquiry"
+                  href={UI_LABELS.mailto.enterpriseInquiry}
                   className="text-primary hover:underline"
                 >
-                  Reach out to discuss pricing and fit
+                  {UI_LABELS.actions.pricingFit}
                 </a>
                 .
               </p>
@@ -835,10 +704,10 @@ export default function Home() {
         <div className="container flex flex-col items-center justify-center gap-2 sm:gap-4 px-2 sm:px-4 md:px-6 text-center">
           <div className="flex items-center gap-2">
             <Beaker className="h-5 w-5 sm:h-6 sm:w-6 text-light-blue" />
-            <span className="text-base sm:text-lg font-bold">CIMS</span>
+            <span className="text-base sm:text-lg font-bold">{UI_LABELS.brand.shortName}</span>
           </div>
           <p className="text-center text-xs sm:text-sm text-white/70">
-            &copy; 2025 Chemical Inventory Management System. All rights reserved.
+            {UI_LABELS.brand.footerCopyright}
           </p>
         </div>
       </footer>
@@ -847,68 +716,68 @@ export default function Home() {
       <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
         <DialogContent className="sm:max-w-[425px] max-w-[90vw]">
           <DialogHeader>
-            <DialogTitle>Add New Chemical</DialogTitle>
+            <DialogTitle>{UI_LABELS.addChemicalDialog.title}</DialogTitle>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-2 sm:gap-4">
               <Label htmlFor="productNumber" className="text-right text-xs sm:text-sm">
-                Product #
+                {UI_LABELS.addChemicalDialog.fields.productNumber.label}
               </Label>
               <Input
                 id="productNumber"
                 value={newChemical.productNumber}
                 onChange={(e) => setNewChemical({ ...newChemical, productNumber: e.target.value })}
                 className="col-span-3 text-xs sm:text-sm"
-                placeholder="PRD-1004"
+                placeholder={UI_LABELS.addChemicalDialog.fields.productNumber.placeholder}
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-2 sm:gap-4">
               <Label htmlFor="name" className="text-right text-xs sm:text-sm">
-                Chemical Name
+                {UI_LABELS.addChemicalDialog.fields.name.label}
               </Label>
               <Input
                 id="name"
                 value={newChemical.name}
                 onChange={(e) => setNewChemical({ ...newChemical, name: e.target.value })}
                 className="col-span-3 text-xs sm:text-sm"
-                placeholder="Calcium Carbonate"
+                placeholder={UI_LABELS.addChemicalDialog.fields.name.placeholder}
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-2 sm:gap-4">
               <Label htmlFor="location" className="text-right text-xs sm:text-sm">
-                Location
+                {UI_LABELS.addChemicalDialog.fields.location.label}
               </Label>
               <Input
                 id="location"
                 value={newChemical.location}
                 onChange={(e) => setNewChemical({ ...newChemical, location: e.target.value })}
                 className="col-span-3 text-xs sm:text-sm"
-                placeholder="Lab D"
+                placeholder={UI_LABELS.addChemicalDialog.fields.location.placeholder}
               />
             </div>
             <div className="grid grid-cols-4 items-center gap-2 sm:gap-4">
               <Label htmlFor="amount" className="text-right text-xs sm:text-sm">
-                Amount
+                {UI_LABELS.addChemicalDialog.fields.amount.label}
               </Label>
               <Input
                 id="amount"
                 value={newChemical.amount}
                 onChange={(e) => setNewChemical({ ...newChemical, amount: e.target.value })}
                 className="col-span-3 text-xs sm:text-sm"
-                placeholder="20 kg"
+                placeholder={UI_LABELS.addChemicalDialog.fields.amount.placeholder}
               />
             </div>
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setIsAddDialogOpen(false)} className="text-xs sm:text-sm">
-              Cancel
+              {UI_LABELS.addChemicalDialog.cancel}
             </Button>
             <Button
               onClick={handleAddChemical}
               disabled={!newChemical.productNumber || !newChemical.name || !newChemical.location || !newChemical.amount}
               className="bg-teal hover:bg-teal/90 text-xs sm:text-sm"
             >
-              Add Chemical
+              {UI_LABELS.addChemicalDialog.submit}
             </Button>
           </DialogFooter>
         </DialogContent>
