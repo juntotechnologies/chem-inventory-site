@@ -1,4 +1,4 @@
-# PR planned: Labscape Hero and New Headline
+# PR 3: Labscape Hero and New Headline
 
 Status: underway
 
@@ -76,5 +76,5 @@ Recommendations in brackets; to be confirmed by Shaun before Tier 1 and Tier 2.
 
 ## Related Docs
 
-- [Labscape: hero scene with a live audit log](https://github.com/juntotechnologies/labscape/blob/main/docs/pr-docs/planned-hero-scene.md)
+- [Labscape: hero scene with a live audit log](https://github.com/juntotechnologies/labscape/blob/main/docs/pr-docs/7-hero-scene.md)
 - [Hero origin, bio and contrast](./planning-chip-bio-contrast.md)
