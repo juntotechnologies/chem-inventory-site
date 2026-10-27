@@ -4,6 +4,8 @@ The public site of ChemInventory, at `https://cheminventory.co/`. It is a Vite a
 
 The global rules in `~/AGENTS.md` apply here. This file adds the rules for this repo.
 
+Shared design rules: skill `site-taste` in `agent-skills`. This repo keeps its own design choices in `docs/design.md`. Run the skill's `taste.py sites` command after a design change to find drift.
+
 ## Delivery
 
 - Work on a branch. Open a pull request with a doc in `docs/pr-docs/`. Run `npm test` and `npm run build`.
