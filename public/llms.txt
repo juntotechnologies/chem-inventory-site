@@ -1,0 +1,21 @@
+# ChemInventory
+
+> ChemInventory is a chemical inventory management system. Track chemicals, suppliers, purchasers, users and an audit log in one app.
+
+ChemInventory (short name CIMS) is made by Junto Technologies.
+
+## Features
+
+- Chemical tracking: Record product numbers, CAS numbers, locations, batch details and custom fields for each chemical.
+- Audit logs: Log every change with its timestamp and the user who made it.
+- Supplier management: Keep supplier records, contacts and purchasing context in one place.
+- Purchaser tracking: Record purchaser details, approvals and transaction history.
+- User management: Set role-based access and permissions for people and departments.
+- Inventory analytics: Reports, dashboards and forecasting views for inventory.
+
+## Links
+
+- [Landing page](https://cheminventory.co/): Overview of the product.
+- [Static demo](https://demo.cheminventory.co): Try the app with sample data.
+- [Book a meeting](https://cal.com/shaun-porwal-junto/30min): Contact the maker and book a call.
+- [Junto Technologies](https://juntotechnologies.com/#cheminventory): The company that makes ChemInventory.

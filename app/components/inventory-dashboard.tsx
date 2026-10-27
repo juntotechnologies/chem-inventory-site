@@ -654,7 +654,7 @@ export function InventoryDashboard() {
               </div>
               <Button
                 size="sm"
-                className="h-10 shrink-0 bg-teal hover:bg-teal/90"
+                className="h-10 shrink-0 bg-primary hover:bg-primary/90"
                 onClick={() => setIsAddChemicalOpen(true)}
               >
                 <Plus className="h-4 w-4 mr-1" />
@@ -704,7 +704,7 @@ export function InventoryDashboard() {
                   <tbody className="bg-white divide-y divide-gray-200">
                     {processedData.map((item: ChemicalItem) => (
                       <tr key={item.id} className="hover:bg-gray-50">
-                        <td className="px-4 py-2 text-sm">{item.productNumber}</td>
+                        <td className="px-4 py-2 text-sm whitespace-nowrap">{item.productNumber}</td>
                         <td className="px-4 py-2 text-sm">{item.name}</td>
                         <td className="px-4 py-2 text-sm">{item.location}</td>
                         <td className="px-4 py-2 text-sm">{item.amount}</td>
@@ -1111,31 +1111,28 @@ export function InventoryDashboard() {
   }
 
   return (
-    <div className="relative w-full max-w-[800px] h-[420px] border-2 rounded-lg bg-white shadow-lg overflow-hidden">
+    <div className="surface-light relative w-full max-w-[800px] h-[420px] rounded-lg border bg-white text-foreground overflow-hidden">
       {/* Header with menu button */}
-      <div className="flex items-center border-b-2 bg-muted/50 px-4 py-2 h-10">
-        <button onClick={() => setIsSidebarOpen(true)} className="mr-2 text-gray-600 hover:text-gray-900">
+      <div className="flex items-center border-b bg-muted/50 px-4 py-2 h-10">
+        <button aria-label="Open menu" onClick={() => setIsSidebarOpen(true)} className="mr-2 text-gray-600 hover:text-gray-900">
           <Menu className="h-5 w-5" />
         </button>
-        <div className="signal-blink flex h-2 w-2 rounded-full bg-accent mr-2"></div>
-        <div className="signal-blink signal-blink-delay-1 flex h-2 w-2 rounded-full bg-teal mr-2"></div>
-        <div className="signal-blink signal-blink-delay-2 flex h-2 w-2 rounded-full bg-primary mr-2"></div>
         <div className="text-sm text-muted-foreground">Chemical Inventory Dashboard</div>
       </div>
 
       {/* Sidebar - contained within the dashboard */}
       <div
         className={cn(
-          "absolute top-0 left-0 h-full w-64 border-r-2 bg-white shadow-lg z-30 flex flex-col transition-all duration-300 ease-out",
+          "absolute top-0 left-0 h-full w-64 border-r bg-white z-30 flex flex-col transition-[transform,opacity] duration-300 ease-out",
           isSidebarOpen ? "translate-x-0 opacity-100" : "-translate-x-6 opacity-0 pointer-events-none",
         )}
       >
-          <div className="flex items-center justify-between p-4 border-b-2 h-10">
+          <div className="flex items-center justify-between p-4 border-b h-10">
             <div className="flex items-center gap-2">
               <Beaker className="h-5 w-5 text-primary" />
               <span className="text-lg font-bold text-primary">Chemical Inventory</span>
             </div>
-            <button onClick={() => setIsSidebarOpen(false)} className="text-gray-500 hover:text-gray-700">
+            <button aria-label="Close menu" onClick={() => setIsSidebarOpen(false)} className="text-gray-500 hover:text-gray-700">
               <X className="h-5 w-5" />
             </button>
           </div>
@@ -1254,7 +1251,7 @@ export function InventoryDashboard() {
             <Button
               onClick={handleAddChemical}
               disabled={!newChemical.productNumber || !newChemical.name || !newChemical.location || !newChemical.amount}
-              className="bg-teal hover:bg-teal/90"
+              className="bg-primary hover:bg-primary/90"
             >
               Add Chemical
             </Button>
@@ -1575,7 +1572,7 @@ export function InventoryDashboard() {
                 !editingChemical?.location ||
                 !editingChemical?.amount
               }
-              className="bg-teal hover:bg-teal/90"
+              className="bg-primary hover:bg-primary/90"
             >
               Update Chemical
             </Button>
