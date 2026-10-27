@@ -13,7 +13,7 @@ Make each product statement on the page match what the product does. Narrow thre
 - Shaun, 2026-10-27: handle the open claim items without him. The site is free to publish to.
 - An audit compared every product statement on the page with the product code. It also compared them with the demo screenshots. The evidence stays in a private record.
 - The audit found two statements wider than the product. It found one benefit that uses a word wider than the product.
-- Open item from [PR 6](../6-feature-refresh.md): the wording "carry the user and the time" needs the compliance reviewer. The new wording makes no claim about a rule or a regulation. It states a product behaviour. No reviewer is needed. Shaun can still ask for one.
+- Open item from [PR 6](./6-feature-refresh.md): the wording "carry the user and the time" needs the compliance reviewer. The new wording makes no claim about a rule or a regulation. It states a product behaviour. No reviewer is needed. Shaun can still ask for one.
 
 ## Implementation Checklist
 
@@ -75,4 +75,4 @@ Make each product statement on the page match what the product does. Narrow thre
 
 ## Related Docs
 
-- [PR 6: Feature refresh with verified copy and real screenshots](../6-feature-refresh.md)
+- [PR 6: Feature refresh with verified copy and real screenshots](./6-feature-refresh.md)

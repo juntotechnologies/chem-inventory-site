@@ -1,6 +1,6 @@
 # PR 5: Landing page cleanup and discovery files
 
-Status: underway
+Status: done (merged on 2026-10-27; archived the same day)
 
 Branch: `feature/landing-cleanup`
 
@@ -11,7 +11,7 @@ Make the landing page look designed by a person. Remove the "software developed 
 ## Context
 
 - Shaun's note on the old page: remove the "developed with your team" pitch, look less AI-generated, cleaner theme, add `robots.txt`, `agents.txt` and other SEO files.
-- The hero headline "The Operating System for Chemical Labs" comes from the [Labscape hero plan](./planned-labscape-hero.md). That plan states it as its goal, so this PR uses it.
+- The hero headline "The Operating System for Chemical Labs" comes from the [Labscape hero plan](../planned-labscape-hero.md). That plan states it as its goal, so this PR uses it.
 - The hero right slot (`InventoryDashboard`) stays. The Labscape PR replaces it later. This PR edits only its frame and two button labels.
 - Deploy: GitHub Pages runs on every push to `main`. There is no preview deploy, so every check runs on a local build.
 - Feature, benefit and video copy is placeholder. It holds the facts the old page stated, trimmed. An app research task replaces it.
@@ -52,7 +52,7 @@ Make the landing page look designed by a person. Remove the "software developed 
 - [x] `npm test` and `npm run build` pass.
 - [x] The build output holds `CNAME`, `robots.txt`, `sitemap.xml`, `llms.txt`, `agents.txt`, `404.html` and the og image.
 - [x] Browser walk at 360, 390, 430, 820 and 1440 px in light and dark.
-- [ ] Merge the PR. The deploy runs on merge.
+- [x] Merge the PR. The deploy runs on merge.
 
 ## Smoke Tests
 
@@ -73,7 +73,7 @@ Make the landing page look designed by a person. Remove the "software developed 
   - `robots.txt` allows all crawlers and names the sitemap.
   - No file holds an email address.
 
-- [ ] **Live site** · as a visitor, after merge
+- [x] **Live site** · as a visitor, after merge (the agent checked the page, the images, the discovery files and the link image over HTTPS on 2026-10-27)
   1. Open `https://cheminventory.co/` and the four files above.
 
   **Pass if:**
@@ -138,4 +138,4 @@ Removed wording: "the audit trail your compliance process requires", "aligned to
 
 ## Related Docs
 
-- [Planned: Labscape hero and new headline](./planned-labscape-hero.md)
+- [Planned: Labscape hero and new headline](../planned-labscape-hero.md)
