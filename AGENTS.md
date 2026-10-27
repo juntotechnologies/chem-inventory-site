@@ -7,9 +7,10 @@ The global rules in `~/AGENTS.md` apply here. This file adds the rules for this 
 ## Delivery
 
 - Work on a branch. Open a pull request with a doc in `docs/pr-docs/`. Run `npm test` and `npm run build`.
-- Never push to `main`. Never merge a pull request. Never turn on auto-merge. Shaun reviews and merges every change.
-- Reason: this site and the ChemInventory application serve other users. Shaun, 2026-10-27: "you should not be allowed to merge to main without my oversight."
+- Merge the pull request after both pass, a walk at 360, 390, 820 and 1440 px passes, and no review is open. Shaun, 2026-10-27: "chem inventory you can freely publish to." Walk the live site after the merge.
 - A merge to `main` publishes the site through `.github/workflows/deploy.yml`.
+- Scope: this rule covers this repo only. The `chem-inventory` application repo and its demo serve other users. Shaun reviews and merges every change there, and no agent pushes to its `main`.
+- Never merge a pull request that is still a draft, such as the Labscape hero.
 
 ## Source of truth
 

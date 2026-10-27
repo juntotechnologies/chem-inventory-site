@@ -6,7 +6,7 @@ Short PR-specific notes for completed and planned work.
 
 | Doc | Description |
 |-----|-------------|
-| [PR 8: AGENTS.md with the review rule](./8-agents-review-rule.md) | Every change here needs Shaun's review and merge |
+| [PR 8: AGENTS.md with the delivery rule](./8-agents-md.md) | Give this repo its delivery rule. The application repo stays under Shaun's review |
 | [PR 7: Agent rules as JSON at /.well-known/agents.json](./7-agents-json.md) | The agent rules of `agents.txt` as JSON, generated from `site.json` like the Junto hub file |
 | [PR 6: Feature refresh with verified copy and real screenshots](./6-feature-refresh.md) | Six feature groups and three benefits that match the app, real demo screenshots, no mock dashboard |
 | [PR 5: Landing page cleanup and discovery files](./5-landing-cleanup.md) | New theme, no custom-software pitch, and robots, sitemap, llms and agents files from `site.json` |
