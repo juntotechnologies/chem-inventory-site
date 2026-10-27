@@ -15,7 +15,7 @@ function renderBullet(text: string) {
 
 function PlanActions() {
   return (
-    <div className="btn-row mt-8">
+    <div className="btn-row mx-auto mt-8 lg:mx-0">
       <Button asChild><a href={mailto.enterprisePricingInquiry}>{actions.askPricing}</a></Button>
       <Button asChild variant="outline"><a href={mailto.enterpriseInquiry}>{actions.discussFit}</a></Button>
     </div>
