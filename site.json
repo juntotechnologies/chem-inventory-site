@@ -20,6 +20,7 @@
     "hub": "https://juntotechnologies.com/#cheminventory"
   },
   "hero": {
+    "accentWord": "Chemical Labs",
     "screenshot": {
       "src": "/images/app/hero.webp",
       "alt": "The Inventory page of the app. A table lists ten chemical batches with product number, batch number, name, CAS number, location and quantity.",
@@ -122,7 +123,9 @@
       "destructiveForeground": "#ffffff",
       "border": "#e2e2dd",
       "input": "#d3d4ce",
-      "ring": "#2340c8"
+      "ring": "#2340c8",
+      "highlight": "#ffffff",
+      "shade": "#15181e"
     },
     "dark": {
       "background": "#0f1217",
@@ -143,7 +146,9 @@
       "destructiveForeground": "#0b0f1a",
       "border": "#262d38",
       "input": "#313947",
-      "ring": "#8da2ff"
+      "ring": "#8da2ff",
+      "highlight": "#ffffff",
+      "shade": "#000000"
     }
   },
   "seo": {

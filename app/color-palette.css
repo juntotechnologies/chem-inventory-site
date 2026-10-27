@@ -21,6 +21,8 @@
   --border: 226 226 221;
   --input: 211 212 206;
   --ring: 35 64 200;
+  --highlight: 255 255 255;
+  --shade: 21 24 30;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,5 +47,7 @@
     --border: 38 45 56;
     --input: 49 57 71;
     --ring: 141 162 255;
+    --highlight: 255 255 255;
+    --shade: 0 0 0;
   }
 }

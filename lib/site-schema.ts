@@ -47,6 +47,8 @@ const ThemeTokensSchema = z.object({
   border: hex,
   input: hex,
   ring: hex,
+  highlight: hex,
+  shade: hex,
 })
 
 const Brand = z.object({
@@ -80,7 +82,7 @@ export const SiteSchema = z.object({
   title: z.string().min(1).max(60),
   description: z.string().min(50).max(160),
   links: z.object({ demo: httpsUrl, booking: httpsUrl, hub: httpsUrl }),
-  hero: z.object({ screenshot: Screenshot }),
+  hero: z.object({ accentWord: z.string().min(1), screenshot: Screenshot }),
   features: z.array(FeatureSchema).min(4).max(6),
   theme: z.object({ light: ThemeTokensSchema, dark: ThemeTokensSchema }),
   seo: Seo,

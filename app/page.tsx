@@ -7,6 +7,7 @@ import { SiteNav } from "@/app/components/site-nav"
 import { TeamSection } from "@/app/components/team-section"
 import { VideoSection } from "@/app/components/video-section"
 import { UI_LABELS } from "@/app/ui-labels"
+import { usePointerGlow } from "@/lib/pointer-glow"
 import { useRevealOnScroll } from "@/lib/reveal"
 
 const SKIP_LINK_CLASS =
@@ -30,6 +31,7 @@ function Sections() {
 
 export default function Home() {
   useRevealOnScroll()
+  usePointerGlow()
   return (
     <>
       <SkipLink />

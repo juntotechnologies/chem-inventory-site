@@ -4,10 +4,49 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Pointer light. JS writes --gx, --gy (buttons, cards) and --hx, --hy (hero). Registering them lets CSS ease them and fade --glow. */
+@property --glow {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@property --gx {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
+@property --gy {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 50%;
+}
+
+@property --hx {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+
+@property --hy {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 50%;
+}
+
 @layer base {
   :root {
     --radius: 0.5rem;
     --ease-out: cubic-bezier(0.22, 0.7, 0.2, 1);
+    --glow-size: 220px;
+    --motion-glow: 400ms;
+    --motion-follow: 220ms;
+    --sheen-duration: 6s;
+    --shimmer-duration: 7s;
+    --shadow-raise-primary: inset 0 1px 0 rgb(var(--highlight) / 0.28), inset 0 -1px 0 rgb(var(--shade) / 0.18),
+      0 1px 2px rgb(var(--primary) / 0.4), 0 10px 20px -10px rgb(var(--primary) / 0.5);
+    --shadow-header: 0 10px 24px -18px rgb(var(--shade) / 0.3);
   }
 
   * {
@@ -75,6 +114,11 @@
     top: 0;
     z-index: 50;
     background: rgb(var(--background));
+    transition: box-shadow 200ms var(--ease-out);
+  }
+
+  .site-header[data-scrolled="true"] {
+    box-shadow: var(--shadow-header);
   }
 
   .site-header::after {
@@ -173,8 +217,12 @@
 
   /* One smooth card hover: lift by 2 px and fade in an accent edge. */
   .lift {
+    --glow-color: rgb(var(--primary) / 0.18);
     position: relative;
-    transition: transform 220ms var(--ease-out);
+    background-image: radial-gradient(var(--glow-size) circle at var(--gx) var(--gy), color-mix(in srgb, var(--glow-color) calc(var(--glow) * 100%), transparent), transparent);
+    transition-property: transform, --glow, --gx, --gy;
+    transition-duration: 220ms, var(--motion-glow), var(--motion-follow), var(--motion-follow);
+    transition-timing-function: var(--ease-out);
   }
 
   .lift::after {
@@ -186,14 +234,6 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 220ms var(--ease-out);
-  }
-
-  .lift:hover {
-    transform: translateY(-2px);
-  }
-
-  .lift:hover::after {
-    opacity: 0.45;
   }
 
   /* Motion: scroll reveal and the hero entrance. Only transform and opacity change. */
@@ -211,12 +251,176 @@
     animation: rise 480ms var(--ease-out) both;
     animation-delay: var(--rise-delay, 0ms);
   }
+
+  /* Text also clears from a small blur. The screenshot does not blur, so the paint stays small. */
+  .rise-text {
+    animation-name: rise-text;
+  }
+
+  /* Buttons: the base class holds the press, the lift and the glow. The default variant is raised. */
+  .btn {
+    --glow-color: rgb(var(--primary) / 0.18);
+    background-image: radial-gradient(var(--glow-size) circle at var(--gx) var(--gy), color-mix(in srgb, var(--glow-color) calc(var(--glow) * 100%), transparent), transparent);
+    transition-property: transform, translate, --glow, --gx, --gy;
+    transition-duration: 150ms, 150ms, var(--motion-glow), var(--motion-follow), var(--motion-follow);
+    transition-timing-function: var(--ease-out);
+  }
+
+  .btn-raised {
+    --glow-color: rgb(var(--highlight) / 0.3);
+    box-shadow: var(--shadow-raise-primary);
+  }
+
+  /* The main hero button has a light that circles its edge. The wrapper makes the 2 px ring and keeps the layout size. */
+  .sheen {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    margin: -2px;
+    padding: 2px;
+    overflow: hidden;
+    border-radius: calc(var(--radius) + 2px);
+  }
+
+  .sheen::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    width: 220%;
+    aspect-ratio: 1;
+    translate: -50% -50%;
+    background: conic-gradient(transparent 0 62%, rgb(var(--primary) / 0.9) 90%, transparent 100%);
+    animation: sheen var(--sheen-duration) linear infinite;
+  }
+
+  /* One word of the headline moves through the accent colors. Each stop is the accent or a mix with the text color, so the contrast holds. */
+  .accent-word {
+    color: rgb(var(--primary));
+    background-image: linear-gradient(100deg, rgb(var(--primary)), color-mix(in srgb, rgb(var(--primary)) 55%, rgb(var(--foreground))), rgb(var(--primary)));
+    background-size: 220% 100%;
+    animation: shimmer var(--shimmer-duration) ease-in-out infinite alternate;
+  }
+
+  /* The hero field: a faint dot grid that drifts, and dots that light up near the pointer. */
+  .hero {
+    transition-property: --hx, --hy;
+    transition-duration: var(--motion-follow);
+    transition-timing-function: var(--ease-out);
+  }
+
+  .hero-field,
+  .hero-lit {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    overflow: hidden;
+    overflow: clip;
+    pointer-events: none;
+  }
+
+  .hero-field {
+    -webkit-mask-image: radial-gradient(ellipse 85% 90% at 50% 20%, black 20%, transparent 78%);
+    mask-image: radial-gradient(ellipse 85% 90% at 50% 20%, black 20%, transparent 78%);
+  }
+
+  .hero-field::before,
+  .hero-lit::before {
+    content: "";
+    position: absolute;
+    inset: -24px;
+    background-size: 24px 24px;
+    animation: drift 48s linear infinite;
+  }
+
+  .hero-field::before {
+    background-image: radial-gradient(circle, rgb(var(--input)) 1.25px, transparent 1.75px);
+  }
+
+  .hero-lit {
+    opacity: 0;
+    -webkit-mask-image: radial-gradient(circle var(--glow-size) at var(--hx) var(--hy), black, transparent);
+    mask-image: radial-gradient(circle var(--glow-size) at var(--hx) var(--hy), black, transparent);
+    transition: opacity var(--motion-glow) var(--ease-out);
+  }
+
+  .hero-lit::before {
+    background-image: radial-gradient(circle, rgb(var(--primary)) 1.25px, transparent 1.75px);
+  }
+}
+
+@media (forced-colors: active) {
+  .accent-word {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: inherit;
+  }
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .accent-word {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+/* Hover runs only where a pointer can hover, so a touch screen never keeps a hover state. */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover {
+    translate: 0 -1px;
+  }
+
+  .btn:hover,
+  .lift:hover {
+    --glow: 1;
+  }
+
+  .lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .lift:hover::after {
+    opacity: 0.45;
+  }
+
+  .hero:hover .hero-lit {
+    opacity: 0.55;
+  }
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(12px) scale(0.985);
+  }
+}
+
+@keyframes rise-text {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+    filter: blur(4px);
+  }
+}
+
+@keyframes sheen {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes drift {
+  to {
+    translate: 24px 24px;
   }
 }
 
@@ -263,5 +467,10 @@
   [data-reveal="pending"] {
     opacity: 1;
     transform: none;
+  }
+
+  .sheen::before,
+  .hero-lit {
+    display: none;
   }
 }
