@@ -1,5 +1,6 @@
 /** Renders the generated <head> block of index.html and injects it between markers. */
 import type { Site } from "../site-schema"
+import { ogAlt } from "./graphics"
 import { escapeHtml, metaTag, safeJson } from "./html"
 import { buildJsonLd } from "./json-ld"
 import { absoluteUrl } from "./urls"
@@ -56,7 +57,7 @@ function openGraphImageTags(site: Site): string[] {
     ["og:image", absoluteUrl(site, og.image)],
     ["og:image:width", String(og.width)],
     ["og:image:height", String(og.height)],
-    ["og:image:alt", og.alt],
+    ["og:image:alt", ogAlt(site)],
   ]
   return pairs.map(propertyTag)
 }
@@ -68,7 +69,7 @@ function twitterTags(site: Site): string[] {
     ["twitter:title", site.title],
     ["twitter:description", site.description],
     ["twitter:image", absoluteUrl(site, og.image)],
-    ["twitter:image:alt", og.alt],
+    ["twitter:image:alt", ogAlt(site)],
   ]
   return pairs.map(nameTag)
 }

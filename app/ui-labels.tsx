@@ -39,32 +39,32 @@ export const UI_LABELS = {
   hero: {
     eyebrow: "Built inside real chemistry lab workflows",
     title: site.headline,
-    body: `${site.brand.name} came from direct work inside a commercial chemistry lab. It replaces spreadsheets and generic inventory tools with software that fits chemical workflows.`,
+    body: `${site.tagline} It came from direct work inside a commercial chemistry lab and replaces spreadsheets.`,
   },
-  // Placeholder copy: the app research replaces the video and product sections.
   video: {
     eyebrow: "Video",
-    title: `See ${site.brand.name} in action`,
-    lead: "Watch a short video of the app.",
+    title: "Early walkthrough",
+    caption: "Recorded in April 2025. The app has grown since. Open the static demo for the current version.",
+    frameTitle: `Early walkthrough of ${site.brand.name}`,
     embedUrl: "https://www.youtube.com/embed/v251ll_f4AY",
   },
   product: {
     eyebrow: "Features",
     title: `What ${site.brand.name} does`,
-    lead: "Tools for the daily work of a chemical inventory.",
+    lead: "Every screenshot comes from the static demo. It uses sample data.",
     benefitsLabel: "Benefits",
     benefits: [
       {
-        title: "Safety and compliance records",
-        statement: "Keep accurate records for regulatory compliance and safety audits.",
+        title: "One place for records",
+        statement: "Keep stock, orders, contacts and batch documents in one app.",
       },
       {
-        title: "Less waste and cost",
-        statement: "Set inventory levels against purchasing patterns, storage limits and waste-reduction goals.",
+        title: "Clear order status",
+        statement: "See what arrived, what remains and what is overdue on each order.",
       },
       {
-        title: "Simpler audits",
-        statement: "Generate audit-ready reports with change history, transaction visibility and user actions.",
+        title: "Traceable changes",
+        statement: "Changes to inventory, transactions and orders carry the user and the time.",
       },
     ],
   },

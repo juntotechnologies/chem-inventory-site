@@ -1,10 +1,11 @@
-/** The hero: headline, origin line and two actions on the left; the product demo on the right. */
+/** The hero: headline, origin line and two actions on the left; a real screenshot of the app on the right. */
 import type { CSSProperties } from "react"
 import { ArrowUpRight } from "lucide-react"
 
-import { InventoryDashboard } from "@/app/components/inventory-dashboard"
+import { ScreenshotFrame } from "@/app/components/screenshot-frame"
 import { UI_LABELS } from "@/app/ui-labels"
 import { Button } from "@/components/ui/button"
+import { site } from "@/lib/site"
 
 function riseDelay(ms: number) {
   return { "--rise-delay": `${ms}ms` } as CSSProperties
@@ -42,8 +43,8 @@ export function Hero() {
     <section id="top" className="pb-16 pt-12 md:pb-24 md:pt-20">
       <div className="shell grid-12 items-center gap-y-12">
         <HeroCopy />
-        <div className="rise col-span-12 flex justify-center lg:col-span-7" style={riseDelay(200)}>
-          <InventoryDashboard />
+        <div className="rise col-span-12 lg:col-span-7" style={riseDelay(200)}>
+          <ScreenshotFrame screenshot={site.hero.screenshot} priority />
         </div>
       </div>
     </section>

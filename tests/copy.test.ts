@@ -22,7 +22,7 @@ function sentencesOf(text: string): string[] {
 }
 
 function siteCopy() {
-  return [site.headline, site.title, site.description, site.brand, site.features]
+  return [site.headline, site.tagline, site.title, site.description, site.brand, site.hero, site.features]
 }
 
 const allCopy = collectStrings([UI_LABELS, siteCopy()])
@@ -60,5 +60,27 @@ describe("rendered page", () => {
 
   it("renders every feature group from site.json", () => {
     for (const feature of site.features) expect(html).toContain(feature.statement)
+  })
+
+  it("opens the hero body with the factual line, then the origin", () => {
+    expect(UI_LABELS.hero.body.startsWith(`${site.tagline} `)).toBe(true)
+    expect(UI_LABELS.hero.body).toContain("direct work inside a commercial chemistry lab")
+  })
+
+  it("shows a real screenshot in the hero and no mock dashboard", () => {
+    expect(html).toContain(`src="${site.hero.screenshot.src}"`)
+    expect(html).not.toMatch(/Chemical Inventory Dashboard|Select a section from the sidebar/)
+  })
+
+  it("dates the video and links the static demo beside it", () => {
+    const video = html.slice(html.indexOf('id="video"'), html.indexOf('id="features"'))
+    expect(video).toContain("Early walkthrough")
+    expect(video).toContain(UI_LABELS.video.caption)
+    expect(video).toContain(`href="${site.links.demo}"`)
+  })
+
+  it("lists the three benefits", () => {
+    expect(UI_LABELS.product.benefits).toHaveLength(3)
+    for (const benefit of UI_LABELS.product.benefits) expect(html).toContain(benefit.statement)
   })
 })

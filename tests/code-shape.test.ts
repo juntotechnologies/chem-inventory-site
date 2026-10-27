@@ -8,8 +8,6 @@ const ROOT = join(__dirname, "..")
 const SCOPED_DIRECTORIES = ["app", "lib", "src"]
 const SCOPED_FILES = ["vite.config.ts", "scripts/generate-seo.mjs", "scripts/prerender.mjs", "scripts/dev.mjs"]
 const CODE_FILE = /\.(ts|tsx|mjs)$/
-// Vendored or soon-to-be-replaced files that this check does not cover.
-const LEGACY_EXEMPT = new Set(["app/components/inventory-dashboard.tsx"])
 
 function listCode(directory: string): string[] {
   const found: string[] = []
@@ -22,8 +20,7 @@ function listCode(directory: string): string[] {
 }
 
 function scopedFiles(): string[] {
-  const listed = SCOPED_DIRECTORIES.flatMap(listCode)
-  return [...listed, ...SCOPED_FILES].filter((file) => !LEGACY_EXEMPT.has(file))
+  return [...SCOPED_DIRECTORIES.flatMap(listCode), ...SCOPED_FILES]
 }
 
 function violationsIn(file: string): string[] {

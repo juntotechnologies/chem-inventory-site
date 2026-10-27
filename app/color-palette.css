@@ -1,7 +1,6 @@
 /* Generated from site.json by `npm run seo`. Do not edit by hand.
  * Values are RGB channels so Tailwind opacity modifiers work. */
-:root,
-.surface-light {
+:root {
   color-scheme: light;
   --background: 251 251 249;
   --foreground: 21 24 30;

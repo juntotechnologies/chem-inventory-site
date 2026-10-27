@@ -15,6 +15,7 @@ const Screenshot = z.object({
   alt: z.string().min(1),
   width: z.number().int().positive(),
   height: z.number().int().positive(),
+  density: z.number().int().positive(),
 })
 
 const FeatureSchema = z.object({
@@ -23,7 +24,7 @@ const FeatureSchema = z.object({
   statement: z.string().refine((text) => countWords(text) <= MAX_STATEMENT_WORDS, {
     message: `a statement holds ${MAX_STATEMENT_WORDS} words or fewer`,
   }),
-  screenshot: Screenshot.nullable(),
+  screenshot: Screenshot,
 })
 
 const ThemeTokensSchema = z.object({
@@ -65,7 +66,6 @@ const Seo = z.object({
     image: z.string().startsWith("/"),
     width: z.literal(1200),
     height: z.literal(630),
-    alt: z.string().min(1),
   }),
 })
 
@@ -76,9 +76,11 @@ export const SiteSchema = z.object({
   locale: z.string().regex(/^[a-z]{2}_[A-Z]{2}$/),
   brand: Brand,
   headline: z.string().min(1),
+  tagline: z.string().min(1),
   title: z.string().min(1).max(60),
   description: z.string().min(50).max(160),
   links: z.object({ demo: httpsUrl, booking: httpsUrl, hub: httpsUrl }),
+  hero: z.object({ screenshot: Screenshot }),
   features: z.array(FeatureSchema).min(4).max(6),
   theme: z.object({ light: ThemeTokensSchema, dark: ThemeTokensSchema }),
   seo: Seo,
@@ -86,4 +88,5 @@ export const SiteSchema = z.object({
 
 export type Site = z.infer<typeof SiteSchema>
 export type Feature = z.infer<typeof FeatureSchema>
+export type Screenshot = z.infer<typeof Screenshot>
 export type ThemeTokens = z.infer<typeof ThemeTokensSchema>
