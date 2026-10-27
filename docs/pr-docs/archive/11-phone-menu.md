@@ -65,5 +65,5 @@ Fix the phone menu. The open menu now covers the whole screen below the header. 
 
 ## Related Docs
 
-- [Design: motion and light](../design.md)
+- [Design: motion and light](../../design.md)
 - [PR 10: Light and motion on the landing page](./10-alive-effects.md)
