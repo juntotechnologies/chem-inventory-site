@@ -10,8 +10,8 @@ ChemInventory (short name CIMS) is made by Junto Technologies.
 - Stock ledger: Record purchases, sales, usage, disposal and corrections. Split a batch and keep the link to its parent.
 - Orders and contacts: Follow orders through partial deliveries and payments. Import or export orders as CSV. Keep contacts with people and addresses.
 - Batch and order documents: Attach COA, specification, GC, NMR, HPLC and IR files to a batch, and quotes, POs and invoices to an order.
-- History and dashboard: See who changed inventory, transactions and orders, and when. Open a dashboard of counts and trends by area.
-- Roles and price privacy: Give each person an Admin, Manager or Chemist role, enforced on the server. Chemists do not see prices.
+- History and dashboard: See who edited inventory, logged transactions and acted on orders, and when. Open dashboard counts and charts by area.
+- Roles and price privacy: Assign an Admin, Manager or Chemist role, enforced on the server. Chemists see no prices on transactions or orders.
 
 ## Links
 
