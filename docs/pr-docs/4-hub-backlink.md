@@ -1,6 +1,6 @@
-# PR planned: Backlink to the Junto Technologies hub
+# PR 4: Backlink to the Junto Technologies hub
 
-Status: planned
+Status: underway
 
 Branch: `feature/hub-backlink`
 
@@ -61,4 +61,4 @@ Add a small link in the footer: "A Junto Technologies project". It opens the Che
 
 ## Related Docs
 
-- [Open Labscape hero pull request](./planned-labscape-hero.md). It changes the hero only. It does not touch the footer.
+- [Planned: Labscape hero and new headline](./planned-labscape-hero.md). It changes the hero only. It does not touch the footer.
