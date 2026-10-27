@@ -2,7 +2,7 @@
 
 Site: ChemInventory
 URL: https://cheminventory.co/
-Summary: ChemInventory is a chemical inventory management system. Track chemicals, suppliers, purchasers, users and an audit log in one app.
+Summary: ChemInventory is a chemical inventory management system. Track chemical inventory, orders, contacts and batch documents in one app.
 Operator: Junto Technologies
 Machine-readable summary: https://cheminventory.co/llms.txt
 

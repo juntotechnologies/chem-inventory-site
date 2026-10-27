@@ -12,48 +12,94 @@
   },
   "headline": "The Operating System for Chemical Labs",
   "title": "ChemInventory: Chemical Inventory Management System",
-  "description": "ChemInventory is a chemical inventory management system. Track chemicals, suppliers, purchasers, users and an audit log in one app.",
+  "tagline": "Chemical inventory, orders and batch documents in one app.",
+  "description": "ChemInventory is a chemical inventory management system. Track chemical inventory, orders, contacts and batch documents in one app.",
   "links": {
     "demo": "https://demo.cheminventory.co",
     "booking": "https://cal.com/shaun-porwal-junto/30min",
     "hub": "https://juntotechnologies.com/#cheminventory"
   },
+  "hero": {
+    "screenshot": {
+      "src": "/images/app/hero.webp",
+      "alt": "The Inventory page of the app. A table lists ten chemical batches with product number, batch number, name, CAS number, location and quantity.",
+      "width": 2880,
+      "height": 1500,
+      "density": 2
+    }
+  },
   "features": [
     {
-      "id": "tracking",
-      "title": "Chemical tracking",
-      "statement": "Record product numbers, CAS numbers, locations, batch details and custom fields for each chemical.",
-      "screenshot": null
+      "id": "inventory",
+      "title": "Inventory by batch",
+      "statement": "Track each batch by CAS number, location, quantity and unit. Search, sort and filter the list.",
+      "screenshot": {
+        "src": "/images/app/inventory.webp",
+        "alt": "The Inventory page with the Filters panel open. A list of locations shows under the Location filter.",
+        "width": 2880,
+        "height": 1500,
+        "density": 2
+      }
     },
     {
-      "id": "audit-logs",
-      "title": "Audit logs",
-      "statement": "Log every change with its timestamp and the user who made it.",
-      "screenshot": null
+      "id": "ledger",
+      "title": "Stock ledger",
+      "statement": "Record purchases, sales, usage, disposal and corrections. Split a batch and keep the link to its parent.",
+      "screenshot": {
+        "src": "/images/app/ledger.webp",
+        "alt": "The Transactions page with the type filter open. It lists Purchase, Sale, Usage, Disposal, Opening Balance, Correction and Batch Split.",
+        "width": 2880,
+        "height": 1500,
+        "density": 2
+      }
     },
     {
-      "id": "suppliers",
-      "title": "Supplier management",
-      "statement": "Keep supplier records, contacts and purchasing context in one place.",
-      "screenshot": null
+      "id": "orders",
+      "title": "Orders and contacts",
+      "statement": "Follow orders through partial deliveries and payments. Import or export orders as CSV. Keep contacts with people and addresses.",
+      "screenshot": {
+        "src": "/images/app/orders.webp",
+        "alt": "The Orders page. Each row shows the contact, direction, status, quantity left and expected delivery date. Buttons offer Download CSV, Import Orders and Add Order.",
+        "width": 2880,
+        "height": 1166,
+        "density": 2
+      }
     },
     {
-      "id": "purchasers",
-      "title": "Purchaser tracking",
-      "statement": "Record purchaser details, approvals and transaction history.",
-      "screenshot": null
+      "id": "documents",
+      "title": "Batch and order documents",
+      "statement": "Attach COA, specification, GC, NMR, HPLC and IR files to a batch, and quotes, POs and invoices to an order.",
+      "screenshot": {
+        "src": "/images/app/documents.webp",
+        "alt": "The Batch Documents dialog for one batch. The document type list shows Internal COA, Specification, Supplier COA, GC, NMR, HPLC and IR.",
+        "width": 1960,
+        "height": 1588,
+        "density": 2
+      }
     },
     {
-      "id": "users",
-      "title": "User management",
-      "statement": "Set role-based access and permissions for people and departments.",
-      "screenshot": null
+      "id": "history",
+      "title": "History and dashboard",
+      "statement": "See who changed inventory, transactions and orders, and when. Open a dashboard of counts and trends by area.",
+      "screenshot": {
+        "src": "/images/app/history.webp",
+        "alt": "The Audit Log page. A Change History table lists the date, user, source, record, action and details of each change.",
+        "width": 2880,
+        "height": 1500,
+        "density": 2
+      }
     },
     {
-      "id": "analytics",
-      "title": "Inventory analytics",
-      "statement": "Reports, dashboards and forecasting views for inventory.",
-      "screenshot": null
+      "id": "roles",
+      "title": "Roles and price privacy",
+      "statement": "Give each person an Admin, Manager or Chemist role, enforced on the server. Chemists do not see prices.",
+      "screenshot": {
+        "src": "/images/app/roles.webp",
+        "alt": "The User Permissions dialog for the Chemist role. Manage Inventory is granted. Transaction ledger, commercial details, user management and audit log access are not granted.",
+        "width": 1440,
+        "height": 1148,
+        "density": 2
+      }
     }
   ],
   "theme": {
@@ -112,8 +158,7 @@
     "og": {
       "image": "/og.png",
       "width": 1200,
-      "height": 630,
-      "alt": "ChemInventory: The Operating System for Chemical Labs"
+      "height": 630
     }
   }
 }

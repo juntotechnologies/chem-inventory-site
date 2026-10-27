@@ -53,6 +53,11 @@ function headlineSvg(site: Site): string {
   return texts.join("")
 }
 
+/** The alt text of the og image: the words the image shows. */
+export function ogAlt(site: Site): string {
+  return `${site.brand.name}: ${site.headline}. ${site.tagline}`
+}
+
 export function renderOgSvg(site: Site): string {
   const t = site.theme.light
   return frame(1200, 630, [
@@ -61,7 +66,7 @@ export function renderOgSvg(site: Site): string {
     markGroup(site, { x: 80, y: 60, scale: 1.75, stroke: 2, color: t.primary }),
     svgText(134, 98, `font-size="32" font-weight="700" fill="${t.foreground}"`, site.brand.name),
     headlineSvg(site),
-    svgText(80, 440, `font-size="32" fill="${t.mutedForeground}"`, site.brand.fullName),
+    svgText(80, 440, `font-size="32" fill="${t.mutedForeground}"`, site.tagline),
     rect(`x="80" y="520" width="1040" height="2" fill="${t.border}"`),
     svgText(80, 578, `font-size="28" font-weight="700" fill="${t.primary}"`, site.domain),
   ])

@@ -27,8 +27,8 @@ npm run dev
 
 | Fact | Where it appears |
 |---|---|
-| Brand, headline, links | `UI_LABELS`, `index.html`, `llms.txt`, `agents.txt` |
-| Feature groups (4 to 6) | Features section, `llms.txt`, JSON-LD |
+| Brand, headline, tagline, links | `UI_LABELS`, `index.html`, `llms.txt`, `agents.txt`, the og image |
+| Feature groups (4 to 6), hero screenshot | Hero, features section, `llms.txt`, JSON-LD |
 | Theme colours | `app/color-palette.css`, `theme-color` tags, the og image |
 | Crawlers and agent rules | `robots.txt`, `agents.txt` |
 
@@ -47,12 +47,22 @@ Generated files. Do not edit them by hand.
 
 To change a fact: edit `site.json`, run `npm run seo`, commit the result. The PNG files come from the SVG sources with system fonts, so run `npm run seo` on a Mac.
 
-## Feature groups
+## Feature groups and screenshots
 
-Each group in `site.features` has an `id`, a `title`, one `statement` of 20 words or fewer, and an optional `screenshot`.
+Each group in `site.features` has an `id`, a `title`, one `statement` of 20 words or fewer, and a `screenshot`. The hero has one `screenshot` too (`site.hero`).
 
 ```json
-{ "src": "/screens/audit-log.png", "alt": "The audit log", "width": 1600, "height": 1000 }
+{ "src": "/images/app/history.webp", "alt": "The Audit Log page.", "width": 2880, "height": 1500, "density": 2 }
 ```
 
-Put screenshot files under `public/`. The section shows 4 to 6 groups.
+| Field | Meaning |
+|---|---|
+| `src` | WebP file under `public/`. 150 KB or smaller. |
+| `width`, `height` | Pixel size of the file. A test compares them with the file. |
+| `density` | Pixels per CSS pixel. A 2x file shows at half its pixel width. |
+
+Take screenshots from the static demo. Crop out the demo banner and the page header band. Show no price, balance, email address or personal name.
+
+## Banned words
+
+`tests/support/copy-rules.json` lists words the site must not use. `tests/claims.test.ts` searches page text, generated files and the og image for them.

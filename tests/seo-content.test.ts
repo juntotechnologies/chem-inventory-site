@@ -45,6 +45,28 @@ describe("robots.txt", () => {
   })
 })
 
+describe("product description", () => {
+  const TOPICS = "chemical inventory, orders, contacts and batch documents"
+  const STALE = /suppliers, purchasers, users and an audit log/i
+
+  function texts(): string[] {
+    const files = [...TEXT_FILES.map((file) => file.render(site)), indexHtml(), JSON.stringify(buildJsonLd(site))]
+    return files.filter((text) => text.includes(site.description))
+  }
+
+  it("names inventory, orders, contacts and batch documents", () => {
+    expect(site.description.toLowerCase()).toContain(TOPICS)
+  })
+
+  it("reaches llms.txt, agents.txt, the head tags and the JSON-LD", () => {
+    expect(texts().length).toBeGreaterThanOrEqual(3)
+  })
+
+  it("never says the stale list again", () => {
+    for (const text of [site.description, renderLlms(site), renderAgents(site), indexHtml()]) expect(text).not.toMatch(STALE)
+  })
+})
+
 describe("sitemap.xml", () => {
   it("holds the canonical page in a urlset", () => {
     const sitemap = renderSitemap(site)

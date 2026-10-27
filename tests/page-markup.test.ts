@@ -44,6 +44,13 @@ describe("rendered page markup", () => {
     }
   })
 
+  it("loads only the hero image at once and every other image lazily", () => {
+    const [hero, ...others] = tagsOf("img").filter((tag) => tag.includes("/images/app/"))
+    expect(hero).toContain('loading="eager"')
+    expect(hero).toMatch(/fetchPriority="high"|fetchpriority="high"/)
+    for (const tag of others) expect(tag).toContain('loading="lazy"')
+  })
+
   it("titles the iframe", () => {
     for (const tag of tagsOf("iframe")) expect(tag).toMatch(/\btitle="[^"]+"/)
   })

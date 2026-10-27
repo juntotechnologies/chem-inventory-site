@@ -25,6 +25,15 @@ describe("site.json schema", () => {
     expect(SiteSchema.safeParse({ ...raw, features }).success).toBe(false)
   })
 
+  it("rejects a feature group without a screenshot", () => {
+    const features = [{ ...raw.features[0], screenshot: null }, ...raw.features.slice(1)]
+    expect(SiteSchema.safeParse({ ...raw, features }).success).toBe(false)
+  })
+
+  it("rejects a hero without a screenshot", () => {
+    expect(SiteSchema.safeParse({ ...raw, hero: {} }).success).toBe(false)
+  })
+
   it("counts words", () => {
     expect(countWords("  one two  three ")).toBe(3)
   })

@@ -1,0 +1,31 @@
+{
+  "note": "Words the site must not use. The owner has not cleared them. Source: the internal product evidence report.",
+  "bannedClaims": [
+    "immutable",
+    "complete",
+    "every change",
+    "audit-ready",
+    "tamper-proof",
+    "compliance",
+    "SDS management",
+    "GHS",
+    "OSHA",
+    "DEA",
+    "approval",
+    "custom field",
+    "forecast",
+    "department",
+    "e-signature",
+    "Part 11",
+    "order PDF",
+    "generated PDF",
+    "document generation",
+    "packing slip",
+    "release order",
+    "batch-number prefix",
+    "automatic batch number",
+    "isolation",
+    "amend"
+  ],
+  "maxScreenshotBytes": 150000
+}
