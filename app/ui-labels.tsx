@@ -63,8 +63,8 @@ export const UI_LABELS = {
         statement: "See what arrived, what remains and what is overdue on each order.",
       },
       {
-        title: "Traceable changes",
-        statement: "Changes to inventory, transactions and orders carry the user and the time.",
+        title: "Traceable edits",
+        statement: "Edits to inventory, transactions and orders carry the user and the time.",
       },
     ],
   },

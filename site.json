@@ -80,7 +80,7 @@
     {
       "id": "history",
       "title": "History and dashboard",
-      "statement": "See who changed inventory, transactions and orders, and when. Open a dashboard of counts and trends by area.",
+      "statement": "See who edited inventory, logged transactions and acted on orders, and when. Open dashboard counts and charts by area.",
       "screenshot": {
         "src": "/images/app/history.webp",
         "alt": "The Audit Log page. A Change History table lists the date, user, source, record, action and details of each change.",
@@ -92,7 +92,7 @@
     {
       "id": "roles",
       "title": "Roles and price privacy",
-      "statement": "Give each person an Admin, Manager or Chemist role, enforced on the server. Chemists do not see prices.",
+      "statement": "Assign an Admin, Manager or Chemist role, enforced on the server. Chemists see no prices on transactions or orders.",
       "screenshot": {
         "src": "/images/app/roles.webp",
         "alt": "The User Permissions dialog for the Chemist role. Manage Inventory is granted. Transaction ledger, commercial details, user management and audit log access are not granted.",
