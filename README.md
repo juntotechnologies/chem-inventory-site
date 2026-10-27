@@ -27,10 +27,10 @@ npm run dev
 
 | Fact | Where it appears |
 |---|---|
-| Brand, headline, tagline, links | `UI_LABELS`, `index.html`, `llms.txt`, `agents.txt`, the og image |
+| Brand, headline, tagline, links | `UI_LABELS`, `index.html`, `llms.txt`, `agents.txt`, `.well-known/agents.json`, the og image |
 | Feature groups (4 to 6), hero screenshot | Hero, features section, `llms.txt`, JSON-LD |
 | Theme colours | `app/color-palette.css`, `theme-color` tags, the og image |
-| Crawlers and agent rules | `robots.txt`, `agents.txt` |
+| Crawlers and agent rules | `robots.txt`, `agents.txt`, `.well-known/agents.json` |
 
 Generated files. Do not edit them by hand.
 
@@ -39,7 +39,7 @@ Generated files. Do not edit them by hand.
 | `public/robots.txt` | Allow all crawlers. Name the sitemap. |
 | `public/sitemap.xml` | List the pages. |
 | `public/llms.txt` | Short summary for language models. |
-| `public/agents.txt` | What an automated agent may do. |
+| `public/agents.txt`, `public/.well-known/agents.json` | What an automated agent may do, as text and as JSON. |
 | `public/CNAME`, `public/404.html` | Custom domain and the not-found page. |
 | `public/og.png`, `public/apple-touch-icon.png`, `public/favicon.svg` | Share image and icons. |
 | `app/color-palette.css` | Colour variables for light and dark. |

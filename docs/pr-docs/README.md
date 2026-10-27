@@ -6,6 +6,7 @@ Short PR-specific notes for completed and planned work.
 
 | Doc | Description |
 |-----|-------------|
+| [PR 7: Agent rules as JSON at /.well-known/agents.json](./7-agents-json.md) | The agent rules of `agents.txt` as JSON, generated from `site.json` like the Junto hub file |
 | [PR 6: Feature refresh with verified copy and real screenshots](./6-feature-refresh.md) | Six feature groups and three benefits that match the app, real demo screenshots, no mock dashboard |
 | [PR 5: Landing page cleanup and discovery files](./5-landing-cleanup.md) | New theme, no custom-software pitch, and robots, sitemap, llms and agents files from `site.json` |
 | [PR 4: Backlink to the Junto Technologies hub](./4-hub-backlink.md) | A small footer link to the ChemInventory card on the Junto hub |

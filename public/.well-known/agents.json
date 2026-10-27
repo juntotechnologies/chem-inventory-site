@@ -1,0 +1,19 @@
+{
+  "name": "ChemInventory",
+  "url": "https://cheminventory.co/",
+  "summary": "ChemInventory is a chemical inventory management system. Track chemical inventory, orders, contacts and batch documents in one app.",
+  "mayDo": [
+    "read pages",
+    "follow links on this site",
+    "read /llms.txt"
+  ],
+  "mayNotDo": [
+    "submit forms",
+    "book meetings or send messages for a user",
+    "create accounts"
+  ],
+  "contact": "https://cal.com/shaun-porwal-junto/30min",
+  "demo": "https://demo.cheminventory.co",
+  "sitemap": "https://cheminventory.co/sitemap.xml",
+  "llms": "https://cheminventory.co/llms.txt"
+}
