@@ -105,6 +105,7 @@
   .btn-row {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
+    align-content: start;
     gap: 0.75rem;
   }
 
@@ -171,23 +172,29 @@
     transition: transform 280ms var(--ease-out), opacity 160ms var(--ease-out);
   }
 
-  /* Phone menu: the browser popover handles open, close, Escape and outside taps. */
+  /* Phone menu: the browser popover handles open, close, Escape and outside taps. It fills the screen below the header, and the page cannot scroll behind it. */
   .menu-panel {
     position: fixed;
-    inset: 4rem 0 auto 0;
+    inset: 4rem 0 0 0;
     margin: 0;
     width: 100%;
-    max-height: calc(100dvh - 4rem);
+    height: auto;
+    max-height: none;
     overflow-y: auto;
+    overscroll-behavior: contain;
     border: 0;
-    border-bottom: 1px solid rgb(var(--border));
+    border-top: 1px solid rgb(var(--border));
     background: rgb(var(--background));
     color: rgb(var(--foreground));
-    padding: 1rem 1.5rem 1.5rem;
+    padding: 1.5rem 1.5rem max(1.5rem, env(safe-area-inset-bottom));
     opacity: 0;
     transform: translateY(-0.5rem);
     transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out), display 180ms allow-discrete,
       overlay 180ms allow-discrete;
+  }
+
+  html:has(.menu-panel:popover-open) {
+    overflow: hidden;
   }
 
   .menu-panel:popover-open {
