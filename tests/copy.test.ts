@@ -45,12 +45,20 @@ describe("site copy", () => {
   })
 })
 
+const TAGS = /<[^>]+>/g
+
+/** The text of the h1, without the markup that sets the accent word apart. */
+function textOfHeading(html: string): string {
+  const inner = /<h1\b[^>]*>([\s\S]*?)<\/h1>/.exec(html)?.[1] ?? ""
+  return inner.replace(TAGS, "")
+}
+
 describe("rendered page", () => {
   const html = render()
 
   it("leads with the planned headline", () => {
     expect(site.headline).toBe("The Operating System for Chemical Labs")
-    expect(html).toContain(`>${site.headline}</h1>`)
+    expect(textOfHeading(html)).toBe(site.headline)
   })
 
   it("has no Built With You section and no mock stat tiles", () => {

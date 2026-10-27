@@ -39,6 +39,7 @@ export const UI_LABELS = {
   hero: {
     eyebrow: "Built inside real chemistry lab workflows",
     title: site.headline,
+    accentWord: site.hero.accentWord,
     body: `${site.tagline} It came from direct work inside a commercial chemistry lab and replaces spreadsheets.`,
   },
   video: {

@@ -4,13 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
 
-// Hover fades a tint of the text colour in with opacity. Press moves the button down 1 px.
+// Hover fades a tint of the text colour in and follows the pointer with a light. Press moves the button down 1 px.
 const buttonVariants = cva(
-  "relative inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-md text-small font-medium transition-transform duration-150 ease-out active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:pointer-events-none disabled:opacity-50 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:bg-current before:opacity-0 before:transition-opacity before:duration-150 hover:before:opacity-[0.1] [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "btn relative inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-md text-small font-medium active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background disabled:pointer-events-none disabled:opacity-50 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:bg-current before:opacity-0 before:transition-opacity before:duration-150 hover:before:opacity-[0.1] [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground",
+        default: "btn-raised bg-primary text-primary-foreground",
         destructive: "bg-destructive text-destructive-foreground",
         outline: "border border-input bg-transparent text-foreground",
         secondary: "bg-secondary text-secondary-foreground",

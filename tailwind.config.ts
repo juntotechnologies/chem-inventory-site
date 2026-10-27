@@ -31,6 +31,7 @@ const TYPE_SCALE: Record<string, TypeStep> = {
 
 const config = {
   darkMode: "media",
+  future: { hoverOnlyWhenSupported: true },
   content: ["./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {

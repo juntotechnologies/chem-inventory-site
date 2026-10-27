@@ -29,7 +29,8 @@ npm run dev
 |---|---|
 | Brand, headline, tagline, links | `UI_LABELS`, `index.html`, `llms.txt`, `agents.txt`, `.well-known/agents.json`, the og image |
 | Feature groups (4 to 6), hero screenshot | Hero, features section, `llms.txt`, JSON-LD |
-| Theme colours | `app/color-palette.css`, `theme-color` tags, the og image |
+| Theme colours (`primary`, `highlight`, `shade` and more) | `app/color-palette.css`, `theme-color` tags, the og image |
+| Hero accent word | The hero headline, through `lib/heading.ts` |
 | Crawlers and agent rules | `robots.txt`, `agents.txt`, `.well-known/agents.json` |
 
 Generated files. Do not edit them by hand.
@@ -62,6 +63,10 @@ Each group in `site.features` has an `id`, a `title`, one `statement` of 20 word
 | `density` | Pixels per CSS pixel. A 2x file shows at half its pixel width. |
 
 Take screenshots from the static demo. Crop out the demo banner and the page header band. Show no price, balance, email address or personal name.
+
+## Motion and light
+
+[docs/design.md](docs/design.md) lists each effect, its rules and the test that guards it.
 
 ## Banned words
 
