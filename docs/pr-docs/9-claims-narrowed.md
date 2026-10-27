@@ -1,6 +1,6 @@
 # PR 9: Narrow three claims to what the product does
 
-Status: underway
+Status: done
 
 Branch: `feature/claims-audit`
 
@@ -29,11 +29,11 @@ Make each product statement on the page match what the product does. Narrow thre
 - [x] `npm test` passes.
 - [x] `npm run build` passes.
 - [x] Browser walk at 360, 390, 820 and 1440 px, in light and dark.
-- [ ] Merge the PR. The deploy runs on merge.
+- [x] Merge the PR. Merged as `a3187b8`. The deploy passed.
 
 ## Smoke Tests
 
-- [ ] **Live copy** · as a visitor, after the merge
+- [x] **Live copy** · as a visitor, after the merge
   1. Open `https://cheminventory.co/`.
   2. Read the third benefit and the History and dashboard and Roles cards.
 
