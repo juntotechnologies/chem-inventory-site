@@ -1,6 +1,6 @@
 # PR 6: Feature refresh with verified copy and real screenshots
 
-Status: underway
+Status: done (merged on 2026-10-27; archived the same day)
 
 Branch: `feature/feature-refresh`
 
@@ -14,7 +14,7 @@ Replace the placeholder feature copy with copy that matches the app. Show real s
 - An evidence review compared the page with the app code, the tests and the live demo. Five card claims and three benefits were wrong. Both lists are gone.
 - The static demo at `demo.cheminventory.co` tracks production. Every screenshot comes from it.
 - The hero right slot held the mock `InventoryDashboard`. Its sidebar and transaction types were stale. A real screenshot replaces it.
-- [The Labscape plan](./planned-labscape-hero.md) still names `InventoryDashboard` as the component to replace. That component no longer exists. The hero right column in `app/components/hero.tsx` now holds a `ScreenshotFrame`. The Labscape PR swaps it for the scene.
+- [The Labscape plan](../planned-labscape-hero.md) still names `InventoryDashboard` as the component to replace. That component no longer exists. The hero right column in `app/components/hero.tsx` now holds a `ScreenshotFrame`. The Labscape PR swaps it for the scene.
 
 ## Implementation Checklist
 
@@ -54,7 +54,7 @@ Replace the placeholder feature copy with copy that matches the app. Show real s
 
 - [x] `npm test`, `npm run seo` and `npm run build` pass.
 - [x] Browser walk at 360, 390, 430, 820 and 1440 px in light and dark.
-- [ ] Merge the PR. The deploy runs on merge.
+- [x] Merge the PR. The deploy runs on merge.
 
 ## Smoke Tests
 
@@ -72,7 +72,7 @@ Replace the placeholder feature copy with copy that matches the app. Show real s
 
   **Pass if:** none appears. `tests/claims.test.ts` runs the same search.
 
-- [ ] **Live site** · as a visitor, after merge
+- [x] **Live site** · as a visitor, after merge (the agent checked the page, the images, the discovery files and the link image over HTTPS on 2026-10-27)
   1. Open `https://cheminventory.co/`.
 
   **Pass if:** the page, the images and the link preview load over HTTPS.
@@ -163,4 +163,4 @@ Screenshots left out on purpose:
 ## Related Docs
 
 - [PR 5: Landing page cleanup and discovery files](./5-landing-cleanup.md)
-- [Planned: Labscape hero and new headline](./planned-labscape-hero.md)
+- [Planned: Labscape hero and new headline](../planned-labscape-hero.md)

@@ -1,6 +1,6 @@
 # PR 4: Backlink to the Junto Technologies hub
 
-Status: underway
+Status: done (merged on 2026-10-27; archived the same day)
 
 Branch: `feature/hub-backlink`
 
@@ -42,7 +42,7 @@ Add a small link in the footer: "A Junto Technologies project". It opens the Che
   - The page has no sideways scroll on a phone.
   - A click opens `juntotechnologies.com` in the same tab. No new tab opens.
 
-- [ ] **Hub card** · as a visitor, after the hub pull request merges
+- [ ] **Hub card** · as a visitor, after the hub pull request merges (not walked: the agent checked only that the footer link points to `#cheminventory` and that the hub has that anchor)
   1. Click the footer link.
 
   **Pass if:**
@@ -61,4 +61,4 @@ Add a small link in the footer: "A Junto Technologies project". It opens the Che
 
 ## Related Docs
 
-- [Planned: Labscape hero and new headline](./planned-labscape-hero.md). It changes the hero only. It does not touch the footer.
+- [Planned: Labscape hero and new headline](../planned-labscape-hero.md). It changes the hero only. It does not touch the footer.
