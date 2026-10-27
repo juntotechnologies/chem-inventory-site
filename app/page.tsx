@@ -709,6 +709,12 @@ export default function Home() {
           <p className="text-center text-xs sm:text-sm text-white/70">
             {UI_LABELS.brand.footerCopyright}
           </p>
+          <a
+            href={UI_LABELS.links.hub}
+            className="-mt-2 inline-flex min-h-11 items-center text-xs sm:text-sm text-white/70 underline decoration-white/40 underline-offset-4 hover:text-white hover:decoration-white"
+          >
+            {UI_LABELS.brand.hubLink}
+          </a>
         </div>
       </footer>
 

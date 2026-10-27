@@ -7,6 +7,7 @@ export const UI_LABELS = {
     shortName: "CIMS",
     fullName: "Chemical Inventory Management System",
     footerCopyright: "\u00a9 2025 Chemical Inventory Management System. All rights reserved.",
+    hubLink: "A Junto Technologies project",
   },
   nav: [
     { href: "#features", label: "Features" },
@@ -18,6 +19,7 @@ export const UI_LABELS = {
     staticDemo: "https://demo.cheminventory.co",
     booking: "https://cal.com/shaun-porwal-junto/30min",
     dcurves: "https://github.com/MSKCC-Epi-Bio/dcurves",
+    hub: "https://juntotechnologies.com/#cheminventory",
   },
   actions: {
     staticDemo: "Static Demo",
