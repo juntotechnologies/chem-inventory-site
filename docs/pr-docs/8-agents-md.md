@@ -1,6 +1,6 @@
 # PR 8: AGENTS.md with the delivery rule
 
-Status: underway
+Status: done
 
 Branch: `docs/agents-review-rule`
 
