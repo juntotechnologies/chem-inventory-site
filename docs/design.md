@@ -35,3 +35,15 @@ The page uses light and small motion to feel alive. Every effect sits on real co
 | `lib/geometry.ts` | Pure helpers for the pointer position |
 | `lib/heading.ts` | Splits the headline around the accent word (`hero.accentWord` in `site.json`) |
 | `app/globals.css` | The rules and keyframes |
+
+## Phone menu
+
+| Rule | Where |
+|---|---|
+| The panel fills the screen below the header. Its background is opaque. | `.menu-panel` |
+| The page cannot scroll behind it. | `html:has(.menu-panel:popover-open)` |
+| The page behind is `inert` while the menu is open. | `syncPage` in `lib/menu.ts` |
+| Focus moves into the menu on open. The browser returns it on close. | `syncPage` and the popover |
+| The menu closes at 768 px, where the burger gives way to the header links. | `watchWidth` and `WIDE_QUERY` in `lib/menu.ts` |
+| The menu holds the section links and one action. | `app/components/mobile-menu.tsx` |
+| The panel is not a grid. WebKit stretches grid rows in a tall box. | `tests/menu.test.ts` |

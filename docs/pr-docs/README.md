@@ -6,6 +6,7 @@ Short PR-specific notes for completed and planned work.
 
 | Doc | Description |
 |-----|-------------|
+| [PR 11: Phone menu covers the page](./11-phone-menu.md) | The open menu fills the screen below the header, locks the page, and lists each action once |
 | [PR 10: Light and motion on the landing page](./10-alive-effects.md) | Pointer light, raised buttons, a staged hero entrance and a header edge, in plain CSS. See [design](../design.md) |
 | [PR 9: Narrow three claims to what the product does](./9-claims-narrowed.md) | Two card statements and one benefit match what the product does |
 | [PR 8: AGENTS.md with the delivery rule](./8-agents-md.md) | Give this repo its delivery rule. The application repo stays under Shaun's review |
