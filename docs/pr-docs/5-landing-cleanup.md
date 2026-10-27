@@ -52,7 +52,7 @@ Make the landing page look designed by a person. Remove the "software developed 
 - [x] `npm test` and `npm run build` pass.
 - [x] The build output holds `CNAME`, `robots.txt`, `sitemap.xml`, `llms.txt`, `agents.txt`, `404.html` and the og image.
 - [x] Browser walk at 360, 390, 430, 820 and 1440 px in light and dark.
-- [ ] Shaun merges. The PR deploys on merge.
+- [ ] Merge the PR. The deploy runs on merge.
 
 ## Smoke Tests
 
