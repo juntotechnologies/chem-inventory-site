@@ -13,7 +13,7 @@ Make the page feel alive with a small set of effects on real content. The hub (`
 - Shaun, 2026-10-27: make the sites look alive and modern. Take the idea from two designer sites. Use no code from them.
 - A library study found no outside component worth adding. This PR adds no package. It writes each effect in plain CSS and a small hook.
 - The hub change is PR 12 in `juntotechnologies/juntotechnologies.github.io`.
-- [PR 3](./planned-labscape-hero.md) is a draft that changes the hero. This PR does not depend on it.
+- [PR 3](../planned-labscape-hero.md) is a draft that changes the hero. This PR does not depend on it.
 
 ## Implementation Checklist
 
@@ -75,5 +75,5 @@ Make the page feel alive with a small set of effects on real content. The hub (`
 
 ## Related Docs
 
-- [Design: motion and light](../design.md)
+- [Design: motion and light](../../design.md)
 - [PR 9: Narrow three claims](./9-claims-narrowed.md)
