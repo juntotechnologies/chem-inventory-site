@@ -1,4 +1,4 @@
-# PR planned: Landing page cleanup and discovery files
+# PR 5: Landing page cleanup and discovery files
 
 Status: underway
 
