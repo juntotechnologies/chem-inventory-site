@@ -1,6 +1,6 @@
 # PR 11: Phone Menu Covers the Page
 
-Status: in review
+Status: done
 
 Branch: `fix/phone-menu`
 
@@ -34,7 +34,7 @@ Fix the phone menu. The open menu now covers the whole screen below the header. 
 - [x] Tests for the pure helpers, the menu markup, the menu CSS and the 768 px match with Tailwind.
 - [x] `npm test` and `npm run build` pass.
 - [x] Walk at 360, 390, 820 and 1440 px, light and dark (76 checks, Chromium). No page button is visible or reachable behind the open menu.
-- [ ] Merge the PR. Walk the live site.
+- [x] Merge the PR. Walk the live site.
 
 ## Smoke Tests
 

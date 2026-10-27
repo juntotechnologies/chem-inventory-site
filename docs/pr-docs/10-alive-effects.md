@@ -1,6 +1,6 @@
 # PR 10: Light and Motion on the Landing Page
 
-Status: in review
+Status: done
 
 Branch: `feature/alive-effects`
 
@@ -33,7 +33,7 @@ Make the page feel alive with a small set of effects on real content. The hub (`
 
 - [x] `npm test` passes (120 tests) and `npm run build` passes.
 - [x] Walk at 360, 390, 820 and 1440 px, light and dark. No sideways scroll. No console error.
-- [ ] Merge the PR. Walk the live site.
+- [x] Merge the PR. Walk the live site.
 
 ## Smoke Tests
 
