@@ -1,6 +1,6 @@
 # PR 7: Agent rules as JSON at /.well-known/agents.json
 
-Status: underway
+Status: done
 
 Branch: `feature/agents-json`
 
@@ -30,7 +30,7 @@ Publish the agent rules of `cheminventory.co` as JSON at `/.well-known/agents.js
 
 ## Smoke Tests
 
-- [ ] **Live file** · as an agent, after the merge and the deploy
+- [x] **Live file** · as an agent, after the merge and the deploy
   1. Fetch `https://cheminventory.co/.well-known/agents.json`.
 
   **Pass if:**
