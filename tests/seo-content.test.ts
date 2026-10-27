@@ -6,6 +6,7 @@ import { site } from "../lib/site"
 import { TEXT_FILES } from "../lib/seo/files"
 import { buildJsonLd } from "../lib/seo/json-ld"
 import { renderAgents } from "../lib/seo/agents"
+import { renderAgentsJson } from "../lib/seo/agents-json"
 import { renderLlms } from "../lib/seo/llms"
 import { renderRobots } from "../lib/seo/robots"
 import { renderSitemap } from "../lib/seo/sitemap"
@@ -86,6 +87,14 @@ describe("llms.txt and agents.txt", () => {
     const agents = renderAgents(site)
     expect(agents).toContain("Disallow: submit forms")
     expect(agents).toContain(`Contact: ${site.links.booking}`)
+  })
+
+  it("gives the agent rules as JSON with the booking link as the contact", () => {
+    const rules = JSON.parse(renderAgentsJson(site))
+    expect(rules.mayNotDo).toContain("submit forms")
+    expect(rules.contact).toBe(site.links.booking)
+    expect(rules.llms).toBe("https://cheminventory.co/llms.txt")
+    expect(renderAgentsJson(site)).not.toMatch(EMAIL)
   })
 })
 
