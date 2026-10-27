@@ -45,25 +45,25 @@ describe("robots.txt", () => {
   })
 })
 
+const TOPICS = "chemical inventory, orders, contacts and batch documents"
+const STALE_LIST = /suppliers, purchasers, users and an audit log/i
+
+function carriersOfDescription(): string[] {
+  const files = [...TEXT_FILES.map((file) => file.render(site)), indexHtml(), JSON.stringify(buildJsonLd(site))]
+  return files.filter((text) => text.includes(site.description))
+}
+
 describe("product description", () => {
-  const TOPICS = "chemical inventory, orders, contacts and batch documents"
-  const STALE = /suppliers, purchasers, users and an audit log/i
-
-  function texts(): string[] {
-    const files = [...TEXT_FILES.map((file) => file.render(site)), indexHtml(), JSON.stringify(buildJsonLd(site))]
-    return files.filter((text) => text.includes(site.description))
-  }
-
   it("names inventory, orders, contacts and batch documents", () => {
     expect(site.description.toLowerCase()).toContain(TOPICS)
   })
 
   it("reaches llms.txt, agents.txt, the head tags and the JSON-LD", () => {
-    expect(texts().length).toBeGreaterThanOrEqual(3)
+    expect(carriersOfDescription().length).toBeGreaterThanOrEqual(3)
   })
 
   it("never says the stale list again", () => {
-    for (const text of [site.description, renderLlms(site), renderAgents(site), indexHtml()]) expect(text).not.toMatch(STALE)
+    for (const text of [site.description, renderLlms(site), renderAgents(site), indexHtml()]) expect(text).not.toMatch(STALE_LIST)
   })
 })
 

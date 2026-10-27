@@ -26,7 +26,7 @@ function declarations(tokens: ThemeTokens, scheme: "light" | "dark"): string {
 
 export function renderPaletteCss(theme: Site["theme"]): string {
   const note = `/* ${GENERATED_NOTE}\n * Values are RGB channels so Tailwind opacity modifiers work. */`
-  const light = `:root,\n.surface-light {\n${declarations(theme.light, "light")}\n}`
+  const light = `:root {\n${declarations(theme.light, "light")}\n}`
   const dark = `@media (prefers-color-scheme: dark) {\n  :root {\n${declarations(theme.dark, "dark").replace(/^/gm, "  ")}\n  }\n}`
   return `${note}\n${light}\n\n${dark}\n`
 }

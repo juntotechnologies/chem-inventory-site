@@ -143,6 +143,7 @@ Screenshots left out on purpose:
 | Five card claims: custom fields, "log every change", approvals, departments, forecasting | The app does not do them, or does them differently. |
 | Three benefits: compliance records, waste and cost, simpler audits | The app has no such feature. |
 | Mock `InventoryDashboard` (1,696 lines) | Stale sidebar and transaction types. |
+| `.surface-light` colour scope in the generated palette | Only the mock used it. |
 | "suppliers, purchasers, users and an audit log" in the title text, `llms.txt`, `agents.txt`, JSON-LD and Open Graph | Replaced by "chemical inventory, orders, contacts and batch documents". |
 
 ## Open items

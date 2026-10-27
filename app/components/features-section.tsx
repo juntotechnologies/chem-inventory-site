@@ -40,7 +40,7 @@ function BenefitList() {
   return (
     <div id="benefits" className="mt-16 scroll-mt-24 border-t pt-10">
       <h3 data-reveal-item className="text-center text-heading lg:text-left">{UI_LABELS.product.benefitsLabel}</h3>
-      <ul className="grid-12 mt-4 gap-x-8">{UI_LABELS.product.benefits.map(renderBenefit)}</ul>
+      <ul className="grid-12 mt-4 lg:gap-x-8">{UI_LABELS.product.benefits.map(renderBenefit)}</ul>
     </div>
   )
 }
