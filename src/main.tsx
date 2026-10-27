@@ -1,11 +1,10 @@
-import ReactDOM from "react-dom/client"
+/** Browser entry: hydrates the prerendered page, or renders it fresh in dev. */
+import { createRoot, hydrateRoot } from "react-dom/client"
 
 import App from "@/src/App"
 import "@/app/globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-    <App />
-  </ThemeProvider>,
-)
+const container = document.getElementById("root")!
+
+if (container.hasChildNodes()) hydrateRoot(container, <App />)
+else createRoot(container).render(<App />)

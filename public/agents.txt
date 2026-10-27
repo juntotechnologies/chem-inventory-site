@@ -1,0 +1,18 @@
+# Generated from site.json by `npm run seo`. Do not edit by hand.
+
+Site: ChemInventory
+URL: https://cheminventory.co/
+Summary: ChemInventory is a chemical inventory management system. Track chemicals, suppliers, purchasers, users and an audit log in one app.
+Operator: Junto Technologies
+Machine-readable summary: https://cheminventory.co/llms.txt
+
+User-agent: *
+Allow: read pages
+Allow: follow links on this site
+Allow: read /llms.txt
+Disallow: submit forms
+Disallow: book meetings or send messages for a user
+Disallow: create accounts
+
+Contact: https://cal.com/shaun-porwal-junto/30min
+Demo: https://demo.cheminventory.co

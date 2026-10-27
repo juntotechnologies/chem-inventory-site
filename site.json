@@ -1,0 +1,119 @@
+{
+  "domain": "cheminventory.co",
+  "url": "https://cheminventory.co/",
+  "language": "en",
+  "locale": "en_US",
+  "brand": {
+    "name": "ChemInventory",
+    "alias": "CIMS",
+    "fullName": "Chemical Inventory Management System",
+    "maker": { "name": "Junto Technologies", "url": "https://juntotechnologies.com/" },
+    "markPath": "M4.5 3h15 M6 3v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V3 M6 14h12"
+  },
+  "headline": "The Operating System for Chemical Labs",
+  "title": "ChemInventory: Chemical Inventory Management System",
+  "description": "ChemInventory is a chemical inventory management system. Track chemicals, suppliers, purchasers, users and an audit log in one app.",
+  "links": {
+    "demo": "https://demo.cheminventory.co",
+    "booking": "https://cal.com/shaun-porwal-junto/30min",
+    "hub": "https://juntotechnologies.com/#cheminventory"
+  },
+  "features": [
+    {
+      "id": "tracking",
+      "title": "Chemical tracking",
+      "statement": "Record product numbers, CAS numbers, locations, batch details and custom fields for each chemical.",
+      "screenshot": null
+    },
+    {
+      "id": "audit-logs",
+      "title": "Audit logs",
+      "statement": "Log every change with its timestamp and the user who made it.",
+      "screenshot": null
+    },
+    {
+      "id": "suppliers",
+      "title": "Supplier management",
+      "statement": "Keep supplier records, contacts and purchasing context in one place.",
+      "screenshot": null
+    },
+    {
+      "id": "purchasers",
+      "title": "Purchaser tracking",
+      "statement": "Record purchaser details, approvals and transaction history.",
+      "screenshot": null
+    },
+    {
+      "id": "users",
+      "title": "User management",
+      "statement": "Set role-based access and permissions for people and departments.",
+      "screenshot": null
+    },
+    {
+      "id": "analytics",
+      "title": "Inventory analytics",
+      "statement": "Reports, dashboards and forecasting views for inventory.",
+      "screenshot": null
+    }
+  ],
+  "theme": {
+    "light": {
+      "background": "#fbfbf9",
+      "foreground": "#15181e",
+      "card": "#ffffff",
+      "cardForeground": "#15181e",
+      "popover": "#ffffff",
+      "popoverForeground": "#15181e",
+      "primary": "#2340c8",
+      "primaryForeground": "#ffffff",
+      "secondary": "#f1f1ee",
+      "secondaryForeground": "#15181e",
+      "muted": "#f1f1ee",
+      "mutedForeground": "#565d6b",
+      "accent": "#eeeeea",
+      "accentForeground": "#15181e",
+      "destructive": "#c0262d",
+      "destructiveForeground": "#ffffff",
+      "border": "#e2e2dd",
+      "input": "#d3d4ce",
+      "ring": "#2340c8"
+    },
+    "dark": {
+      "background": "#0f1217",
+      "foreground": "#eceef2",
+      "card": "#151a21",
+      "cardForeground": "#eceef2",
+      "popover": "#151a21",
+      "popoverForeground": "#eceef2",
+      "primary": "#8da2ff",
+      "primaryForeground": "#0b0f1a",
+      "secondary": "#1b212a",
+      "secondaryForeground": "#eceef2",
+      "muted": "#1b212a",
+      "mutedForeground": "#98a1b0",
+      "accent": "#1f2630",
+      "accentForeground": "#eceef2",
+      "destructive": "#ef6b6b",
+      "destructiveForeground": "#0b0f1a",
+      "border": "#262d38",
+      "input": "#313947",
+      "ring": "#8da2ff"
+    }
+  },
+  "seo": {
+    "crawlers": ["*", "GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended", "CCBot"],
+    "pages": [{ "path": "/" }],
+    "agentsMay": ["read pages", "follow links on this site", "read /llms.txt"],
+    "agentsMayNot": [
+      "submit forms",
+      "book meetings or send messages for a user",
+      "create accounts"
+    ],
+    "og": {
+      "image": "/og.png",
+      "width": 1200,
+      "height": 630,
+      "alt": "ChemInventory: The Operating System for Chemical Labs"
+    }
+  }
+}
