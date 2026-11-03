@@ -47,7 +47,6 @@ describe("site copy", () => {
 
 const TAGS = /<[^>]+>/g
 
-/** The text of the h1, without the markup that sets the accent word apart. */
 function textOfHeading(html: string): string {
   const inner = /<h1\b[^>]*>([\s\S]*?)<\/h1>/.exec(html)?.[1] ?? ""
   return inner.replace(TAGS, "")

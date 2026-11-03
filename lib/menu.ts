@@ -2,7 +2,6 @@
 import type { MouseEvent, ToggleEvent } from "react"
 
 export const MENU_ID = "mobile-menu"
-/** The same width as the Tailwind `md` breakpoint, where the burger gives way to the header links. A test compares the two. */
 export const WIDE_QUERY = "(min-width: 768px)"
 
 const PAGE_REGIONS = ":scope > :not(header)"
@@ -26,7 +25,6 @@ function pageBehind(panel: HTMLElement): Iterable<HTMLElement> {
   return panel.closest("header")?.parentElement?.querySelectorAll<HTMLElement>(PAGE_REGIONS) ?? []
 }
 
-/** On open: the page behind turns inert and focus moves into the menu. On close: the page wakes again and the browser returns focus to the button. */
 export function syncPage(event: ToggleEvent<HTMLElement>): void {
   const opening = isOpening(event)
   setInert(pageBehind(event.currentTarget), opening)
@@ -41,7 +39,7 @@ function stopWatching(wide: MediaQueryList): void {
   wide.removeEventListener("change", closeAtWide)
 }
 
-/** A wide screen hides the burger, so an open menu must close with it. Otherwise the page stays inert and locked. */
+/* why: A wide screen hides the burger, so an open menu must close with it. Otherwise the page stays inert and locked. */
 export function watchWidth(): () => void {
   const wide = window.matchMedia(WIDE_QUERY)
   wide.addEventListener("change", closeAtWide)

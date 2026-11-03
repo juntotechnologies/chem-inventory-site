@@ -53,7 +53,6 @@ function headlineSvg(site: Site): string {
   return texts.join("")
 }
 
-/** The alt text of the og image: the words the image shows. */
 export function ogAlt(site: Site): string {
   return `${site.brand.name}: ${site.headline}. ${site.tagline}`
 }
