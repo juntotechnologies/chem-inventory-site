@@ -20,7 +20,6 @@ function channelHex(value: number): string {
   return Math.round(value).toString(16).padStart(2, "0")
 }
 
-/** CSS color-mix(in srgb, first share%, second) as a hex colour. */
 export function mix(first: string, second: string, share: number): string {
   const [a, b] = [hexToChannels(first), hexToChannels(second)]
   return `#${a.map((value, index) => channelHex(value * share + b[index] * (1 - share))).join("")}`

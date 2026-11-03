@@ -9,7 +9,6 @@ function braceChange(char: string): number {
   return char === "}" ? -1 : 0
 }
 
-/** The text inside the braces that follow the query. Braces are counted, so nested rules stay inside. */
 export function blockAfter(query: string): string {
   const open = css.indexOf(query) + query.length
   let depth = 1
@@ -18,7 +17,6 @@ export function blockAfter(query: string): string {
   return css.slice(open, at - 1)
 }
 
-/** The body of every flat rule whose selector matches. */
 export function bodiesFor(selector: RegExp): string[] {
   const rules = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
   return rules.filter((rule) => selector.test(rule[1])).map((rule) => rule[2])

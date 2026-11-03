@@ -16,7 +16,6 @@ const SYSTEM_SANS = [
   "sans-serif",
 ]
 
-// One type scale. Line heights sit on a 4 px grid.
 type TypeStep = [string, { lineHeight: string; letterSpacing?: string; fontWeight?: string }]
 
 const TYPE_SCALE: Record<string, TypeStep> = {

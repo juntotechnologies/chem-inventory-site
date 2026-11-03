@@ -19,7 +19,7 @@ function FrameBar() {
   )
 }
 
-/** The image shows at its own size on a 1x screen, so a dialog crop never grows past its real width. */
+/* why: The image shows at its own size on a 1x screen, so a dialog crop never grows past its real width. */
 function widthLimit({ width, density }: Screenshot): CSSProperties {
   return { maxWidth: width / density }
 }
