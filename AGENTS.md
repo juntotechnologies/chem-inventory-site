@@ -10,6 +10,7 @@ Shared design rules: skill `site-taste` in `agent-skills`. This repo keeps its o
 
 - Work on a branch. Open a pull request with a doc in `docs/pr-docs/`. Run `npm test` and `npm run build`.
 - Merge the pull request after both pass, a walk at 360, 390, 820 and 1440 px passes, and no review is open. Shaun, 2026-10-27: "chem inventory you can freely publish to." Walk the live site after the merge.
+- Gate: `ops check` on the head commit, then `ops ship <pr>`. No check workflow; settings in `ops-check.json`. `deploy.yml` also tests and builds each PR.
 - A merge to `main` publishes the site through `.github/workflows/deploy.yml`.
 - Scope: this rule covers this repo only. The `chem-inventory` application repo and its demo serve other users. Shaun reviews and merges every change there, and no agent pushes to its `main`.
 - Never merge a pull request that is still a draft, such as the Labscape hero.
