@@ -31,7 +31,7 @@ No workflow in this repo calls another repo. The check is `ops check` on the hea
 | Check | Evidence | Result |
 |---|---|---|
 | `ops check` (shared lint, `npm run test`: 18 files, 128 tests) | clean tree at the head commit | pass |
-| `deploy.yml` `build` job on the PR | PR checks | pending |
+| `deploy.yml` `build` job (`npm ci`, `npm test`, `npm run build`) | PR checks; `ops ship` refuses a red or pending check | pass at `aec87b9`, 25 s |
 | No `uses:` of another repo | `grep -rn "uses: juntotechnologies" .github/workflows` | no match |
 
 ## Smoke Tests
