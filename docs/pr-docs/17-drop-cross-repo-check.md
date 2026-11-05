@@ -1,6 +1,6 @@
-# PR planned: Drop the cross-repo check workflow
+# PR 17: Drop the cross-repo check workflow
 
-Status: planned
+Status: underway
 
 Branch: `chore/drop-cross-repo-check`
 
