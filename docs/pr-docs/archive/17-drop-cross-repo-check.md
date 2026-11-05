@@ -1,6 +1,6 @@
 # PR 17: Drop the cross-repo check workflow
 
-Status: underway
+Status: done
 
 Branch: `chore/drop-cross-repo-check`
 

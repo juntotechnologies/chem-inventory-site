@@ -6,7 +6,6 @@ Short PR-specific notes for completed and planned work.
 
 | Doc | Description |
 |-----|-------------|
-| [PR 17: Drop the cross-repo check workflow](./17-drop-cross-repo-check.md) | No workflow in this repo calls another repo. |
 | [Planned: Labscape hero and new headline](./planned-labscape-hero.md) | The 3D Labscape scene and live audit log replace the mock dashboard in the hero |
 | [Hero origin, bio and contrast](./planning-chip-bio-contrast.md) | Hero origin copy, shorter bio and darker chips (PR 1) |
 
@@ -14,6 +13,7 @@ Short PR-specific notes for completed and planned work.
 
 | Doc | Description |
 |-----|-------------|
+| [PR 17: Drop the cross-repo check workflow](./archive/17-drop-cross-repo-check.md) | No workflow in this repo calls another repo. |
 | [PR 12: Name the site-taste skill](./archive/12-name-site-taste-skill.md) | `AGENTS.md` names the shared design skill. This repo keeps its own choices in `docs/design.md` |
 | [PR 11: Phone menu covers the page](./archive/11-phone-menu.md) | The open menu fills the screen below the header, locks the page, and lists each action once |
 | [PR 10: Light and motion on the landing page](./archive/10-alive-effects.md) | Pointer light, raised buttons, a staged hero entrance and a header edge, in plain CSS. See [design](../design.md) |
